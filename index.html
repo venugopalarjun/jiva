@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jiva — your meetings, remembered. Entirely on your Mac.</title>
+<meta name="description" content="Jiva is a fully-local Mac app for meeting recording, speaker-labeled transcripts, live summaries, and hands-free dictation. No cloud, no account.">
+<meta property="og:title" content="Jiva — your meetings, remembered.">
+<meta property="og:description" content="A fully-local meeting recorder, transcriber, and dictation tool for Mac. Nothing leaves your computer.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
+    --paper:#F3F1EC; --sidebar:#EEEBE3; --white:#FFFFFF;
+    --ink:#2C2C2A; --ink-2:#5F5E5A; --ink-3:#88877F;
+    --teal:#1D9E75; --purple:#7F77DD; --amber:#BA7517; --amber-dark:#854F0B; --amber-tint:#FAEEDA;
+    --hairline:rgba(0,0,0,0.09); --term:#2C2C2A; --term-inner:#1D1D1B;
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+       -webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .serif{font-family:var(--serif);font-weight:400;}
+
+  header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;
+         background:rgba(243,241,236,0.85);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:500;}
+  .logo svg{width:22px;height:22px;}
+  .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;color:var(--ink-2);}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--clay);color:#fff;
+       font-size:14px;font-weight:500;padding:9px 16px;border-radius:9px;border:none;cursor:pointer;
+       transition:filter .15s ease;}
+  .btn:hover{filter:brightness(0.94);}
+  .btn svg{width:16px;height:16px;}
+  .btn-sm{padding:7px 14px;font-size:13px;}
+
+  .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;
+        padding:68px 0 40px;}
+  .pill{display:inline-block;font-size:12px;color:var(--clay-dark);background:var(--clay-tint);
+        border:0.5px solid var(--clay-tint-border);border-radius:999px;padding:4px 12px;margin-bottom:18px;}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5vw,52px);
+           line-height:1.08;letter-spacing:-0.01em;margin-bottom:16px;}
+  .hero p.lede{font-size:17px;color:var(--ink-2);max-width:30em;margin-bottom:26px;}
+  .cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .cta .meta{font-size:13px;color:var(--ink-3);}
+
+  .shot{background:var(--white);border:0.5px solid var(--hairline);border-radius:16px;padding:18px;}
+  .shot .rec{display:flex;align-items:center;gap:7px;color:var(--ink-3);font-size:12px;margin-bottom:14px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--clay);display:inline-block;}
+  .line{font-size:13px;line-height:1.6;color:#3a3a37;margin-bottom:7px;}
+  .who{font-weight:500;}
+  .shot .sum{border-top:0.5px solid var(--hairline);margin-top:12px;padding-top:12px;}
+  .sum .lbl{font-size:10px;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:5px;}
+  .sum .txt{font-size:12px;color:var(--ink-2);}
+
+  .term-wrap{padding:8px 0 36px;}
+  .term{background:var(--term);border-radius:12px;padding:16px 18px;}
+  .term .cap{display:flex;align-items:center;gap:7px;color:#A9A89F;font-size:12px;margin-bottom:10px;}
+  .term .cap svg{width:15px;height:15px;}
+  .term .cmd{display:flex;align-items:center;justify-content:space-between;gap:14px;
+             background:var(--term-inner);border-radius:8px;padding:11px 14px;}
+  .term code{font-family:'SF Mono',ui-monospace,Menlo,monospace;color:var(--paper);font-size:13.5px;
+             overflow-x:auto;white-space:nowrap;}
+  .term code .pr{color:#7F8A7F;}
+  .copy{background:none;border:none;color:#A9A89F;cursor:pointer;flex-shrink:0;padding:4px;border-radius:6px;
+        display:inline-flex;align-items:center;gap:5px;font-size:12px;transition:color .15s;}
+  .copy:hover{color:var(--paper);}
+  .copy svg{width:16px;height:16px;}
+  .term .note{color:#7d7c75;font-size:11.5px;margin-top:9px;}
+
+  .trust{display:flex;justify-content:center;flex-wrap:wrap;gap:14px 30px;color:var(--ink-3);
+         font-size:13px;padding-bottom:44px;}
+  .trust span{display:inline-flex;align-items:center;gap:6px;}
+  .trust svg{width:15px;height:15px;}
+
+  .section-h{font-family:var(--serif);font-size:26px;margin-bottom:6px;}
+  .section-sub{color:var(--ink-2);font-size:15px;margin-bottom:26px;}
+
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding-bottom:56px;}
+  .card{background:var(--white);border:0.5px solid var(--hairline);border-radius:14px;padding:18px;}
+  .card .ico{width:22px;height:22px;margin-bottom:10px;}
+  .card h3{font-size:15px;font-weight:500;margin-bottom:5px;}
+  .card p{font-size:13px;color:var(--ink-2);}
+  .badge{float:right;font-size:10px;color:var(--amber-dark);background:var(--amber-tint);
+         border:0.5px solid #EAD8B0;border-radius:999px;padding:2px 9px;}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:64px;}
+  .step{display:flex;gap:12px;}
+  .step .n{font-family:var(--serif);color:var(--clay);font-size:22px;line-height:1;flex-shrink:0;}
+  .step h4{font-size:14px;font-weight:500;margin-bottom:3px;}
+  .step p{font-size:13px;color:var(--ink-2);}
+  .step code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:12px;background:var(--sidebar);
+             padding:1px 5px;border-radius:4px;}
+
+  footer{border-top:0.5px solid var(--hairline);}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+        padding:22px 0;color:var(--ink-3);font-size:12px;}
+  .foot .l{display:flex;align-items:center;gap:7px;}
+  .foot svg{width:14px;height:14px;}
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;gap:26px;padding:44px 0 28px;}
+    .shot{order:2;}
+    .nav-links a:not(.btn){display:none;}
+    .steps{grid-template-columns:1fr;gap:16px;}
+    .section-h{font-size:22px;}
+  }
+  @media (max-width:420px){
+    .wrap{padding:0 16px;}
+    .cta{gap:10px;}
+    .term code{font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 2 3 3 0 0 0 6 0 3 3 0 0 0 3-2 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v14"/></svg>
+      Jiva
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a class="btn btn-sm" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero" id="download">
+    <div>
+      <span class="pill">Runs entirely on your Mac</span>
+      <h1>Your meetings,<br>remembered.</h1>
+      <p class="lede">Local recording, speaker-labeled transcripts, live summaries, and hands-free dictation. No cloud, no account — nothing ever leaves your computer.</p>
+      <div class="cta">
+        <a class="btn" id="dl" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Mac</a>
+        <span class="meta">Apple silicon · macOS 14.4+</span>
+      </div>
+    </div>
+    <div class="shot">
+      <div class="rec"><span class="dot"></span>Recording · 12:04</div>
+      <div class="line"><span class="who" style="color:var(--purple)">Speaker 1</span> &nbsp;Let's lock the migration date.</div>
+      <div class="line"><span class="who" style="color:var(--teal)">Me</span> &nbsp;Thursday works on my end.</div>
+      <div class="sum">
+        <div class="lbl">SUMMARY</div>
+        <div class="txt">Decision: migrate Thursday. Owner: Me.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap term-wrap">
+    <div class="term">
+      <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 9 3 3-3 3"/><path d="M13 15h4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>After dragging Jiva to Applications, run this once in Terminal</div>
+      <div class="cmd">
+        <code id="cmd"><span class="pr">$</span> xattr -dr com.apple.quarantine /Applications/Jiva.app</code>
+        <button class="copy" id="copy" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span id="copytext">Copy</span></button>
+      </div>
+      <div class="note">One-time step — Jiva is notarization-pending, so macOS asks for this on first open.</div>
+    </div>
+  </section>
+
+  <section class="wrap trust" id="privacy">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>100% local</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M7 18a4 4 0 0 1-.8-7.9 5 5 0 0 1 8.5-2.5"/><path d="M19.3 14.3A4 4 0 0 0 18 10"/></svg>No cloud</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 11-3.5"/></svg>No account</span>
+  </section>
+
+  <section class="wrap" id="features">
+    <h2 class="section-h">Everything, on-device</h2>
+    <p class="section-sub">The whole pipeline runs locally — your audio never touches a server.</p>
+    <div class="features">
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg><h3>Live transcription</h3><p>Both sides of the call, transcribed on-device as you talk.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M18 20a6 6 0 0 0-3-5.2"/></svg><h3>Speaker labels</h3><p>Diarization sorts who said what, automatically.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15h18"/></svg><h3>Glass overlay</h3><p>A live, private summary floating over any app.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg><h3>Hold-to-talk dictation</h3><p>Hold a key, speak anywhere, and it types for you.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg><h3>Auto-record</h3><p>Starts the moment a meeting begins, stops when it ends.</p></div>
+      <div class="card"><span class="badge">Soon</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#BA7517" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7l8 .5M7.5 8l3.5 8M16 9l-3 7"/></svg><h3>Knowledge graph</h3><p>See how a topic evolved across all your meetings.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2 class="section-h">Up and running in three steps</h2>
+    <p class="section-sub">No Python, no setup — the app is fully self-contained.</p>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><div><h4>Download &amp; drag</h4><p>Open the disk image and drag Jiva to your Applications folder.</p></div></div>
+      <div class="step"><span class="n">2</span><div><h4>Unlock once</h4><p>Run the <code>xattr</code> command above in Terminal, then open Jiva.</p></div></div>
+      <div class="step"><span class="n">3</span><div><h4>Grant &amp; go</h4><p>A setup window walks you through permissions and the model download.</p></div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="l"><svg viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 2 3 3 0 0 0 6 0 3 3 0 0 0 3-2 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v14"/></svg>Jiva</span>
+    <span>Private by design · Made for Mac</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('copy').addEventListener('click', function(){
+    navigator.clipboard.writeText('xattr -dr com.apple.quarantine /Applications/Jiva.app').then(function(){
+      var t=document.getElementById('copytext'); t.textContent='Copied'; setTimeout(function(){t.textContent='Copy';},1600);
+    });
+  });
+</script>
+</body>
+</html>
