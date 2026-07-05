@@ -1,0 +1,15 @@
+# Public "jiva" repo — WHITELIST policy.
+# This repo is PUBLIC. It must only ever contain the marketing website and the
+# Jiva.dmg (attached as a GitHub Release asset, not committed here).
+# NOTHING private/source belongs here. See REPO-POLICY.md.
+#
+# Strategy: ignore everything, then re-allow only the approved files.
+
+# 1) ignore everything by default
+*
+
+# 2) re-allow the approved public files
+!.gitignore
+!index.html
+!README.md
+!REPO-POLICY.md
