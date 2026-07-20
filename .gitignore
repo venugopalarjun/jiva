@@ -13,3 +13,6 @@
 !index.html
 !README.md
 !REPO-POLICY.md
+# CNAME binds the jiva.works custom domain to GitHub Pages — must be re-allowed
+# here or `git add -A` silently ignores it and the domain 404s (fixed 2026-07-20).
+!CNAME
