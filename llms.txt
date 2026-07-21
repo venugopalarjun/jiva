@@ -1,0 +1,33 @@
+# Jiva
+
+> Jiva is a fully-local macOS app for meeting recording, speaker-labeled transcription, a live on-screen assist overlay, and hands-free dictation. It builds a private, searchable memory that recognizes people and answers questions across every past meeting. Everything runs on-device — no cloud, no account, nothing leaves your computer. Free to download; requires a Mac with Apple silicon.
+
+## What Jiva does
+
+- **Local recording**: captures both sides of a call and your mic, on-device.
+- **Live transcription**: real-time, on-device speech-to-text — works offline.
+- **Speaker memory**: labels who said what and remembers speakers across meetings.
+- **Live assist overlay**: a floating overlay that surfaces notes and context during calls.
+- **Hold-to-talk dictation**: hands-free dictation anywhere on macOS.
+- **Automatic action items**: extracts follow-ups from each meeting.
+- **Cited answers**: answers questions across past meetings and cites the source, rather than inventing.
+- **Knowledge graph**: connects people, topics, and meetings over time.
+
+## Who it's for
+
+People who want a private alternative to cloud meeting recorders and transcription
+tools (e.g. Granola, Otter, Fireflies) — where audio and transcripts never leave the Mac.
+Good fit for anyone searching for a "local meeting recorder for Mac", "private/offline
+meeting transcription", or "on-device meeting notes".
+
+## Key facts
+
+- Platform: macOS (Apple silicon)
+- Price: free
+- Privacy: fully local — no cloud, no account, no data leaves the device
+- Site: https://jiva.works/
+- Download: https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg
+
+## Links
+
+- [Home](https://jiva.works/)

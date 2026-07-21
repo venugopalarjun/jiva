@@ -20,3 +20,13 @@
 !install.sh
 !latest.json
 !SHA256SUMS
+# Social share card (Open Graph / Twitter) + site icons — must be re-allowed
+# here or `git add -A` silently drops them and the link preview / favicons 404.
+!og-image.png
+!favicon.svg
+!favicon.ico
+!apple-touch-icon.png
+# Discoverability: crawler policy, sitemap, and LLM index.
+!robots.txt
+!sitemap.xml
+!llms.txt
