@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jiva — your meetings, remembered. Entirely on your Mac.</title>
-<meta name="description" content="Jiva is a fully-local Mac app for meeting recording, speaker-labeled transcripts, live summaries, and hands-free dictation. No cloud, no account.">
+<meta name="description" content="Jiva is a fully-local Mac app for meeting recording, speaker-labeled transcripts, a live assist overlay, and hands-free dictation — with a memory that recognizes people and answers questions across every past meeting. No cloud, no account.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Jiva — your meetings, remembered.">
-<meta property="og:description" content="A fully-local meeting recorder, transcriber, and dictation tool for Mac. Nothing leaves your computer.">
+<meta property="og:description" content="A fully-local meeting recorder, live assist overlay, and dictation tool for Mac, with cross-meeting memory. Nothing leaves your computer.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,6 +55,11 @@
   .hero p.lede{font-size:17px;color:var(--ink-2);max-width:30em;margin-bottom:26px;}
   .cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
   .cta .meta{font-size:13px;color:var(--ink-3);}
+  .btn .sz{font-weight:400;opacity:0.82;}
+  .platwarn{display:none;width:100%;margin-top:4px;font-size:13px;color:var(--amber-dark);
+            background:var(--amber-tint);border:0.5px solid #EAD8B0;border-radius:9px;padding:9px 13px;}
+  .platwarn.show{display:block;}
+  .platwarn b{font-weight:500;}
 
   .shot{background:var(--white);border:0.5px solid var(--hairline);border-radius:16px;padding:18px;}
   .shot .rec{display:flex;align-items:center;gap:7px;color:var(--ink-3);font-size:12px;margin-bottom:14px;}
@@ -158,11 +163,12 @@
     <div>
       <span class="pill">Runs entirely on your Mac</span>
       <h1>Your meetings,<br>remembered.</h1>
-      <p class="lede">Local recording, speaker-labeled transcripts, live summaries, and hands-free dictation. No cloud, no account — nothing ever leaves your computer.</p>
+      <p class="lede">Local recording, speaker-labeled transcripts, a live assist overlay, and hands-free dictation — with a memory that recognizes people and answers questions across every past meeting. No cloud, no account.</p>
       <div class="cta">
-        <a class="btn" id="dl" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Mac</a>
+        <a class="btn" id="dl" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Mac <span class="sz">· 240 MB</span></a>
         <a class="btn" id="dl-android" href="https://github.com/venugopalarjun/jiva/releases/download/android-latest/jiva-voice.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Android</a>
-        <span class="meta">Mac: Apple silicon · macOS 26+ · ~285 MB · Android: voice keyboard (beta)</span>
+        <span class="meta">Mac: Apple silicon · macOS 26+ · Android: voice keyboard (beta)</span>
+        <div class="platwarn" id="platwarn"></div>
       </div>
     </div>
     <div class="shot">
@@ -172,6 +178,10 @@
       <div class="sum">
         <div class="lbl">SUMMARY</div>
         <div class="txt">Decision: migrate Thursday. Owner: Me.</div>
+      </div>
+      <div class="sum">
+        <div class="lbl">ASSIST</div>
+        <div class="txt">“She flagged this exact migration risk on the April call.”</div>
       </div>
     </div>
   </section>
@@ -206,10 +216,12 @@
     <p class="section-sub">The whole pipeline runs locally — your audio never touches a server.</p>
     <div class="features">
       <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg><h3>Live transcription</h3><p>Both sides of the call, transcribed on-device as you talk.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M18 20a6 6 0 0 0-3-5.2"/></svg><h3>Speaker labels</h3><p>Diarization sorts who said what, automatically.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15h18"/></svg><h3>Glass overlay</h3><p>A live, private summary floating over any app.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M18 20a6 6 0 0 0-3-5.2"/></svg><h3>Speaker memory</h3><p>Labels who said what — and recognizes the same voice across every meeting, so names stick instead of “Speaker 1.”</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15h18"/><path d="m7 19 2-2 2 2"/></svg><h3>Live assist overlay</h3><p>A private glass overlay over any app: a running summary, one-tap Assist for what to say next, and a box to ask your past meetings — invisible to screen share.</p></div>
       <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg><h3>Hold-to-talk dictation</h3><p>Hold a key, speak anywhere, and it types for you.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg><h3>Auto-record</h3><p>Starts the moment a meeting begins, stops when it ends.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5 5 7l2.5-2.5"/><path d="M3.5 12 5 13.5 7.5 11"/><path d="M3.5 18.5 5 20l2.5-2.5"/><path d="M11 6h10M11 12.5h10M11 19h10"/></svg><h3>Action items, automatically</h3><p>Decisions and to-dos are pulled out for you — each linked to the exact moment it was said.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg><h3>Auto-record</h3><p>Starts the moment a meeting begins, stops when it ends.</p></div>
+      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15 15 9"/><path d="M11 6.5 12 5.5a4 4 0 0 1 5.7 5.7l-1 1"/><path d="M13 17.5 12 18.5a4 4 0 0 1-5.7-5.7l1-1"/></svg><h3>Cited, not invented</h3><p>Every summary, decision, and answer links back to who said it and when — tap a citation to jump to that moment.</p></div>
       <div class="card"><span class="badge">Soon</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#BA7517" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7l8 .5M7.5 8l3.5 8M16 9l-3 7"/></svg><h3>Knowledge graph</h3><p>See how a topic evolved across all your meetings.</p></div>
     </div>
   </section>
@@ -241,6 +253,39 @@
       });
     });
   });
+
+  // Best-effort platform guard — WARN, never block (browser detection is not
+  // 100% reliable; Safari can't report macOS version or CPU from the UA, so we
+  // only flag the two things we can read: not-a-Mac, and an Intel Mac via GPU).
+  (function(){
+    var el = document.getElementById('platwarn');
+    if (!el) return;
+    var ua = navigator.userAgent || '';
+    var plat = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+    var isMac = /Mac/i.test(plat) || /Mac OS X/i.test(ua);
+    var isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+    function gpu(){
+      try {
+        var gl = document.createElement('canvas').getContext('webgl') ||
+                 document.createElement('canvas').getContext('experimental-webgl');
+        if (!gl) return '';
+        var ext = gl.getExtension('WEBGL_debug_renderer_info');
+        return (ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)) || '';
+      } catch (e) { return ''; }
+    }
+    var msg = '';
+    if (isMobile || !isMac) {
+      msg = '<b>Heads up:</b> the Mac app needs an Apple-silicon Mac running macOS 26 or later. ' +
+            'If you’re on Android, grab the voice keyboard above.';
+    } else {
+      var r = gpu();
+      if (r && /Intel/i.test(r) && !/Apple/i.test(r)) {
+        msg = '<b>This looks like an Intel Mac.</b> Jiva runs only on Apple-silicon Macs (M1 or later) on macOS 26+. ' +
+              'You can still download it, but it won’t launch on Intel.';
+      }
+    }
+    if (msg) { el.innerHTML = msg; el.classList.add('show'); }
+  })();
 </script>
 </body>
 </html>

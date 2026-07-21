@@ -2,16 +2,23 @@
 
 Fully-local meeting intelligence for Mac. Jiva records your meetings, transcribes both sides with speaker labels, summarizes live in a floating overlay, and types hands-free dictation — all on-device. No cloud, no account, nothing ever leaves your computer.
 
-**[⬇ Download Jiva for Mac](https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg)** &nbsp;·&nbsp; Apple silicon · macOS 14.4+
+**[⬇ Download Jiva for Mac](https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg)** &nbsp;·&nbsp; Apple silicon · macOS 26+ · ~240 MB
 
 ## Install
 
-1. Download and drag **Jiva** to your Applications folder.
-2. Jiva is notarization-pending, so macOS blocks the first open. Unlock it once in Terminal:
-   ```
-   xattr -dr com.apple.quarantine /Applications/Jiva.app
-   ```
-3. Open Jiva — a setup window walks you through permissions and a one-time model download.
+Recommended — one command in Terminal (downloads, verifies, installs to ~/Applications, and opens Jiva):
+
+```
+curl -fsSL https://jiva.works/install.sh | bash
+```
+
+Prefer to do it by hand? Download and drag **Jiva** to Applications, then unlock it once (it's notarization-pending, so macOS blocks the first open):
+
+```
+xattr -dr com.apple.quarantine /Applications/Jiva.app
+```
+
+Either way, on first open a setup window walks you through permissions and the model download. Homebrew users: `brew install --cask venugopalarjun/jiva/jiva`.
 
 ## What it does
 
