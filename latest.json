@@ -2,6 +2,6 @@
   "version": "0.1.3",
   "build": "2",
   "dmg": "https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg",
-  "dmg_sha256": "411ba7899a6dd04939961b58f09c2150c5c7f9418a68f5a65b5169370e440d4e",
-  "dmg_size": 242748256
+  "dmg_sha256": "f03b57bae0e960ad0b558e2731f3049184c702ca8d5987ed2d561734377130c2",
+  "dmg_size": 242951528
 }
