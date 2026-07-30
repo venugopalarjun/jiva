@@ -59,10 +59,22 @@ PY="/usr/bin/python3"; [ -x "$PY" ] || PY="$(command -v python3 || true)"
 if [ "$(uname -m)" != "arm64" ]; then
   die "Jiva needs an Apple-silicon Mac (M1 or later). This looks like an Intel Mac."
 fi
+# The app's real floor is macOS 14.4 — that's LSMinimumSystemVersion, the SwiftPM
+# platform, and the version CoreAudio process taps (system audio) arrived in. There
+# is no macOS-26-only API in the source. It is however only *tested* on 26, so say
+# that instead of the old "targets macOS 26+ … may not launch", which turned away
+# every 14/15 user on a limit we can't point to in the code (Rounak, macOS 15.6.1,
+# 2026-07-29).
 OSVER="$(sw_vers -productVersion 2>/dev/null || echo 0)"
 OSMAJ="$(printf '%s' "$OSVER" | cut -d. -f1)"
-if [ "${OSMAJ:-0}" -lt 26 ] 2>/dev/null; then
-  warn "Jiva targets macOS 26+; you're on $OSVER. Continuing, but it may not launch."
+OSMIN="$(printf '%s' "$OSVER" | cut -d. -f2)"
+if [ "${OSMAJ:-0}" -lt 14 ] 2>/dev/null; then
+  die "Jiva needs macOS 14.4 or later (system-audio capture arrived in 14.4). You're on $OSVER."
+elif [ "${OSMAJ:-0}" = 14 ] && [ "${OSMIN:-0}" -lt 4 ] 2>/dev/null; then
+  die "Jiva needs macOS 14.4 or later (system-audio capture arrived in 14.4). You're on $OSVER."
+elif [ "${OSMAJ:-0}" -lt 26 ] 2>/dev/null; then
+  warn "You're on macOS $OSVER. Jiva supports 14.4+, but is only tested on 26 —"
+  warn "if anything looks wrong, that's worth telling us: arjun@arcana.io"
 fi
 
 # ── learn what "latest" is ───────────────────────────────────────────────────
@@ -133,7 +145,7 @@ if [ -z "$SRC_APP" ]; then
   if [ -n "$SRC_DMG" ]; then
     say "Reusing $SRC_DMG (checksum matches the latest — no re-download)."
   else
-    say "None found locally — downloading (~285 MB)."
+    say "None found locally — downloading (~232 MB)."
     step "Downloading Jiva"
     curl -fL --progress-bar -o "$WORK/Jiva.dmg" "$DMG_URL" || die "Download failed from $DMG_URL"
     GOT="$(sha_of "$WORK/Jiva.dmg")"
