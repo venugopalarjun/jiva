@@ -2,7 +2,7 @@
 
 Fully-local meeting intelligence for Mac. Jiva records your meetings, transcribes both sides with speaker labels, summarizes live in a floating overlay, and types hands-free dictation — all on-device. No cloud, no account, nothing ever leaves your computer.
 
-**[⬇ Download Jiva for Mac](https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg)** &nbsp;·&nbsp; Apple silicon · macOS 26+ · ~240 MB
+**[⬇ Download Jiva for Mac](https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg)** &nbsp;·&nbsp; Apple silicon · macOS 14.4+ · ~240 MB
 
 ## Install
 
