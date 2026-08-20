@@ -74,7 +74,7 @@ elif [ "${OSMAJ:-0}" = 14 ] && [ "${OSMIN:-0}" -lt 4 ] 2>/dev/null; then
   die "Jiva needs macOS 14.4 or later (system-audio capture arrived in 14.4). You're on $OSVER."
 elif [ "${OSMAJ:-0}" -lt 26 ] 2>/dev/null; then
   warn "You're on macOS $OSVER. Jiva supports 14.4+, but is only tested on 26 —"
-  warn "if anything looks wrong, that's worth telling us: arjun@arcana.io"
+  warn "if anything looks wrong, that's worth telling us: ceo.jivaworks@gmail.com"
 fi
 
 # ── learn what "latest" is ───────────────────────────────────────────────────
