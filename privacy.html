@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Jiva</title>
+<meta name="description" content="Jiva's privacy policy. Jiva is a fully-local Mac app — your meeting recordings, transcripts, and calendar data stay on your device and are never sent to our servers.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://jiva.works/privacy">
+<style>
+  :root{
+    --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
+    --paper:#F3F1EC; --white:#FFFFFF; --ink:#2C2C2A; --ink-2:#5F5E5A; --ink-3:#88877F;
+    --hairline:rgba(0,0,0,0.09);
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;
+       -webkit-font-smoothing:antialiased;}
+  a{color:var(--clay-dark);text-decoration:underline;text-underline-offset:2px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  header{border-bottom:0.5px solid var(--hairline);background:rgba(243,241,236,0.9);
+         backdrop-filter:saturate(150%) blur(8px);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;
+        font-weight:500;color:var(--ink);text-decoration:none;}
+  .logo svg{width:27px;height:27px;}
+  .back{font-size:14px;color:var(--ink-2);text-decoration:none;}
+  .back:hover{color:var(--ink);}
+  main{padding:52px 0 72px;}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,5vw,42px);
+     line-height:1.1;letter-spacing:-0.01em;margin-bottom:8px;}
+  .updated{color:var(--ink-3);font-size:14px;margin-bottom:36px;}
+  h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:34px 0 10px;}
+  p{margin-bottom:14px;color:var(--ink-2);}
+  ul{margin:0 0 14px 22px;color:var(--ink-2);}
+  li{margin-bottom:7px;}
+  strong{color:var(--ink);font-weight:600;}
+  .callout{background:var(--clay-tint);border:0.5px solid var(--clay-tint-border);
+           border-radius:12px;padding:16px 18px;margin:18px 0;color:var(--ink);font-size:15px;}
+  footer{border-top:0.5px solid var(--hairline);padding:22px 0;color:var(--ink-3);font-size:13px;}
+  footer a{color:var(--ink-3);}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 2 3 3 0 0 0 6 0 3 3 0 0 0 3-2 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v14"/></svg>
+      Jiva
+    </a>
+    <a class="back" href="/">← Back to jiva.works</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last updated: September 4, 2026</div>
+
+  <p>Jiva is a meeting recorder, transcriber, and assistant for macOS. It is designed to be <strong>fully local</strong>: your meetings, transcripts, dictations, and any connected data are processed and stored on your own Mac. We do not run servers that receive your content, and Jiva has no user accounts.</p>
+
+  <div class="callout">
+    <strong>The short version:</strong> Everything Jiva captures or connects to stays on your device. We can't see it, we don't collect it, and we never sell or share it. The only data that leaves your Mac is a request you initiate directly to a third party you connect (such as Google, to read your own calendar).
+  </div>
+
+  <h2>Information Jiva handles</h2>
+  <p>Jiva works with the following, all of it on your device:</p>
+  <ul>
+    <li><strong>Audio and transcripts.</strong> Meeting audio you record, the transcripts and summaries generated from it, and hands-free dictations. These are written to a folder on your Mac and are not transmitted to us.</li>
+    <li><strong>Speaker information.</strong> Voice characteristics used to recognize recurring speakers across your meetings, stored locally.</li>
+    <li><strong>Calendar data (only if you connect it).</strong> See the next section.</li>
+  </ul>
+
+  <h2>Google Calendar data</h2>
+  <p>If you choose to connect your Google Calendar, Jiva requests <strong>read-only</strong> access to your calendar (the <code>calendar.readonly</code> scope). Here is exactly how that data is handled:</p>
+  <ul>
+    <li><strong>What we access:</strong> your upcoming calendar events — their times, titles, locations, descriptions, and attendee information — for the purpose of finding meeting join links and who is on the call.</li>
+    <li><strong>How it is used:</strong> solely on your Mac, to notify you shortly before a meeting begins, to give you a one-click link that opens the meeting and starts recording, and to label participants in your transcripts. It is not used for advertising and is never used to train any AI or machine-learning models.</li>
+    <li><strong>Where it is stored:</strong> only on your device. The authorization token and any fetched event details are kept in Jiva's local application-support folder on your Mac.</li>
+    <li><strong>Who it is shared with:</strong> no one. Calendar data is never transmitted to Jiva (we operate no servers that could receive it) and is never sold or shared with third parties. The only network exchange is directly between your Mac and Google's own APIs, which is required to read your calendar.</li>
+    <li><strong>How to revoke it:</strong> disconnect the calendar inside Jiva at any time (this deletes the stored token), or revoke Jiva's access from your Google Account at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+  </ul>
+
+  <div class="callout">
+    Jiva's use of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.
+  </div>
+
+  <h2>Data we do not collect</h2>
+  <p>Jiva has no accounts, no analytics, and no advertising. We do not build user profiles and we do not track your usage. To let you know when a new version is available, the app may request a small version file from our software-distribution host; that request does not include any of your personal data or content.</p>
+
+  <h2>Data retention and deletion</h2>
+  <p>Because your data lives on your Mac, you are in control of it. You can delete recordings, transcripts, dictations, and the calendar token at any time by removing them from Jiva or from your Mac's file system. Uninstalling Jiva and clearing its data folder removes everything it stored.</p>
+
+  <h2>Children</h2>
+  <p>Jiva is a professional productivity tool and is not directed to children under 13.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we change this policy, we will update the date above and post the revised version at this address. Material changes will be reflected here before they take effect.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy or your data? Email <a href="mailto:ceo.jivaworks@gmail.com">ceo.jivaworks@gmail.com</a>.</p>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Jiva · Private by design · Made for Mac · <a href="/">jiva.works</a> · <a href="/terms">Terms</a>
+  </div>
+</footer>
+</body>
+</html>
