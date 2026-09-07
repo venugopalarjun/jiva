@@ -23,6 +23,8 @@
 <meta name="twitter:image" content="https://jiva.works/og-image.png">
 <link rel="canonical" href="https://jiva.works/">
 <meta name="keywords" content="local meeting recorder Mac, private meeting transcription, on-device transcription, offline dictation Mac, speaker diarization, live meeting assistant, macOS meeting notes, no-cloud meeting recorder">
+<!-- Umami analytics — privacy-first, cookieless (D-119) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="50071a89-1dff-4b02-82bd-bb7b5a964816"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -229,7 +231,7 @@
       <h1>Your meetings,<br>remembered.</h1>
       <p class="lede">Local recording, speaker-labeled transcripts, a live assist overlay, and hands-free dictation — with a memory that recognizes people and answers questions across every past meeting. No cloud, no account.</p>
       <div class="cta">
-        <a class="btn" id="dl" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Mac <span class="sz">· 240 MB</span></a>
+        <a class="btn" id="dl" data-umami-event="download-dmg" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Mac <span class="sz">· 240 MB</span></a>
         <a class="btn" id="dl-android" href="https://github.com/venugopalarjun/jiva/releases/download/android-latest/jiva-voice.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Android</a>
         <span class="meta">Mac: Apple silicon · macOS 14.4+ · Android: full keyboard — type, swipe &amp; dictate (beta)</span>
         <div class="platwarn" id="platwarn"></div>
@@ -255,14 +257,14 @@
       <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 9 3 3-3 3"/><path d="M13 15h4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>Install with one command<span class="rec-tag">Recommended</span></div>
       <div class="cmd">
         <code><span class="pr">$</span> curl -fsSL https://jiva.works/install.sh | bash</code>
-        <button class="copy" data-copy="curl -fsSL https://jiva.works/install.sh | bash" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button>
+        <button class="copy" data-copy="curl -fsSL https://jiva.works/install.sh | bash" data-umami-event="copy-curl-install" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button>
       </div>
       <div class="note">Downloads Jiva, verifies its checksum, installs it to your Applications, and opens it — no drag, no Gatekeeper prompt. Safe to re-run anytime; it skips the download if you're already current.</div>
       <div class="alt">
         <b>Prefer Homebrew?</b>
         <div class="cmd cmd-sm">
           <code><span class="pr">$</span> brew install --cask venugopalarjun/jiva/jiva</code>
-          <button class="copy" data-copy="brew install --cask venugopalarjun/jiva/jiva" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button>
+          <button class="copy" data-copy="brew install --cask venugopalarjun/jiva/jiva" data-umami-event="copy-brew-install" aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="ct">Copy</span></button>
         </div>
         <b>Or by hand:</b> use the <b>Download for Mac</b> button, drag Jiva to Applications, then run <code>xattr -dr com.apple.quarantine /Applications/Jiva.app</code> once in Terminal before opening it.
       </div>
