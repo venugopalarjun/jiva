@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Granola-and-Claude moment that started Jiva — Jiva Blog</title>
+<meta name="description" content="How using a meeting recorder and an AI together — and then hitting the same wall three times — turned into Jiva, a fully-local second brain for the Mac.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://jiva.works/blog/the-granola-and-claude-moment">
+<meta property="og:title" content="The Granola-and-Claude moment that started Jiva">
+<meta property="og:description" content="How using a meeting recorder and an AI together — and then hitting the same wall three times — turned into a fully-local second brain for the Mac.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-09-14">
+<meta property="og:url" content="https://jiva.works/blog/the-granola-and-claude-moment">
+<meta property="og:site_name" content="Jiva">
+<meta property="og:image" content="https://jiva.works/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Granola-and-Claude moment that started Jiva">
+<meta name="twitter:description" content="How using a meeting recorder and an AI together — and then hitting the same wall three times — turned into a fully-local second brain for the Mac.">
+<meta name="twitter:image" content="https://jiva.works/og-image.png">
+<meta name="keywords" content="build in public, local AI, on-device meeting notes, second brain Mac, Granola alternative, context engineering, non-technical founder">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="50071a89-1dff-4b02-82bd-bb7b5a964816"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Granola-and-Claude moment that started Jiva",
+  "description": "How using a meeting recorder and an AI together — and then hitting the same wall three times — turned into Jiva, a fully-local second brain for the Mac.",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": { "@type": "Person", "name": "Arjun Venugopal" },
+  "publisher": { "@type": "Organization", "name": "Jiva", "url": "https://jiva.works/" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://jiva.works/blog/the-granola-and-claude-moment" },
+  "image": "https://jiva.works/og-image.png",
+  "url": "https://jiva.works/blog/the-granola-and-claude-moment"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
+    --paper:#F3F1EC; --white:#FFFFFF; --ink:#2C2C2A; --ink-2:#4A4945; --ink-3:#88877F;
+    --hairline:rgba(0,0,0,0.09);
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;
+       -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:var(--clay-dark);text-decoration:underline;text-underline-offset:2px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;
+         background:rgba(243,241,236,0.85);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:960px;margin:0 auto;padding:0 24px;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);text-decoration:none;}
+  .logo svg{width:27px;height:27px;}
+  .back{font-size:14px;color:var(--ink-2);text-decoration:none;}
+  .back:hover{color:var(--ink);}
+  main{padding:56px 0 40px;}
+  .eyebrow{font-size:13px;color:var(--clay-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px;}
+  .eyebrow a{color:var(--clay-dark);text-decoration:none;}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,5vw,46px);
+     line-height:1.12;letter-spacing:-0.01em;margin-bottom:16px;color:var(--ink);}
+  .deck{font-family:var(--serif);font-weight:400;font-size:clamp(19px,2.6vw,23px);
+        line-height:1.4;color:var(--ink-2);margin-bottom:24px;}
+  .meta{font-size:14px;color:var(--ink-3);border-bottom:0.5px solid var(--hairline);
+        padding-bottom:24px;margin-bottom:32px;}
+  article p{font-family:var(--serif);font-size:19px;line-height:1.7;color:var(--ink);margin-bottom:22px;}
+  article h2{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.2;
+             margin:40px 0 14px;color:var(--ink);}
+  article ol,article ul{font-family:var(--serif);font-size:19px;line-height:1.7;color:var(--ink);
+                        margin:0 0 22px 26px;}
+  article li{margin-bottom:12px;}
+  article blockquote{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.45;
+                     color:var(--clay-dark);border-left:3px solid var(--clay);padding:4px 0 4px 22px;
+                     margin:30px 0;}
+  article strong{font-weight:600;}
+  .signoff{font-family:var(--serif);font-style:italic;color:var(--ink-2);margin:34px 0 10px;}
+  .seriesnote{background:var(--white);border:0.5px solid var(--hairline);border-left:3px solid var(--clay);border-radius:12px;padding:18px 22px;margin:0 0 32px;font-size:16px;line-height:1.62;color:var(--ink-2);}
+  .seriesnote strong{color:var(--ink);}
+  .cta{background:var(--clay-tint);border:0.5px solid var(--clay-tint-border);border-radius:14px;
+       padding:22px 24px;margin:40px 0 8px;font-size:15px;line-height:1.6;color:var(--ink);}
+  .cta a{font-weight:600;}
+  .postnav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+           border-top:0.5px solid var(--hairline);margin-top:44px;padding-top:24px;font-size:14px;}
+  .postnav a{color:var(--clay-dark);}
+  footer{border-top:0.5px solid var(--hairline);margin-top:32px;}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+        padding:22px 0;color:var(--ink-3);font-size:13px;max-width:960px;margin:0 auto;padding-left:24px;padding-right:24px;}
+  .foot .l{display:flex;align-items:center;gap:7px;}
+  .foot svg{width:14px;height:14px;}
+  .foot a{color:var(--ink-3);}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="/">
+      <svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g><g fill="#EF8253"><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(22.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(67.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(112.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(157.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(202.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(247.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(292.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(337.5 120 120)"/></g></svg>
+      Jiva
+    </a>
+    <a class="back" href="/blog">← All posts</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <article>
+    <div class="eyebrow"><a href="/blog">Building Jiva in the open</a></div>
+    <h1>The Granola-and-Claude moment that started Jiva</h1>
+    <p class="deck">I used a meeting recorder and an AI side by side for months before I noticed what they could do together. Then I hit the same wall three times, and the wall turned out to be the product.</p>
+    <div class="meta">By Arjun Venugopal · 14 September 2026 · 7 min read</div>
+    <div class="seriesnote"><strong>Why I'm writing these.</strong> I'm a product manager — I can't write the code. Jiva is a fully-local Mac app I'm building entirely with AI, in a category where the serious players are companies worth a billion dollars and more. These posts are the running record of one question: how far can a single non-engineer get toward a product that stands next to what those teams ship — and whether this turns into the documented story of a one-person billion-dollar company, or an honest account of exactly where that idea breaks. I don't know which yet. Writing it down as it happens, the wins and the failures alike, is the only way to find out.</div>
+
+    <p>I'm a product manager, and my job is mostly calls. I work with a team several timezones away, so a normal day is a stack of meetings where decisions get made out loud and then have to survive contact with the rest of the week. The thing that actually costs me isn't the absence of notes — plenty of tools take notes. It's forgetting who committed to what, and having no record I trust enough to go back and check.</p>
+
+    <p>For a long time I patched that the way a lot of people do. I recorded meetings with Granola, and separately I used Claude for the thinking around them — drafting specs, working through problems, turning a mess of half-formed ideas into something with a shape. Two habits, running in parallel, that never really touched.</p>
+
+    <p>Then one ordinary afternoon I stopped re-explaining my week to the AI and just handed it what had actually been said in the room. Instead of typing out a tidy summary of a decision, I gave it the raw back-and-forth that led to the decision. The difference in what came back was not subtle.</p>
+
+    <blockquote>The output got dramatically better — and not because the model had gotten smarter. Because the input had.</blockquote>
+
+    <p>That's the whole thing, really. Most of the advice about getting more out of AI is about the prompt: phrase it better, add a persona, give it steps. But the biggest lever I ever found wasn't a cleverer prompt. It was better source material — the actual conversation, with all its context, constraints, and reasoning intact. A good model with thin context gives you a confident average. The same model with the real conversation gives you something that sounds like it was actually there.</p>
+
+    <p>So I leaned into it. And almost immediately I hit a wall. Then I hit it again somewhere else, and again — and eventually I realised it was the same wall three times.</p>
+
+    <h2>The same wall, three times</h2>
+
+    <p><strong>First: I couldn't trust who said what.</strong> The moment a call had more than a couple of people on it, attribution started to slip — lines drifted to the wrong person, or everything collapsed into one voice. And an unreliable record of who said something is worse than no record, because you'll believe it. If I can't trust the attribution, I can't use the transcript to settle the one thing I actually wanted it for.</p>
+
+    <p><strong>Second: the transcripts were locked in.</strong> The single most valuable thing I had — the raw, verbatim conversation — was the one thing I couldn't cleanly get back out to hand to the AI. When I connected the recorder to Claude over its MCP connector, on the free plan what came across were the polished notes and summaries, not the full transcripts of what was actually said. So the little automations I'd built on top — scheduled tasks meant to run every day against the real conversation — were quietly working off thin, second-hand material, and never did what I'd designed them to do. The summary was the part I could write myself; the material I couldn't reproduce was exactly the material the tool kept inside.</p>
+
+    <p><strong>Third: there was no way to talk to it.</strong> Getting my own thinking into the AI still meant typing. And when I type, I clean the thought up before it leaves my head — I edit out the doubts, the tangents, the half-reasons. When I speak, all of that messy reasoning comes out too. It turns out the messy part is the useful part; it's the context a model can't infer.</p>
+
+    <p>Three complaints, one root. Working with AI is bottlenecked on how fast and how accurately you can give it your context — and speaking is by far the fastest way a human does that. Which meant the thing I actually wanted was never really a notetaker at all.</p>
+
+    <blockquote>I wanted a context pipe: capture everything I say and hear, attribute it correctly, keep it as plain files I own, and let any AI read it — with dictation on top as the fast way in.</blockquote>
+
+    <h2>Why it had to be local</h2>
+
+    <p>There was one more thing I couldn't get past, and it wasn't a feature — it was a feeling. The more useful my archive of conversations became, the less comfortable I was with it living on someone else's servers. The material that makes AI genuinely useful to me is, almost by definition, the material I least want to upload: real decisions, real numbers, real people talking candidly.</p>
+
+    <p>I work with firms where "your conversations get uploaded to a vendor's cloud" is simply a hard no, so I know that instinct isn't just mine. Keeping everything on my own machine wasn't a marketing angle I picked. It was the only version of the product I would actually use — which felt like a reasonable test of whether it should exist.</p>
+
+    <h2>So I started building the missing pieces</h2>
+
+    <p>I should be honest about what that sentence hides. I'm not an engineer — I'm a product manager. Every line of what became Jiva has been written with an AI, and figuring out how to do that responsibly, on real systems software with real audio and real failure modes, is at least half the story I want to tell here.</p>
+
+    <p>That's where this begins. <strong>Jiva is a fully-local second brain for the Mac</strong> — it records both sides of your meetings, transcribes them on-device, learns to recognise who said what across time, and hands the whole thing to whatever AI you like, with nothing ever leaving your laptop. It's free, and you can <a href="/">download it today</a>.</p>
+
+    <p>That's the product. Why I'm writing it down in public is the question at the top of this page — whether one person, building only with AI, can get a fully-local tool to stand next to what far larger teams ship. I don't have the answer yet. What I have is a dated decision log, a running list of things that broke, and a lot of specifics. So that's where I'll start.</p>
+
+    <p class="signoff">More soon — including the first thing that broke.</p>
+
+    <div class="cta">
+      <strong>Jiva is free and fully local.</strong> Record your meetings, keep speaker-labelled transcripts, and get a live assist overlay — all on your Mac, nothing sent to the cloud. <a href="/">Get it at jiva.works →</a>
+    </div>
+
+    <div class="postnav">
+      <a href="/blog">← All posts</a>
+      <span></span>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="foot">
+    <span class="l"><svg viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 2 3 3 0 0 0 6 0 3 3 0 0 0 3-2 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v14"/></svg>Jiva</span>
+    <span>Private by design · Made for Mac · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>

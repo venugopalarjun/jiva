@@ -32,3 +32,6 @@
 !llms.txt
 !privacy.html
 !terms.html
+# Blog section — re-allow the directory AND its contents or git add -A drops them
+!blog/
+!blog/**
