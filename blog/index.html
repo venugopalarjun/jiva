@@ -43,80 +43,107 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
-    --paper:#F3F1EC; --white:#FFFFFF; --ink:#2C2C2A; --ink-2:#4A4945; --ink-3:#88877F;
-    --hairline:rgba(0,0,0,0.09);
-    --serif:'Newsreader',Georgia,'Times New Roman',serif;
-    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-    --maxw:760px;
-  }
+  :root{--clay:#D85A30;--clay-dark:#993C1D;--clay-tint:#FAECE7;--clay-tint-border:#F0D9CF;--paper:#F3F1EC;--white:#FFFFFF;--ink:#2C2C2A;--ink-2:#5F5E5A;--ink-3:#88877F;--teal:#1D9E75;--purple:#7F77DD;--amber:#BA7517;--hairline:rgba(0,0,0,0.09);--serif:'Newsreader',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;
-       -webkit-font-smoothing:antialiased;overflow-x:hidden;}
-  a{color:var(--clay-dark);text-decoration:none;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-  header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;
-         background:rgba(243,241,236,0.85);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:960px;margin:0 auto;padding:0 24px;}
-  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);}
-  .logo svg{width:27px;height:27px;}
-  .back{font-size:14px;color:var(--ink-2);}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;background:rgba(243,241,236,0.88);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:21px;font-weight:500;}
+  .logo svg{width:25px;height:25px;}
+  .back{font-size:13.5px;color:var(--ink-2);}
   .back:hover{color:var(--ink);}
-  main{padding:56px 0 40px;}
-  .lede h1{font-family:var(--serif);font-weight:500;font-size:clamp(32px,5vw,46px);
-           line-height:1.1;letter-spacing:-0.01em;margin-bottom:14px;color:var(--ink);}
-  .lede p{font-family:var(--serif);font-size:20px;line-height:1.5;color:var(--ink-2);
-          margin-bottom:12px;max-width:640px;}
-  .list{margin-top:46px;border-top:0.5px solid var(--hairline);}
-  .post{display:block;padding:26px 0;border-bottom:0.5px solid var(--hairline);}
-  .post .date{font-size:13px;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
-  .post h2{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.2;color:var(--ink);margin-bottom:8px;}
-  .post .sum{font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink-2);}
-  .post:hover h2{color:var(--clay-dark);}
-  .more{color:var(--ink-3);font-size:15px;margin-top:34px;}
-  footer{border-top:0.5px solid var(--hairline);margin-top:8px;}
-  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
-        padding:22px 0;color:var(--ink-3);font-size:13px;max-width:960px;margin:0 auto;padding-left:24px;padding-right:24px;}
-  .foot .l{display:flex;align-items:center;gap:7px;}
-  .foot svg{width:14px;height:14px;}
+  .mast{padding:30px 0 16px;}
+  .mast .eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-dark);margin-bottom:8px;}
+  .mast-top{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .mast h1{font-family:var(--serif);font-weight:500;font-size:36px;line-height:1.05;letter-spacing:-.01em;margin:0;}
+  .mast .dek{font-family:var(--serif);font-size:16px;color:var(--ink-2);max-width:none;line-height:1.4;margin-top:6px;}
+  .subs{display:flex;gap:9px;flex-shrink:0;}
+  .btn{display:inline-flex;align-items:center;font-size:13px;font-weight:500;padding:8px 15px;border-radius:9px;border:0.5px solid var(--clay-tint-border);background:var(--white);}
+  .btn.primary{background:var(--clay);color:#fff;border-color:var(--clay);}
+  .btn.primary:hover{filter:brightness(.94);}
+  .filter{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:13px 0;border-top:0.5px solid var(--hairline);border-bottom:0.5px solid var(--hairline);margin-bottom:20px;}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2);background:var(--white);border:0.5px solid var(--clay-tint-border);border-radius:999px;padding:5px 13px;cursor:pointer;}
+  .chip .dot{width:8px;height:8px;border-radius:50%;}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-bottom:40px;}
+  .card{display:flex;gap:14px;padding:13px 14px;border:0.5px solid var(--clay-tint-border);border-radius:13px;background:var(--white);align-items:center;transition:box-shadow .14s,transform .14s;}
+  .card:hover{box-shadow:0 6px 20px rgba(120,60,20,.09);transform:translateY(-1px);}
+  .card:hover .ct{color:var(--clay-dark);}
+  .thumb{width:60px;height:60px;flex-shrink:0;}
+  .body{min-width:0;}
+  .tagline{display:flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px;}
+  .tagline .dot{width:7px;height:7px;border-radius:50%;}
+  .ct{font-family:var(--serif);font-size:17.5px;font-weight:500;line-height:1.22;color:var(--ink);margin-bottom:4px;}
+  .cm{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;}
+  .cm .new{color:var(--clay-dark);font-weight:600;}
+  .empty{color:var(--ink-3);font-family:var(--serif);font-size:16px;padding:8px 0 40px;}
+  footer{border-top:0.5px solid var(--hairline);}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:18px 0;color:var(--ink-3);font-size:12.5px;}
   .foot a{color:var(--ink-3);}
+  @media(max-width:780px){.grid{grid-template-columns:1fr;}.mast h1{font-size:29px;}}
 </style>
 </head>
 <body>
-<header>
-  <div class="nav">
-    <a class="logo" href="/">
-      <svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g><g fill="#EF8253"><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(22.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(67.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(112.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(157.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(202.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(247.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(292.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(337.5 120 120)"/></g></svg>
-      Jiva
-    </a>
-    <a class="back" href="/">← jiva.works</a>
+<header><div class="wrap nav">
+  <a class="logo" href="/"><svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g></svg><span>Jiva</span></a>
+  <a class="back" href="/">← jiva.works</a>
+</div></header>
+<div class="wrap">
+  <div class="mast">
+    <div class="eyebrow">The Jiva Blog</div>
+    <div class="mast-top">
+      <h1>Building Jiva in the open</h1>
+      <div class="subs"><a class="btn primary" href="https://jivaworks.substack.com/subscribe" target="_blank" rel="noopener">Subscribe</a><a class="btn" href="https://x.com/VArjunnagarjun" target="_blank" rel="noopener">Follow on X</a></div>
+    </div>
+    <div class="dek">One product manager, no code, building a fully-local Mac app with AI — documented as it happens.</div>
   </div>
-</header>
-
-<main class="wrap">
-  <div class="lede">
-    <h1>Building Jiva in the open</h1>
-    <p>Jiva is a fully-local second brain for the Mac, built by one product manager who can't write the code — every line written with an AI. This is the running log of that attempt: the origin, the hard on-device audio problems, the things that broke, and the honest question of how far this goes.</p>
+  <div class="filter" id="filter">
+    <span class="chip on" data-cat="all">All</span>
+    <span class="chip" data-cat="origin"><span class="dot" style="background:var(--clay)"></span>Origin</span>
+    <span class="chip" data-cat="tech"><span class="dot" style="background:var(--teal)"></span>The hard tech</span>
+    <span class="chip" data-cat="broke"><span class="dot" style="background:var(--amber)"></span>What broke</span>
+    <span class="chip" data-cat="think"><span class="dot" style="background:var(--purple)"></span>The thinking</span>
+    <span class="chip" data-cat="meta"><span class="dot" style="background:var(--ink-3)"></span>The meta</span>
   </div>
-
-  <div class="list">
-    <a class="post" href="/blog/the-granola-and-claude-moment">
-      <div class="date">14 September 2026 · 7 min read</div>
-      <h2>The Granola-and-Claude moment that started Jiva</h2>
-      <div class="sum">I used a meeting recorder and an AI side by side for months before I noticed what they could do together. Then I hit the same wall three times, and the wall turned out to be the product.</div>
-    </a>
-  </div>
-
-  <p class="more">More on the way — the first thing that broke, why attribution is really an audio problem, and the honest market read.</p>
-</main>
-
-<footer>
-  <div class="foot">
-    <span class="l"><svg viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 2 3 3 0 0 0 6 0 3 3 0 0 0 3-2 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v14"/></svg>Jiva</span>
-    <span>Private by design · Made for Mac · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
-  </div>
-</footer>
+  <div class="grid" id="grid"></div>
+  <footer><div class="foot"><span>◇ Jiva</span><span>Private by design · Made for Mac · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span></div></footer>
+</div>
+<script>
+/* ---- category palette: [label, accent, tint] ---- */
+const CAT={origin:['Origin','#D85A30','#FAECE7'],tech:['The hard tech','#1D9E75','#E3F2EC'],broke:['What broke','#BA7517','#FAEEDA'],think:['The thinking','#7F77DD','#ECEBFA'],meta:['The meta','#6E6D66','#EEEDEA']};
+const ring=a=>`<circle cx="50" cy="50" r="42" fill="none" stroke="${a}" stroke-width="1.3" stroke-dasharray="1.4 6" stroke-linecap="round" opacity="0.45"/>`;
+/* ---- Hindu-motif library (add a new one here when a post needs it) ---- */
+const G={
+ diya:(A,B)=>`<path d="M26 54 Q50 74 74 54 Q50 62 26 54Z" fill="${A}"/><path d="M50 32 C43 43 47 53 50 53 C53 53 57 43 50 32Z" fill="${A}"/><path d="M50 40 C47 46 49 51 50 51 C51 51 53 46 50 40Z" fill="${B}"/>`,
+ damaru:(A)=>`<path d="M32 32 H68 L50 50 Z" fill="${A}"/><path d="M32 68 H68 L50 50 Z" fill="${A}"/><path d="M50 50 H76 M50 50 H24" stroke="${A}" stroke-width="2"/><circle cx="78" cy="50" r="3.4" fill="${A}"/><circle cx="22" cy="50" r="3.4" fill="${A}"/>`,
+ kalash:(A,B)=>`<rect x="34" y="37" width="32" height="5" rx="2" fill="${A}"/><path d="M37 42 H63 L59 48 Q72 54 72 62 A22 12 0 0 1 28 62 Q28 54 41 48 Z" fill="${A}"/><path d="M50 50 l-4 6 5 2 -4 7" stroke="${B}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+ trishula:(A)=>`<path d="M50 40 V74" stroke="${A}" stroke-width="4" stroke-linecap="round"/><path d="M34 46 C34 30 42 24 50 24 C58 24 66 30 66 46" fill="none" stroke="${A}" stroke-width="3.2"/><path d="M34 46 V36 M66 46 V36" stroke="${A}" stroke-width="3.2" stroke-linecap="round"/><path d="M50 26 V16" stroke="${A}" stroke-width="3.2" stroke-linecap="round"/><path d="M50 12 l3.5 6 -3.5 6 -3.5 -6Z" fill="${A}"/><path d="M43 44 H57" stroke="${A}" stroke-width="3" stroke-linecap="round"/>`,
+ lotuscoin:(A,B)=>`<g fill="${A}"><path d="M50 68 C41 63 33 57 33 47 C44 49 50 57 50 68Z"/><path d="M50 68 C59 63 67 57 67 47 C56 49 50 57 50 68Z"/></g><circle cx="50" cy="45" r="11" fill="${B}" stroke="${A}" stroke-width="2.6"/><text x="50" y="50.5" text-anchor="middle" font-size="13" font-family="Newsreader,serif" fill="${A}">₹</text>`,
+ fourdiyas:(A)=>`<g fill="${A}"><path d="M25 62 Q31 69 37 62Z"/><path d="M39 62 Q45 69 51 62Z"/><path d="M53 62 Q59 69 65 62Z"/><path d="M67 62 Q73 69 79 62Z"/><path d="M31 40 C27 50 29 57 31 57 C33 57 35 50 31 40Z"/><path d="M45 48 C42 55 44 59 45 59 C46 59 48 55 45 48Z"/><path d="M59 48 C56 55 58 59 59 59 C60 59 62 55 59 48Z"/><path d="M73 48 C70 55 72 59 73 59 C74 59 76 55 73 48Z"/></g>`,
+ varada:(A,B)=>`<rect x="39" y="46" width="22" height="18" rx="8" fill="${A}"/><g fill="${A}"><rect x="40" y="33" width="4.6" height="16" rx="2.3"/><rect x="46.4" y="30" width="4.6" height="19" rx="2.3"/><rect x="52.8" y="31" width="4.6" height="18" rx="2.3"/><rect x="59.2" y="34" width="4.6" height="15" rx="2.3"/></g><rect x="30" y="49" width="12" height="4.6" rx="2.3" transform="rotate(-38 30 49)" fill="${A}"/><circle cx="50" cy="56" r="4.2" fill="${B}"/>`,
+ bow:(A)=>`<path d="M40 26 C60 40 60 60 40 74" fill="none" stroke="${A}" stroke-width="4" stroke-linecap="round"/><path d="M40 26 L40 74" stroke="${A}" stroke-width="2"/><path d="M33 50 H72" stroke="${A}" stroke-width="3" stroke-linecap="round"/><path d="M72 50 l-7 -4 M72 50 l-7 4" stroke="${A}" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M33 50 l5 -3 M33 50 l5 3" stroke="${A}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`,
+ mala:(A)=>`<circle cx="50" cy="47" r="17" fill="none" stroke="${A}" stroke-width="5" stroke-dasharray="1.5 8" stroke-linecap="round"/><circle cx="50" cy="66" r="4.6" fill="${A}"/><path d="M50 71 V79 M46.5 70.5 l-1.5 7 M53.5 70.5 l1.5 7" stroke="${A}" stroke-width="2" stroke-linecap="round"/>`,
+ ghanta:(A,B)=>`<circle cx="50" cy="31" r="5" fill="none" stroke="${A}" stroke-width="3"/><path d="M50 36 v3" stroke="${A}" stroke-width="3"/><path d="M37 45 Q37 39 50 39 Q63 39 63 45 Q66 60 71 67 H29 Q34 60 37 45Z" fill="${A}"/><path d="M31 67 H69" stroke="${B}" stroke-width="2"/><circle cx="50" cy="71" r="3" fill="${A}"/>`,
+ paduka:(A,B)=>`<g fill="${A}"><ellipse cx="41" cy="55" rx="7" ry="12"/><ellipse cx="59" cy="55" rx="7" ry="12"/><circle cx="41" cy="39" r="3"/><circle cx="59" cy="39" r="3"/><circle cx="34" cy="45" r="1.6"/><circle cx="47" cy="44" r="1.6"/><circle cx="53" cy="44" r="1.6"/><circle cx="66" cy="45" r="1.6"/></g><circle cx="41" cy="57" r="2.4" fill="${B}"/><circle cx="59" cy="57" r="2.4" fill="${B}"/>`,
+ pothi:(A,B)=>`<rect x="26" y="43" width="48" height="15" rx="2.5" fill="${A}"/><path d="M30 47 H70 M30 50.5 H70 M30 54 H70" stroke="${B}" stroke-width="1.3"/><path d="M50 37 V63" stroke="${A}" stroke-width="2.5"/><circle cx="50" cy="35" r="3" fill="${A}"/>`,
+ yantra:(A)=>`<rect x="30" y="30" width="40" height="40" fill="none" stroke="${A}" stroke-width="2.4"/><path d="M45 30 h10 M45 70 h10 M30 45 v10 M70 45 v10" stroke="${A}" stroke-width="3.4"/><path d="M50 36 L63 58 H37Z" fill="none" stroke="${A}" stroke-width="2.2"/><path d="M50 64 L37 42 H63Z" fill="none" stroke="${A}" stroke-width="2.2"/><circle cx="50" cy="50" r="2.6" fill="${A}"/>`,
+ torana:(A)=>`<path d="M31 72 V48 A19 19 0 0 1 69 48 V72" fill="none" stroke="${A}" stroke-width="3.2"/><path d="M42 72 V52 M50 72 V47 M58 72 V52" stroke="${A}" stroke-width="2.6" stroke-linecap="round"/><path d="M27 72 H73" stroke="${A}" stroke-width="3.2" stroke-linecap="round"/><path d="M50 29 V24" stroke="${A}" stroke-width="3" stroke-linecap="round"/>`,
+ bahikhata:(A,B)=>`<rect x="33" y="33" width="34" height="42" rx="2.5" fill="${A}"/><rect x="37" y="37" width="30" height="34" rx="1.5" fill="${B}"/><path d="M41 45 H61 M41 51 H61 M41 57 H55" stroke="${A}" stroke-width="1.6" stroke-linecap="round"/><path d="M50 30 V78" stroke="${A}" stroke-width="2" stroke-dasharray="2 3" opacity=".75"/><path d="M33 54 H67" stroke="${A}" stroke-width="2.2" stroke-dasharray="2 3"/><circle cx="50" cy="54" r="2.6" fill="${A}"/>`,
+ garuda:(A)=>`<path d="M50 42 Q40 32 26 34 Q34 40 43 44 Q34 46 30 53 Q42 50 50 46 Q58 50 70 53 Q66 46 57 44 Q66 40 74 34 Q60 32 50 42Z" fill="${A}"/><path d="M50 45 v9" stroke="${A}" stroke-width="3" stroke-linecap="round"/><path d="M50 40 l-3.5 5 h7Z" fill="${A}"/><path d="M30 66 q5 -6 10 0 t10 0 t10 0 t10 0" fill="none" stroke="${A}" stroke-width="3" stroke-linecap="round"/><circle cx="72" cy="64" r="2.4" fill="${A}"/>`,
+};
+function thumb(m,cat){const [,A,B]=CAT[cat];return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="1.5" y="1.5" width="97" height="97" rx="18" fill="${B}"/>${ring(A)}${G[m](A,B)}</svg>`;}
+/* ---- POSTS: newest first. Add a line per post: [title, category, motif, date, readTime, isNew, url] ---- */
+const posts=[
+ ['The Granola-and-Claude moment that started Jiva','origin','diya','14 September 2026','7 min',true,'/blog/the-granola-and-claude-moment'],
+];
+const grid=document.getElementById('grid');
+grid.innerHTML=posts.map(([t,cat,m,date,read,isNew,url])=>{
+ const [label,acc]=CAT[cat];
+ return `<a class="card" href="${url}" data-cat="${cat}"><div class="thumb">${thumb(m,cat)}</div><div class="body"><div class="tagline"><span class="dot" style="background:${acc}"></span>${label}</div><div class="ct">${t}</div><div class="cm">${isNew?'<span class="new">NEW · </span>':''}${date} · ${read}</div></div></a>`;
+}).join('');
+document.getElementById('filter').addEventListener('click',e=>{const chip=e.target.closest('.chip');if(!chip)return;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));chip.classList.add('on');const cat=chip.dataset.cat;let n=0;document.querySelectorAll('.card').forEach(p=>{const show=(cat==='all'||p.dataset.cat===cat);p.style.display=show?'':'none';if(show)n++;});const g=document.getElementById('grid');let e2=document.getElementById('emptymsg');if(!n){if(!e2){e2=document.createElement('div');e2.id='emptymsg';e2.className='empty';e2.textContent='No posts in this category yet — more on the way.';g.after(e2);}}else if(e2){e2.remove();}});
+</script>
 </body>
 </html>

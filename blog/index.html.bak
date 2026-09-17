@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Building Jiva in the open</title>
+<meta name="description" content="A build-in-public log of Jiva, a fully-local second brain for the Mac: the origin, the hard on-device audio problems, the things that broke, and the honest question of how far one non-technical founder can get with AI.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://jiva.works/blog">
+<meta property="og:title" content="Blog — Building Jiva in the open">
+<meta property="og:description" content="A build-in-public log of Jiva, a fully-local second brain for the Mac.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jiva.works/blog">
+<meta property="og:site_name" content="Jiva">
+<meta property="og:image" content="https://jiva.works/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — Building Jiva in the open">
+<meta name="twitter:description" content="A build-in-public log of Jiva, a fully-local second brain for the Mac.">
+<meta name="twitter:image" content="https://jiva.works/og-image.png">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="50071a89-1dff-4b02-82bd-bb7b5a964816"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Building Jiva in the open",
+  "url": "https://jiva.works/blog",
+  "description": "A build-in-public log of Jiva, a fully-local second brain for the Mac.",
+  "publisher": { "@type": "Organization", "name": "Jiva", "url": "https://jiva.works/" },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "The Granola-and-Claude moment that started Jiva",
+      "url": "https://jiva.works/blog/the-granola-and-claude-moment",
+      "datePublished": "2026-09-14",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
+    --paper:#F3F1EC; --white:#FFFFFF; --ink:#2C2C2A; --ink-2:#4A4945; --ink-3:#88877F;
+    --hairline:rgba(0,0,0,0.09);
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;
+       -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:var(--clay-dark);text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;
+         background:rgba(243,241,236,0.85);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:960px;margin:0 auto;padding:0 24px;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);}
+  .logo svg{width:27px;height:27px;}
+  .back{font-size:14px;color:var(--ink-2);}
+  .back:hover{color:var(--ink);}
+  main{padding:56px 0 40px;}
+  .lede h1{font-family:var(--serif);font-weight:500;font-size:clamp(32px,5vw,46px);
+           line-height:1.1;letter-spacing:-0.01em;margin-bottom:14px;color:var(--ink);}
+  .lede p{font-family:var(--serif);font-size:20px;line-height:1.5;color:var(--ink-2);
+          margin-bottom:12px;max-width:640px;}
+  .list{margin-top:46px;border-top:0.5px solid var(--hairline);}
+  .post{display:block;padding:26px 0;border-bottom:0.5px solid var(--hairline);}
+  .post .date{font-size:13px;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
+  .post h2{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.2;color:var(--ink);margin-bottom:8px;}
+  .post .sum{font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ink-2);}
+  .post:hover h2{color:var(--clay-dark);}
+  .more{color:var(--ink-3);font-size:15px;margin-top:34px;}
+  footer{border-top:0.5px solid var(--hairline);margin-top:8px;}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+        padding:22px 0;color:var(--ink-3);font-size:13px;max-width:960px;margin:0 auto;padding-left:24px;padding-right:24px;}
+  .foot .l{display:flex;align-items:center;gap:7px;}
+  .foot svg{width:14px;height:14px;}
+  .foot a{color:var(--ink-3);}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="/">
+      <svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g><g fill="#EF8253"><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(22.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(67.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(112.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(157.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(202.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(247.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(292.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(337.5 120 120)"/></g></svg>
+      Jiva
+    </a>
+    <a class="back" href="/">← jiva.works</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="lede">
+    <h1>Building Jiva in the open</h1>
+    <p>Jiva is a fully-local second brain for the Mac, built by one product manager who can't write the code — every line written with an AI. This is the running log of that attempt: the origin, the hard on-device audio problems, the things that broke, and the honest question of how far this goes.</p>
+  </div>
+
+  <div class="list">
+    <a class="post" href="/blog/the-granola-and-claude-moment">
+      <div class="date">14 September 2026 · 7 min read</div>
+      <h2>The Granola-and-Claude moment that started Jiva</h2>
+      <div class="sum">I used a meeting recorder and an AI side by side for months before I noticed what they could do together. Then I hit the same wall three times, and the wall turned out to be the product.</div>
+    </a>
+  </div>
+
+  <p class="more">More on the way — the first thing that broke, why attribution is really an audio problem, and the honest market read.</p>
+</main>
+
+<footer>
+  <div class="foot">
+    <span class="l"><svg viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 2 3 3 0 0 0 6 0 3 3 0 0 0 3-2 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v14"/></svg>Jiva</span>
+    <span>Private by design · Made for Mac · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>
