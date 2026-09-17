@@ -115,56 +115,57 @@
   <article>
     <div class="eyebrow"><a href="/blog">Building Jiva in the open</a></div>
     <h1>The Granola-and-Claude moment that started Jiva</h1>
-    <p class="deck">I used a meeting recorder and an AI side by side for months before I noticed what they could do together. Then I hit the same wall three times, and the wall turned out to be the product.</p>
+    <p class="deck">I ran a meeting recorder and an AI side by side for months before I saw what they did together. Then I hit the same wall three times, and the wall turned out to be the product.</p>
     <div class="meta">By Arjun Venugopal · 14 September 2026 · 7 min read</div>
-    <div class="seriesnote"><strong>Why I'm writing these.</strong> I'm a product manager — I can't write the code. Jiva is a fully-local Mac app I'm building entirely with AI, in a category where the serious players are companies worth a billion dollars and more. These posts are the running record of one question: how far can a single non-engineer get toward a product that stands next to what those teams ship — and whether this turns into the documented story of a one-person billion-dollar company, or an honest account of exactly where that idea breaks. I don't know which yet. Writing it down as it happens, the wins and the failures alike, is the only way to find out.</div>
 
-    <p>I'm a product manager, and my job is mostly calls. I work with a team several timezones away, so a normal day is a stack of meetings where decisions get made out loud and then have to survive contact with the rest of the week. The thing that actually costs me isn't the absence of notes — plenty of tools take notes. It's forgetting who committed to what, and having no record I trust enough to go back and check.</p>
+    <div class="seriesnote"><strong>Why I'm writing these.</strong> I'm a product manager, not an engineer, and I'm building a fully-local Mac app called Jiva entirely with AI. The category I'm building in is owned by companies worth a billion dollars and more. So the real question behind these posts is a simple one: can one person who can't write code build something that stands next to what those teams ship? Note that I'm not claiming it will. I'm documenting the attempt — the parts that work and the parts that don't — because that's the only honest way to find out.</div>
 
-    <p>For a long time I patched that the way a lot of people do. I recorded meetings with Granola, and separately I used Claude for the thinking around them — drafting specs, working through problems, turning a mess of half-formed ideas into something with a shape. Two habits, running in parallel, that never really touched.</p>
+    <p>I'm a product manager in Bangalore, and my team is in New York, so most of my day is calls. The problem was never that I didn't have notes. The problem is that by the end of the week I've lost track of who committed to what, and I have no record I actually trust enough to go back and check.</p>
 
-    <p>Then one ordinary afternoon I stopped re-explaining my week to the AI and just handed it what had actually been said in the room. Instead of typing out a tidy summary of a decision, I gave it the raw back-and-forth that led to the decision. The difference in what came back was not subtle.</p>
+    <p>For a while I solved this in two separate pieces. I used Granola to record my meetings, and I used Claude to do the thinking around them — writing specs, working through problems, turning rough notes into a first draft. Two different habits, and they never really met.</p>
 
-    <blockquote>The output got dramatically better — and not because the model had gotten smarter. Because the input had.</blockquote>
+    <p>Then one day, instead of typing out a summary of a meeting for Claude, I gave it the actual transcript of what was said and asked my question on top of that. The answer was noticeably better.</p>
 
-    <p>That's the whole thing, really. Most of the advice about getting more out of AI is about the prompt: phrase it better, add a persona, give it steps. But the biggest lever I ever found wasn't a cleverer prompt. It was better source material — the actual conversation, with all its context, constraints, and reasoning intact. A good model with thin context gives you a confident average. The same model with the real conversation gives you something that sounds like it was actually there.</p>
+    <blockquote>The model had not changed. The input had.</blockquote>
 
-    <p>So I leaned into it. And almost immediately I hit a wall. Then I hit it again somewhere else, and again — and eventually I realised it was the same wall three times.</p>
+    <p>That is the whole insight, and it is easy to miss. Most people try to improve the output by improving the prompt. The bigger lever is the context you give it. A good model with thin context gives you a generic answer; the same model with the real conversation gives you something specific and actually useful.</p>
+
+    <p>So I leaned into it, and almost immediately ran into a wall. Then I hit the same wall two more times, in different places.</p>
 
     <h2>The same wall, three times</h2>
 
-    <p><strong>First: I couldn't trust who said what.</strong> The moment a call had more than a couple of people on it, attribution started to slip — lines drifted to the wrong person, or everything collapsed into one voice. And an unreliable record of who said something is worse than no record, because you'll believe it. If I can't trust the attribution, I can't use the transcript to settle the one thing I actually wanted it for.</p>
+    <p><strong>First, I could not trust who said what.</strong> The moment there were more than two people on a call, the attribution started breaking and lines got assigned to the wrong person. Note that a record of who said something that you cannot trust is worse than no record at all, because you will act on it anyway. If I cannot trust the attribution, the transcript is useless for the exact thing I wanted it for.</p>
 
-    <p><strong>Second: the transcripts were locked in.</strong> The single most valuable thing I had — the raw, verbatim conversation — was the one thing I couldn't cleanly get back out to hand to the AI. When I connected the recorder to Claude over its MCP connector, on the free plan what came across were the polished notes and summaries, not the full transcripts of what was actually said. So the little automations I'd built on top — scheduled tasks meant to run every day against the real conversation — were quietly working off thin, second-hand material, and never did what I'd designed them to do. The summary was the part I could write myself; the material I couldn't reproduce was exactly the material the tool kept inside.</p>
+    <p><strong>Second, the transcript was locked in.</strong> The most valuable thing I had was the raw conversation, and that was the one thing I could not cleanly get out. When I connected the recorder to Claude over its MCP connector, on the free plan what came through was the summary and the notes, not the full transcript of what was actually said. So the scheduled tasks I had set up on top of it were running on thin, second-hand material and never did what I designed them to do. The summary was the part I could write myself; the part I could not reproduce was exactly the part the tool kept inside.</p>
 
-    <p><strong>Third: there was no way to talk to it.</strong> Getting my own thinking into the AI still meant typing. And when I type, I clean the thought up before it leaves my head — I edit out the doubts, the tangents, the half-reasons. When I speak, all of that messy reasoning comes out too. It turns out the messy part is the useful part; it's the context a model can't infer.</p>
+    <p><strong>Third, there was no way to talk to it.</strong> Getting my own thinking into the AI still meant typing, and when I type I clean the thought up before it leaves my head. When I speak, the messy reasoning comes out too — and the messy part turns out to be the useful part, because it is the context the model cannot guess.</p>
 
-    <p>Three complaints, one root. Working with AI is bottlenecked on how fast and how accurately you can give it your context — and speaking is by far the fastest way a human does that. Which meant the thing I actually wanted was never really a notetaker at all.</p>
+    <p>Three problems, one root cause. Working with AI is bottlenecked on how fast and how accurately you can give it context, and speaking is the fastest way a human does that. Note that this means the thing I actually wanted was never really a notetaker.</p>
 
-    <blockquote>I wanted a context pipe: capture everything I say and hear, attribute it correctly, keep it as plain files I own, and let any AI read it — with dictation on top as the fast way in.</blockquote>
+    <blockquote>What I wanted was a context pipe: capture everything I say and hear, attribute it correctly, keep it as plain files I own, and let any AI read it.</blockquote>
 
     <h2>Why it had to be local</h2>
 
-    <p>There was one more thing I couldn't get past, and it wasn't a feature — it was a feeling. The more useful my archive of conversations became, the less comfortable I was with it living on someone else's servers. The material that makes AI genuinely useful to me is, almost by definition, the material I least want to upload: real decisions, real numbers, real people talking candidly.</p>
+    <p>There was one more thing I could not get past, and it was less a feature than a feeling. The more useful my archive of conversations became, the less comfortable I was with it sitting on someone else's servers. The material that makes AI useful to me is the same material I least want to upload — real decisions, real numbers, real people talking openly.</p>
 
-    <p>I work with firms where "your conversations get uploaded to a vendor's cloud" is simply a hard no, so I know that instinct isn't just mine. Keeping everything on my own machine wasn't a marketing angle I picked. It was the only version of the product I would actually use — which felt like a reasonable test of whether it should exist.</p>
+    <p>I work with firms where "your conversations get uploaded to a vendor's cloud" is a hard no, so I know this isn't only my concern. Keeping everything on my own machine was not a positioning choice. It was the only version of the product I would actually use, which felt like a fair test of whether it should exist at all.</p>
 
     <h2>So I started building the missing pieces</h2>
 
-    <p>I should be honest about what that sentence hides. I'm not an engineer — I'm a product manager. Every line of what became Jiva has been written with an AI, and figuring out how to do that responsibly, on real systems software with real audio and real failure modes, is at least half the story I want to tell here.</p>
+    <p>I should be clear about what that sentence hides: I am not an engineer. Every line of Jiva has been written with an AI, and working out how to do that responsibly — on real systems software, with real audio and real failure modes — is at least half of what I want to write about here.</p>
 
-    <p>That's where this begins. <strong>Jiva is a fully-local second brain for the Mac</strong> — it records both sides of your meetings, transcribes them on-device, learns to recognise who said what across time, and hands the whole thing to whatever AI you like, with nothing ever leaving your laptop. It's free, and you can <a href="/">download it today</a>.</p>
+    <p>That is where this starts. <strong>Jiva is a fully-local second brain for the Mac.</strong> It records both sides of your meetings, transcribes them on the device, learns who said what across time, and hands the whole thing to whatever AI you use, with nothing leaving your laptop. It is free, and you can <a href="/">download it at jiva.works</a>.</p>
 
-    <p>That's the product. Why I'm writing it down in public is the question at the top of this page — whether one person, building only with AI, can get a fully-local tool to stand next to what far larger teams ship. I don't have the answer yet. What I have is a dated decision log, a running list of things that broke, and a lot of specifics. So that's where I'll start.</p>
+    <p>The product is one half of why I'm writing. The other half is the question at the top of this page — whether one person, building only with AI, can get a fully-local tool to a level that stands next to what much larger teams ship. I don't have the answer yet. What I have is a dated decision log, a running list of things that broke, and a lot of specifics. So that is where I'll start.</p>
 
     <p class="signoff">More soon — including the first thing that broke.</p>
 
     <div class="cta">
-      <strong>Jiva is free and fully local.</strong> Record your meetings, keep speaker-labelled transcripts, and get a live assist overlay — all on your Mac, nothing sent to the cloud. <a href="/">Get it at jiva.works →</a>
+      <strong>Jiva is free and fully local.</strong> Record your meetings, keep speaker-labelled transcripts, and get a live assist overlay — all on your Mac, nothing sent to the cloud. <a href="/">Get it at jiva.works &rarr;</a>
     </div>
 
     <div class="postnav">
-      <a href="/blog">← All posts</a>
+      <a href="/blog">&larr; All posts</a>
       <span></span>
     </div>
   </article>
