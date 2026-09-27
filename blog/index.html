@@ -31,6 +31,20 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "I killed my last startup, and it made me surer about this one",
+      "url": "https://jiva.works/blog/i-killed-my-last-startup",
+      "datePublished": "2026-09-25",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "The biggest lever in AI work is context, not a cleverer prompt",
+      "url": "https://jiva.works/blog/context-not-a-cleverer-prompt",
+      "datePublished": "2026-09-23",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "The Granola-and-Claude moment that started Jiva",
       "url": "https://jiva.works/blog/the-granola-and-claude-moment",
       "datePublished": "2026-09-14",
@@ -116,6 +130,7 @@ const CAT={origin:['Origin','#D85A30','#FAECE7'],tech:['The hard tech','#1D9E75'
 const ring=a=>`<circle cx="50" cy="50" r="42" fill="none" stroke="${a}" stroke-width="1.3" stroke-dasharray="1.4 6" stroke-linecap="round" opacity="0.45"/>`;
 /* ---- Hindu-motif library (add a new one here when a post needs it) ---- */
 const G={
+ dvaar:(A,B)=>`<path d="M34 74 V32 H66 V74" fill="none" stroke="${A}" stroke-width="3.2" stroke-linejoin="round"/><path d="M28 74 H72" stroke="${A}" stroke-width="3.4" stroke-linecap="round"/><path d="M50 33 V73" stroke="${A}" stroke-width="2.2"/><rect x="37.5" y="37" width="10" height="33" rx="1.5" fill="${B}" stroke="${A}" stroke-width="1.5"/><rect x="52.5" y="37" width="10" height="33" rx="1.5" fill="${B}" stroke="${A}" stroke-width="1.5"/><circle cx="46" cy="54" r="1.7" fill="${A}"/><circle cx="54" cy="54" r="1.7" fill="${A}"/><path d="M50 26 l3 4 -3 4 -3 -4Z" fill="${A}"/>`,
  diya:(A,B)=>`<path d="M26 54 Q50 74 74 54 Q50 62 26 54Z" fill="${A}"/><path d="M50 32 C43 43 47 53 50 53 C53 53 57 43 50 32Z" fill="${A}"/><path d="M50 40 C47 46 49 51 50 51 C51 51 53 46 50 40Z" fill="${B}"/>`,
  damaru:(A)=>`<path d="M32 32 H68 L50 50 Z" fill="${A}"/><path d="M32 68 H68 L50 50 Z" fill="${A}"/><path d="M50 50 H76 M50 50 H24" stroke="${A}" stroke-width="2"/><circle cx="78" cy="50" r="3.4" fill="${A}"/><circle cx="22" cy="50" r="3.4" fill="${A}"/>`,
  kalash:(A,B)=>`<rect x="34" y="37" width="32" height="5" rx="2" fill="${A}"/><path d="M37 42 H63 L59 48 Q72 54 72 62 A22 12 0 0 1 28 62 Q28 54 41 48 Z" fill="${A}"/><path d="M50 50 l-4 6 5 2 -4 7" stroke="${B}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
@@ -136,7 +151,9 @@ const G={
 function thumb(m,cat){const [,A,B]=CAT[cat];return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="1.5" y="1.5" width="97" height="97" rx="18" fill="${B}"/>${ring(A)}${G[m](A,B)}</svg>`;}
 /* ---- POSTS: newest first. Add a line per post: [title, category, motif, date, readTime, isNew, url] ---- */
 const posts=[
- ['The Granola-and-Claude moment that started Jiva','origin','diya','14 September 2026','7 min',true,'/blog/the-granola-and-claude-moment'],
+ ['I killed my last startup, and it made me surer about this one','origin','dvaar','25 September 2026','5 min',true,'/blog/i-killed-my-last-startup'],
+ ['The biggest lever in AI work is context, not a cleverer prompt','origin','kalash','23 September 2026','5 min',false,'/blog/context-not-a-cleverer-prompt'],
+ ['The Granola-and-Claude moment that started Jiva','origin','diya','14 September 2026','7 min',false,'/blog/the-granola-and-claude-moment'],
 ];
 const grid=document.getElementById('grid');
 grid.innerHTML=posts.map(([t,cat,m,date,read,isNew,url])=>{
