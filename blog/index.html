@@ -31,6 +31,27 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "How a non-coder debugs: read, don't reproduce",
+      "url": "https://jiva.works/blog/how-a-non-coder-debugs",
+      "datePublished": "2026-10-13",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "143 decisions in three months",
+      "url": "https://jiva.works/blog/decisions-in-three-months",
+      "datePublished": "2026-10-09",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "What building with AI actually breaks on",
+      "url": "https://jiva.works/blog/what-building-with-ai-actually-breaks-on",
+      "datePublished": "2026-10-06",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "The markdown \u201cbrain\u201d that let a non-coder ship",
       "url": "https://jiva.works/blog/the-markdown-brain-that-let-a-non-coder-ship",
       "datePublished": "2026-10-02",
@@ -161,11 +182,16 @@ const G={
  torana:(A)=>`<path d="M31 72 V48 A19 19 0 0 1 69 48 V72" fill="none" stroke="${A}" stroke-width="3.2"/><path d="M42 72 V52 M50 72 V47 M58 72 V52" stroke="${A}" stroke-width="2.6" stroke-linecap="round"/><path d="M27 72 H73" stroke="${A}" stroke-width="3.2" stroke-linecap="round"/><path d="M50 29 V24" stroke="${A}" stroke-width="3" stroke-linecap="round"/>`,
  bahikhata:(A,B)=>`<rect x="33" y="33" width="34" height="42" rx="2.5" fill="${A}"/><rect x="37" y="37" width="30" height="34" rx="1.5" fill="${B}"/><path d="M41 45 H61 M41 51 H61 M41 57 H55" stroke="${A}" stroke-width="1.6" stroke-linecap="round"/><path d="M50 30 V78" stroke="${A}" stroke-width="2" stroke-dasharray="2 3" opacity=".75"/><path d="M33 54 H67" stroke="${A}" stroke-width="2.2" stroke-dasharray="2 3"/><circle cx="50" cy="54" r="2.6" fill="${A}"/>`,
  garuda:(A)=>`<path d="M50 42 Q40 32 26 34 Q34 40 43 44 Q34 46 30 53 Q42 50 50 46 Q58 50 70 53 Q66 46 57 44 Q66 40 74 34 Q60 32 50 42Z" fill="${A}"/><path d="M50 45 v9" stroke="${A}" stroke-width="3" stroke-linecap="round"/><path d="M50 40 l-3.5 5 h7Z" fill="${A}"/><path d="M30 66 q5 -6 10 0 t10 0 t10 0 t10 0" fill="none" stroke="${A}" stroke-width="3" stroke-linecap="round"/><circle cx="72" cy="64" r="2.4" fill="${A}"/>`,
+ smriti:(A,B)=>`<rect x="33" y="38" width="34" height="24" rx="6" fill="${B}" stroke="${A}" stroke-width="2.8"/><ellipse cx="33" cy="50" rx="5.5" ry="13" fill="${B}" stroke="${A}" stroke-width="2.8"/><ellipse cx="67" cy="50" rx="5.5" ry="13" fill="${B}" stroke="${A}" stroke-width="2.8"/><path d="M50 34 V66" stroke="${A}" stroke-width="2.6"/><circle cx="50" cy="50" r="3.2" fill="${A}"/><path d="M50 50 l-6 5 M50 50 l6 5" stroke="${A}" stroke-width="2" stroke-linecap="round"/>`,
+ darpan:(A,B)=>`<circle cx="50" cy="39" r="16" fill="${B}" stroke="${A}" stroke-width="2.8"/><circle cx="50" cy="39" r="11" fill="none" stroke="${A}" stroke-width="1.3" opacity=".55"/><path d="M44 33 Q48 30 53 32" stroke="${A}" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/><rect x="47" y="54" width="6" height="21" rx="3" fill="${A}"/><path d="M43 56 H57" stroke="${A}" stroke-width="2.6" stroke-linecap="round"/><circle cx="50" cy="78" r="3.2" fill="${A}"/>`,
 };
 function thumb(m,cat){const [,A,B]=CAT[cat];return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="1.5" y="1.5" width="97" height="97" rx="18" fill="${B}"/>${ring(A)}${G[m](A,B)}</svg>`;}
 /* ---- POSTS: newest first. Add a line per post: [title, category, motif, date, readTime, isNew, url] ---- */
 const posts=[
- ['The markdown &ldquo;brain&rdquo; that let a non-coder ship','origin','yantra','2 October 2026','6 min',true,'/blog/the-markdown-brain-that-let-a-non-coder-ship'],
+ ['How a non-coder debugs: read, don&rsquo;t reproduce','meta','darpan','13 October 2026','5 min',true,'/blog/how-a-non-coder-debugs'],
+ ['143 decisions in three months','meta','bahikhata','9 October 2026','5 min',false,'/blog/decisions-in-three-months'],
+ ['What building with AI actually breaks on','meta','smriti','6 October 2026','6 min',false,'/blog/what-building-with-ai-actually-breaks-on'],
+ ['The markdown &ldquo;brain&rdquo; that let a non-coder ship','origin','yantra','2 October 2026','6 min',false,'/blog/the-markdown-brain-that-let-a-non-coder-ship'],
  ['A product manager decides to build systems software','origin','trishula','29 September 2026','6 min',false,'/blog/a-pm-decides-to-build-systems-software'],
  ['I killed my last startup, and it made me surer about this one','origin','dvaar','25 September 2026','5 min',false,'/blog/i-killed-my-last-startup'],
  ['The biggest lever in AI work is context, not a cleverer prompt','origin','kalash','23 September 2026','5 min',false,'/blog/context-not-a-cleverer-prompt'],

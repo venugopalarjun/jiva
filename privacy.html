@@ -60,7 +60,7 @@
 <main>
 <div class="wrap">
   <h1>Privacy Policy</h1>
-  <div class="updated">Last updated: October 3, 2026</div>
+  <div class="updated">Last updated: October 14, 2026</div>
 
   <p>Jiva is a meeting recorder, transcriber, and assistant for macOS. It is designed to be <strong>fully local</strong>: your meetings, transcripts, dictations, and any connected data are processed and stored on your own Mac. We do not run servers that receive your content, and Jiva has no user accounts.</p>
 
@@ -80,7 +80,7 @@
   <p>If you choose to connect your Google Calendar, Jiva requests <strong>read-only</strong> access to your calendar (the <code>calendar.readonly</code> scope). Here is exactly how that data is handled:</p>
   <ul>
     <li><strong>What we access:</strong> your upcoming calendar events — their times, titles, locations, descriptions, and attendee information — for the purpose of finding meeting join links and who is on the call.</li>
-    <li><strong>How it is used:</strong> solely on your Mac, to notify you shortly before a meeting begins, to give you a one-click link that opens the meeting and starts recording, and to label participants in your transcripts. It is not used for advertising and is never used to train any AI or machine-learning models.</li>
+    <li><strong>How it is used:</strong> solely on your Mac, to notify you shortly before a meeting begins, to give you a one-click link that opens the meeting and starts recording, to name each recording after its calendar meeting, and to label participants in your transcripts. It is not used for advertising and is never used to train any AI or machine-learning models.</li>
     <li><strong>Where it is stored:</strong> only on your device. The authorization token and any fetched event details are kept in Jiva's local application-support folder on your Mac.</li>
     <li><strong>Who it is shared with:</strong> no one. Calendar data is never transmitted to Jiva (we operate no servers that could receive it) and is never sold or shared with third parties. The only network exchange is directly between your Mac and Google's own APIs, which is required to read your calendar.</li>
     <li><strong>How to revoke it:</strong> disconnect the calendar inside Jiva at any time (this deletes the stored token), or revoke Jiva's access from your Google Account at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
@@ -96,7 +96,7 @@
     <li><strong>Kept on your device, with no central copy.</strong> Jiva runs no servers that receive your content. Your recordings, transcripts and calendar data never reach us, so there is no Jiva database that could be breached and no Jiva staff member who can access your data.</li>
     <li><strong>Encrypted in transit.</strong> Every connection Jiva makes to Google (sign-in, token exchange and reading your calendar) uses HTTPS (TLS) with certificate verification. Calendar data is never sent over an unencrypted connection.</li>
     <li><strong>Secure sign-in.</strong> Jiva connects to Google using OAuth 2.0 with PKCE and a loopback redirect to your own Mac (127.0.0.1). You sign in on Google's own page in your browser, so Jiva never sees or stores your Google password.</li>
-    <li><strong>Least-privilege access.</strong> Jiva requests read-only calendar access only, so it cannot create, change or delete your events. Each sync fetches only the events in the next 12 hours.</li>
+    <li><strong>Least-privilege access.</strong> Jiva requests read-only calendar access only, so it cannot create, change or delete your events. Each sync fetches only the events in the next 12 hours, and when a recording finishes Jiva looks up only the event during that recording, to name it. Nothing from that lookup is stored except the recording's title.</li>
     <li><strong>Protected token storage.</strong> The Google authorization token is saved in a file that only your macOS user account can read (file permission 0600), inside your user Library folder. Other users on the same Mac cannot read it.</li>
     <li><strong>Encryption at rest.</strong> Jiva keeps its data in your macOS user Library, protected by your Mac's account permissions. When FileVault (macOS's built-in full-disk encryption) is turned on, all of it is also encrypted at rest. We recommend keeping FileVault on.</li>
     <li><strong>Minimal retention.</strong> The list of upcoming events is replaced on every sync rather than accumulated. Disconnecting the calendar in Jiva deletes the stored token immediately, and deleting Jiva's data folder removes everything Jiva stored.</li>
