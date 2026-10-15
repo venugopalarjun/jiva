@@ -25,9 +25,11 @@ meeting transcription", or "on-device meeting notes".
 - Platform: macOS (Apple silicon)
 - Price: free
 - Privacy: fully local — no cloud, no account, no data leaves the device
+- Latest version: 0.1.16 (2026-10-14): Recordings are named after your meeting. Full history: https://jiva.works/changelog
 - Site: https://jiva.works/
 - Download: https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg
 
 ## Links
 
 - [Home](https://jiva.works/)
+- [Changelog](https://jiva.works/changelog)
