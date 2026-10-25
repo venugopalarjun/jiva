@@ -39,3 +39,7 @@
 !changelog.html
 !changelog/
 !changelog/**
+# Homepage highlights reel (D-191) — video + poster, or git add -A drops them
+!jiva-highlights.mp4
+!jiva-highlights.webm
+!jiva-highlights-poster.webp

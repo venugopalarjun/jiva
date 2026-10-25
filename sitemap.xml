@@ -59,6 +59,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jiva.works/blog/a-test-that-cannot-fail</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiva.works/blog/leaving-python-for-swift</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jiva.works/blog/the-constraint-that-shaped-the-whole-app</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jiva.works/changelog</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>

@@ -31,6 +31,27 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "One build constraint quietly shaped the whole app",
+      "url": "https://jiva.works/blog/the-constraint-that-shaped-the-whole-app",
+      "datePublished": "2026-10-23",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Leaving Python for Swift, and deleting the thing that worked",
+      "url": "https://jiva.works/blog/leaving-python-for-swift",
+      "datePublished": "2026-10-20",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "A test that cannot fail is not a test",
+      "url": "https://jiva.works/blog/a-test-that-cannot-fail",
+      "datePublished": "2026-10-16",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "How a non-coder debugs: read, don't reproduce",
       "url": "https://jiva.works/blog/how-a-non-coder-debugs",
       "datePublished": "2026-10-13",
@@ -184,11 +205,16 @@ const G={
  garuda:(A)=>`<path d="M50 42 Q40 32 26 34 Q34 40 43 44 Q34 46 30 53 Q42 50 50 46 Q58 50 70 53 Q66 46 57 44 Q66 40 74 34 Q60 32 50 42Z" fill="${A}"/><path d="M50 45 v9" stroke="${A}" stroke-width="3" stroke-linecap="round"/><path d="M50 40 l-3.5 5 h7Z" fill="${A}"/><path d="M30 66 q5 -6 10 0 t10 0 t10 0 t10 0" fill="none" stroke="${A}" stroke-width="3" stroke-linecap="round"/><circle cx="72" cy="64" r="2.4" fill="${A}"/>`,
  smriti:(A,B)=>`<rect x="33" y="38" width="34" height="24" rx="6" fill="${B}" stroke="${A}" stroke-width="2.8"/><ellipse cx="33" cy="50" rx="5.5" ry="13" fill="${B}" stroke="${A}" stroke-width="2.8"/><ellipse cx="67" cy="50" rx="5.5" ry="13" fill="${B}" stroke="${A}" stroke-width="2.8"/><path d="M50 34 V66" stroke="${A}" stroke-width="2.6"/><circle cx="50" cy="50" r="3.2" fill="${A}"/><path d="M50 50 l-6 5 M50 50 l6 5" stroke="${A}" stroke-width="2" stroke-linecap="round"/>`,
  darpan:(A,B)=>`<circle cx="50" cy="39" r="16" fill="${B}" stroke="${A}" stroke-width="2.8"/><circle cx="50" cy="39" r="11" fill="none" stroke="${A}" stroke-width="1.3" opacity=".55"/><path d="M44 33 Q48 30 53 32" stroke="${A}" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/><rect x="47" y="54" width="6" height="21" rx="3" fill="${A}"/><path d="M43 56 H57" stroke="${A}" stroke-width="2.6" stroke-linecap="round"/><circle cx="50" cy="78" r="3.2" fill="${A}"/>`,
+ kasauti:(A,B)=>`<rect x="35" y="27" width="30" height="48" rx="4" fill="${A}"/><path d="M41 42 l18 -9 M41 54 l18 -9 M41 66 l18 -9" stroke="${B}" stroke-width="3.2" stroke-linecap="round"/>`,
+ stambha:(A,B)=>`<path d="M30 74 H70" stroke="${A}" stroke-width="3.4" stroke-linecap="round"/><rect x="36" y="67" width="28" height="7" rx="1.5" fill="${A}"/><rect x="43" y="36" width="14" height="31" fill="${B}" stroke="${A}" stroke-width="2.6"/><path d="M46.5 40 V63 M50 40 V63 M53.5 40 V63" stroke="${A}" stroke-width="1.3" opacity=".55"/><rect x="38" y="30" width="24" height="6.5" rx="1.5" fill="${A}"/><path d="M42 30 V25 H58 V30" fill="none" stroke="${A}" stroke-width="2.4" stroke-linejoin="round"/><path d="M50 25 V17" stroke="${A}" stroke-width="2.6" stroke-linecap="round"/><path d="M50 13 l3 4 -3 4 -3 -4Z" fill="${A}"/>`,
 };
 function thumb(m,cat){const [,A,B]=CAT[cat];return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="1.5" y="1.5" width="97" height="97" rx="18" fill="${B}"/>${ring(A)}${G[m](A,B)}</svg>`;}
 /* ---- POSTS: newest first. Add a line per post: [title, category, motif, date, readTime, isNew, url] ---- */
 const posts=[
- ['How a non-coder debugs: read, don&rsquo;t reproduce','meta','darpan','13 October 2026','5 min',true,'/blog/how-a-non-coder-debugs'],
+ ['One build constraint quietly shaped the whole app','tech','stambha','23 October 2026','4 min',true,'/blog/the-constraint-that-shaped-the-whole-app'],
+ ['Leaving Python for Swift, and deleting the thing that worked','tech','garuda','20 October 2026','6 min',false,'/blog/leaving-python-for-swift'],
+ ['A test that cannot fail is not a test','think','kasauti','16 October 2026','5 min',false,'/blog/a-test-that-cannot-fail'],
+ ['How a non-coder debugs: read, don&rsquo;t reproduce','meta','darpan','13 October 2026','5 min',false,'/blog/how-a-non-coder-debugs'],
  ['143 decisions in three months','meta','bahikhata','9 October 2026','5 min',false,'/blog/decisions-in-three-months'],
  ['What building with AI actually breaks on','meta','smriti','6 October 2026','6 min',false,'/blog/what-building-with-ai-actually-breaks-on'],
  ['The markdown &ldquo;brain&rdquo; that let a non-coder ship','origin','yantra','2 October 2026','6 min',false,'/blog/the-markdown-brain-that-let-a-non-coder-ship'],

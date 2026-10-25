@@ -81,62 +81,69 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <style>
+  /* Tokens copied from the live site (website/index.html) */
   :root{
     --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
     --paper:#F3F1EC; --sidebar:#EEEBE3; --white:#FFFFFF;
     --ink:#2C2C2A; --ink-2:#5F5E5A; --ink-3:#88877F;
-    --teal:#1D9E75; --purple:#7F77DD; --amber:#BA7517; --amber-dark:#854F0B; --amber-tint:#FAEEDA;
     --hairline:rgba(0,0,0,0.09); --term:#2C2C2A; --term-inner:#1D1D1B;
     --serif:'Newsreader',Georgia,'Times New Roman',serif;
     --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'SF Mono',ui-monospace,Menlo,monospace;
     --maxw:1080px;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
        -webkit-font-smoothing:antialiased;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-  .serif{font-family:var(--serif);font-weight:400;}
 
   header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;
          background:rgba(243,241,236,0.85);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
   .nav{display:flex;align-items:center;justify-content:space-between;height:62px;}
-  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;font-weight:500;}
   .logo svg{width:27px;height:27px;}
   .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;color:var(--ink-2);}
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--clay);color:#fff;
-       font-size:14px;font-weight:500;padding:9px 16px;border-radius:9px;border:none;cursor:pointer;
-       transition:filter .15s ease;}
+       font-size:15px;font-weight:500;padding:12px 20px;border-radius:10px;border:none;cursor:pointer;}
   .btn:hover{filter:brightness(0.94);}
   .btn svg{width:16px;height:16px;}
-  .btn-sm{padding:7px 14px;font-size:13px;}
+  .btn-sm{padding:7px 14px;font-size:13px;border-radius:9px;}
 
-  .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;
-        padding:68px 0 40px;}
-  .pill{display:inline-block;font-size:12px;color:var(--clay-dark);background:var(--clay-tint);
-        border:0.5px solid var(--clay-tint-border);border-radius:999px;padding:4px 12px;margin-bottom:18px;}
-  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5vw,52px);
-           line-height:1.08;letter-spacing:-0.01em;margin-bottom:16px;}
-  .hero p.lede{font-size:17px;color:var(--ink-2);max-width:30em;margin-bottom:26px;}
+  /* ── Hero: the things you must know, up front ── */
+  .hero{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding:72px 0 56px;}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,56px);
+           line-height:1.06;letter-spacing:-0.01em;margin-bottom:28px;}
+  .hero h1 em{font-style:normal;color:var(--clay);}
+
+  .facts{list-style:none;margin-bottom:30px;}
+  .facts li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-top:0.5px solid var(--hairline);}
+  .facts li:last-child{border-bottom:0.5px solid var(--hairline);}
+  .facts .k{font-family:var(--serif);font-size:21px;color:var(--ink);min-width:7.2em;}
+  .facts .v{font-size:14.5px;color:var(--ink-2);}
+
   .cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
   .cta .meta{font-size:13px;color:var(--ink-3);}
-  .btn .sz{font-weight:400;opacity:0.82;}
+
+  .reel{border-radius:18px;overflow:hidden;border:0.5px solid var(--hairline);box-shadow:0 24px 60px rgba(60,40,20,.14);aspect-ratio:16/10;background:var(--paper);}
+  .reel video{display:block;width:100%;height:100%;object-fit:cover;}
   .platwarn{display:none;width:100%;margin-top:4px;font-size:13px;color:var(--amber-dark);
             background:var(--amber-tint);border:0.5px solid #EAD8B0;border-radius:9px;padding:9px 13px;}
   .platwarn.show{display:block;}
   .platwarn b{font-weight:500;}
-
-  .shot{background:var(--white);border:0.5px solid var(--hairline);border-radius:16px;padding:18px;}
-  .shot .rec{display:flex;align-items:center;gap:7px;color:var(--ink-3);font-size:12px;margin-bottom:14px;}
+  .android{font-size:13px;color:var(--ink-3);width:100%;}
+  .android a{color:var(--clay-dark);text-decoration:underline;}
+  .shot{background:var(--white);border:0.5px solid var(--hairline);border-radius:16px;padding:20px;}
+  .rec{display:flex;align-items:center;gap:7px;color:var(--ink-3);font-size:12px;margin-bottom:14px;}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--clay);display:inline-block;}
-  .line{font-size:13px;line-height:1.6;color:#3a3a37;margin-bottom:7px;}
+  .line{font-size:13.5px;line-height:1.6;color:#3a3a37;margin-bottom:8px;}
   .who{font-weight:500;}
-  .shot .sum{border-top:0.5px solid var(--hairline);margin-top:12px;padding-top:12px;}
-  .sum .lbl{font-size:10px;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:5px;}
-  .sum .txt{font-size:12px;color:var(--ink-2);}
+  .sum{border-top:0.5px solid var(--hairline);margin-top:12px;padding-top:12px;}
+  .lbl{font-size:10px;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:4px;}
+  .txt{font-size:12.5px;color:var(--ink-2);}
+  .cite{color:var(--clay-dark);background:var(--clay-tint);border-radius:4px;padding:0 5px;font-size:11.5px;white-space:nowrap;}
 
-  .term-wrap{padding:8px 0 36px;}
+  /* Install block: copied verbatim from the live site */
   .term{background:var(--term);border-radius:12px;padding:16px 18px;}
   .term .cap{display:flex;align-items:center;gap:7px;color:#A9A89F;font-size:12px;margin-bottom:10px;}
   .term .cap svg{width:15px;height:15px;}
@@ -160,100 +167,98 @@
   .cmd-sm{margin:6px 0 2px;padding:9px 12px;}
   .cmd-sm code{font-size:12.5px;}
 
-  .trust{display:flex;justify-content:center;flex-wrap:wrap;gap:14px 30px;color:var(--ink-3);
-         font-size:13px;padding-bottom:44px;}
-  .trust span{display:inline-flex;align-items:center;gap:6px;}
-  .trust svg{width:15px;height:15px;}
 
-  .section-h{font-family:var(--serif);font-size:26px;margin-bottom:6px;}
-  .section-sub{color:var(--ink-2);font-size:15px;margin-bottom:26px;}
-
-  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding-bottom:56px;}
+  .term-wrap{padding:0 0 64px;}
+  /* ── Sections ── */
+  .section-h{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:6px;}
+  .section-sub{color:var(--ink-2);font-size:15px;margin-bottom:24px;}
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:72px;}
   .card{background:var(--white);border:0.5px solid var(--hairline);border-radius:14px;padding:18px;}
-  .card .ico{width:22px;height:22px;margin-bottom:10px;}
   .card h3{font-size:15px;font-weight:500;margin-bottom:5px;}
   .card p{font-size:13px;color:var(--ink-2);}
-  .badge{float:right;font-size:10px;color:var(--amber-dark);background:var(--amber-tint);
-         border:0.5px solid #EAD8B0;border-radius:999px;padding:2px 9px;}
 
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:64px;}
-  .step{display:flex;gap:12px;}
-  .step .n{font-family:var(--serif);color:var(--clay);font-size:22px;line-height:1;flex-shrink:0;}
-  .step h4{font-size:14px;font-weight:500;margin-bottom:3px;}
-  .step p{font-size:13px;color:var(--ink-2);}
-  .step code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:12px;background:var(--sidebar);
-             padding:1px 5px;border-radius:4px;}
+  .straight{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-bottom:24px;}
+  .straight div{padding:16px 0;border-top:0.5px solid var(--hairline);}
+  .straight b{display:block;font-size:15px;font-weight:500;margin-bottom:2px;}
+  .straight p{font-size:14px;color:var(--ink-2);}
 
-  footer{border-top:0.5px solid var(--hairline);}
-  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
-        padding:22px 0;color:var(--ink-3);font-size:12px;}
-  .foot .l{display:flex;align-items:center;gap:7px;}
-  .foot svg{width:14px;height:14px;}
+  footer{margin-top:56px;border-top:0.5px solid var(--hairline);}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:22px 24px;color:var(--ink-3);font-size:12px;}
 
+
+  @media (max-width:860px){ .features{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:760px){
-    .hero{grid-template-columns:1fr;gap:26px;padding:44px 0 28px;}
-    .shot{order:2;}
+    .hero{grid-template-columns:1fr;gap:24px;padding:36px 0 36px;}
+    /* Phones: headline, then the video, then the facts and download button */
+    .hero-copy{display:contents;}
+    .hero h1{order:1;margin-bottom:0;}
+    .reel{order:2;}
+    .facts{order:3;margin-bottom:0;}
+    .cta{order:4;}
+    .platwarn{font-size:12px;padding:6px 10px;margin-top:0;}
+    .facts .k{min-width:6.4em;font-size:19px;}
+    .term .row{flex-direction:column;align-items:stretch;gap:8px;}
+    .straight{grid-template-columns:1fr;}
     .nav-links a:not(.btn){display:none;}
-    .steps{grid-template-columns:1fr;gap:16px;}
-    .section-h{font-size:22px;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 16px;}
+    .features{grid-template-columns:1fr;}
+    .facts li{flex-direction:column;gap:0;}
   }
   @media (max-width:520px){
     .term .cmd{align-items:flex-start;}
     .term code{white-space:normal;word-break:break-word;line-height:1.5;}
+    .term .alt code{word-break:break-all;}
     .copy span{display:none;}
-  }
-  @media (max-width:420px){
-    .wrap{padding:0 18px;}
-    .cta{gap:10px;}
-    .term code{font-size:12.5px;}
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="logo">
-      <svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g><g fill="#EF8253"><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(22.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(67.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(112.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(157.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(202.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(247.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(292.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(337.5 120 120)"/></g></svg>
-      <span>Jiva</span>
-    </div>
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/blog">Blog</a>
-    </div>
+<header><div class="wrap nav">
+  <div class="logo">
+    <svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g><g fill="#EF8253"><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(22.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(67.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(112.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(157.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(202.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(247.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(292.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(337.5 120 120)"/></g></svg>
+    <span>Jiva</span>
   </div>
-</header>
+  <nav class="nav-links">
+    <a href="#features">Features</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a>
+    <a class="btn btn-sm" data-umami-event="download-dmg-nav" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg">Download</a>
+  </nav>
+</div></header>
 
-<main>
-  <section class="wrap hero" id="download">
-    <div>
-      <span class="pill">Runs entirely on your Mac</span>
-      <h1>Your meetings,<br>remembered.</h1>
-      <p class="lede">Local recording, speaker-labeled transcripts, a live assist overlay, and hands-free dictation — with a memory that recognizes people and answers questions across every past meeting. No cloud, no account.</p>
+<main class="wrap">
+
+  <!-- What you must know, said plainly, before anything else -->
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>A meeting recorder that <em>never leaves your Mac.</em></h1>
+      <ul class="facts">
+        <li><span class="k">Free</span><span class="v">No account, no trial, no subscription.</span></li>
+        <li><span class="k">Local</span><span class="v">Recording, transcripts and search all run on your Mac. Nothing is uploaded.</span></li>
+        <li><span class="k">Remembers</span><span class="v">Knows who said what, across every meeting you've recorded.</span></li>
+      </ul>
       <div class="cta">
-        <a class="btn" id="dl" data-umami-event="download-dmg" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Mac <span class="sz">· 240 MB</span></a>
-        <a class="btn" id="dl-android" href="https://github.com/venugopalarjun/jiva/releases/download/android-latest/jiva-voice.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>Download for Android</a>
-        <span class="meta">Mac: Apple silicon · macOS 14.4+ · Android: full keyboard — type, swipe &amp; dictate (beta)</span>
+        <a class="btn" id="dl" data-umami-event="download-dmg" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+          Download for Mac
+        </a>
+        <span class="meta">Apple silicon · macOS 14.4+</span>
+        <span class="android">On Android? <a id="dl-android" data-umami-event="download-apk" href="https://github.com/venugopalarjun/jiva/releases/download/android-latest/jiva-voice.apk">Get the Jiva keyboard (beta)</a></span>
         <div class="platwarn" id="platwarn"></div>
       </div>
     </div>
-    <div class="shot">
-      <div class="rec"><span class="dot"></span>Recording · 12:04</div>
-      <div class="line"><span class="who" style="color:var(--purple)">Speaker 1</span> &nbsp;Let's lock the migration date.</div>
-      <div class="line"><span class="who" style="color:var(--teal)">Me</span> &nbsp;Thursday works on my end.</div>
-      <div class="sum">
-        <div class="lbl">SUMMARY</div>
-        <div class="txt">Decision: migrate Thursday. Owner: Me.</div>
-      </div>
-      <div class="sum">
-        <div class="lbl">ASSIST</div>
-        <div class="txt">“She flagged this exact migration risk on the April call.”</div>
-      </div>
-    </div>
+
+    <figure class="reel">
+      <video id="reel" muted loop playsinline preload="none" poster="jiva-highlights-poster.webp" width="1280" height="800" aria-label="33-second tour of Jiva: copy the install command from the site, paste in Terminal, models download, join and record, live summary, ask past meetings, named transcript with action items, screens captured inline, ask Claude about your meetings, to-dos, dictation">
+        <source src="jiva-highlights.webm" type="video/webm">
+        <source src="jiva-highlights.mp4" type="video/mp4">
+      </video>
+    </figure>
   </section>
 
-  <section class="wrap term-wrap">
+  <!-- Install: unchanged from the live site -->
+  <div class="term-wrap">
     <div class="term">
       <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 9 3 3-3 3"/><path d="M13 15h4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>Install with one command<span class="rec-tag">Recommended</span></div>
       <div class="cmd">
@@ -270,54 +275,45 @@
         <b>Or by hand:</b> use the <b>Download for Mac</b> button, drag Jiva to Applications, then run <code>xattr -dr com.apple.quarantine /Applications/Jiva.app</code> once in Terminal before opening it.
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="wrap trust" id="privacy">
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>100% local</span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M7 18a4 4 0 0 1-.8-7.9 5 5 0 0 1 8.5-2.5"/><path d="M19.3 14.3A4 4 0 0 0 18 10"/></svg>No cloud</span>
-    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 11-3.5"/></svg>No account</span>
-  </section>
-
-  <section class="wrap" id="features">
-    <h2 class="section-h">Everything, on-device</h2>
-    <p class="section-sub">The whole pipeline runs locally — your audio never touches a server.</p>
+  <!-- Supporting detail, after the essentials -->
+  <section id="features">
+    <h2 class="section-h">What it does</h2>
+    <p class="section-sub">Four things, done well.</p>
     <div class="features">
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg><h3>Live transcription</h3><p>Both sides of the call, transcribed on-device as you talk.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M18 20a6 6 0 0 0-3-5.2"/></svg><h3>Speaker memory</h3><p>Labels who said what — and recognizes the same voice across every meeting, so names stick instead of “Speaker 1.”</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15h18"/><path d="m7 19 2-2 2 2"/></svg><h3>Live assist overlay</h3><p>A private glass overlay over any app: a running summary, one-tap Assist for what to say next, and a box to ask your past meetings — invisible to screen share.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg><h3>Hold-to-talk dictation</h3><p>Hold a key, speak anywhere, and it types for you.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5 5 7l2.5-2.5"/><path d="M3.5 12 5 13.5 7.5 11"/><path d="M3.5 18.5 5 20l2.5-2.5"/><path d="M11 6h10M11 12.5h10M11 19h10"/></svg><h3>Action items, automatically</h3><p>Decisions and to-dos are pulled out for you — each linked to the exact moment it was said.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg><h3>Auto-record</h3><p>Starts the moment a meeting begins, stops when it ends.</p></div>
-      <div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15 15 9"/><path d="M11 6.5 12 5.5a4 4 0 0 1 5.7 5.7l-1 1"/><path d="M13 17.5 12 18.5a4 4 0 0 1-5.7-5.7l1-1"/></svg><h3>Cited, not invented</h3><p>Every summary, decision, and answer links back to who said it and when — tap a citation to jump to that moment.</p></div>
-      <div class="card"><span class="badge">Soon</span><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#BA7517" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="7" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7l8 .5M7.5 8l3.5 8M16 9l-3 7"/></svg><h3>Knowledge graph</h3><p>See how a topic evolved across all your meetings.</p></div>
+      <div class="card"><h3>Names, not "Speaker 1"</h3><p>Recognizes the same voice across meetings, so names stick.</p></div>
+      <div class="card"><h3>Cited, not invented</h3><p>Every summary and answer links to the moment it was said.</p></div>
+      <div class="card"><h3>Live transcription</h3><p>Both sides of the call, on-device. Starts and stops with the meeting.</p></div>
+      <div class="card"><h3>Hold to dictate</h3><p>Hold a key, speak in any app, and it types for you.</p></div>
     </div>
   </section>
 
-  <section class="wrap">
-    <h2 class="section-h">Up and running in three steps</h2>
-    <p class="section-sub">No Python, no setup — the app is fully self-contained.</p>
-    <div class="steps">
-      <div class="step"><span class="n">1</span><div><h4>Run one command</h4><p>Paste the install command above into Terminal. It downloads, verifies, installs, and opens Jiva for you.</p></div></div>
-      <div class="step"><span class="n">2</span><div><h4>Grant permissions</h4><p>A Welcome window walks you through microphone, system audio, and dictation access.</p></div></div>
-      <div class="step"><span class="n">3</span><div><h4>Models download</h4><p>Dictation and transcription models fetch automatically — then record a meeting or hold to dictate.</p></div></div>
+  <section>
+    <h2 class="section-h">Straight answers</h2>
+    <p class="section-sub">The questions people ask before installing.</p>
+    <div class="straight">
+      <div><b>Is it really free?</b><p>Yes. There's no paid tier and no account to create.</p></div>
+      <div><b>Does anything go to the cloud?</b><p>No. Recording, transcripts and search work offline on your Mac. The only exception is if you connect an AI app like Claude and ask it about your meetings: the passages it reads go to that app.</p></div>
+      <div><b>Do other people on the call know?</b><p>No bot joins the call. Jiva records your Mac's audio like QuickTime does, so telling people is up to you.</p></div>
+      <div><b>What if I share my screen?</b><p>Your private notes overlay doesn't appear in screen shares.</p></div>
+      <div><b>Why does Jiva ask for Google Calendar?</b><p>Optional, read-only access so Jiva can remind you before a meeting, open the call with one click, and name the recording. Your calendar is read on your Mac and never sent to Jiva. See the <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p></div>
     </div>
   </section>
+
 </main>
 
-<footer>
-  <div class="wrap foot">
-    <span class="l"><svg viewBox="0 0 24 24" fill="none" stroke="#D85A30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 2 3 3 0 0 0 6 0 3 3 0 0 0 3-2 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/><path d="M12 5v14"/></svg>Jiva</span>
-    <span>Private by design · Made for Mac · <a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
-  </div>
-</footer>
+<footer><div class="foot" style="max-width:var(--maxw);margin:0 auto;">
+  <span>Jiva · Private by design · Made for Mac</span>
+  <span><a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+</div></footer>
+
 
 <script>
-  document.querySelectorAll('.copy[data-copy]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(function(){
-        var t=btn.querySelector('.ct'); if(!t) return;
-        var prev=t.textContent; t.textContent='Copied'; setTimeout(function(){t.textContent=prev;},1600);
-      });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      try{navigator.clipboard.writeText(b.dataset.copy);var c=b.querySelector('.ct')||b;c.textContent='Copied';
+          setTimeout(function(){c.textContent='Copy';},1400);}catch(e){}
     });
   });
 
@@ -342,8 +338,10 @@
     }
     var msg = '';
     if (isMobile || !isMac) {
-      msg = '<b>Heads up:</b> the Mac app needs an Apple-silicon Mac running macOS 14.4 or later. ' +
-            'If you’re on Android, grab the Jiva keyboard above.';
+      msg = isMobile
+        ? '<b>Mac app:</b> needs an Apple-silicon Mac on macOS 14.4+.'
+        : '<b>Heads up:</b> the Mac app needs an Apple-silicon Mac running macOS 14.4 or later. ' +
+          'If you’re on Android, grab the Jiva keyboard above.';
     } else {
       var r = gpu();
       if (r && /Intel/i.test(r) && !/Apple/i.test(r)) {
@@ -352,6 +350,18 @@
       }
     }
     if (msg) { el.innerHTML = msg; el.classList.add('show'); }
+  })();
+
+  // Highlights reel: never competes with the first page load.
+  // Starts only after the page has fully loaded, and skips autoplay for
+  // reduced-motion or data-saver users (they see the poster image instead).
+  (function(){
+    var v=document.getElementById('reel'); if(!v) return;
+    var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var sd=navigator.connection&&navigator.connection.saveData;
+    if(rm||sd){ v.controls=true; return; }
+    function go(){ v.preload='auto'; var p=v.play(); if(p&&p.catch) p.catch(function(){ v.controls=true; }); }
+    if(document.readyState==='complete') setTimeout(go,300); else window.addEventListener('load',function(){ setTimeout(go,300); });
   })();
 </script>
 <!--Start of Tawk.to Script-->
