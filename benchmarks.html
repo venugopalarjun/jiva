@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jiva benchmarks</title>
+<meta name="description" content="How Jiva scores on a public four-person meeting: 90% of words given to the right person, scored against the human transcript. Method and results.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://jiva.works/benchmarks">
+<meta property="og:title" content="Jiva benchmarks: measured on a real meeting">
+<meta property="og:description" content="How Jiva scores on a public four-person meeting: 90% of words given to the right person, scored against the human transcript. Method and results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jiva.works/benchmarks">
+<meta property="og:site_name" content="Jiva">
+<meta property="og:image" content="https://jiva.works/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Umami analytics — privacy-first, cookieless (D-119) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="50071a89-1dff-4b02-82bd-bb7b5a964816"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  /* Tokens copied from the live site (website/index.html) */
+  :root{
+    --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
+    --paper:#F3F1EC; --sidebar:#EEEBE3; --white:#FFFFFF;
+    --ink:#2C2C2A; --ink-2:#5F5E5A; --ink-3:#6E6D66; --ink-4:#88877F;
+    --hairline:rgba(0,0,0,0.09); --term:#2C2C2A; --term-inner:#1D1D1B;
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'SF Mono',ui-monospace,Menlo,monospace;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+       -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;
+         background:rgba(243,241,236,0.85);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;font-weight:500;}
+  .logo svg{width:27px;height:27px;}
+  .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;color:var(--ink-2);}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--clay);color:#fff;
+       font-size:15px;font-weight:500;padding:12px 20px;border-radius:10px;border:none;cursor:pointer;}
+  .btn:hover{filter:brightness(0.94);}
+  .btn svg{width:16px;height:16px;}
+  .btn-sm{padding:7px 14px;font-size:13px;border-radius:9px;}
+
+  /* ── Hero: the things you must know, up front ── */
+  .hero{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding:72px 0 56px;}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,56px);
+           line-height:1.06;letter-spacing:-0.01em;margin-bottom:28px;}
+  .hero h1 em{font-style:normal;color:var(--clay);}
+
+  .facts{list-style:none;margin-bottom:30px;}
+  .facts li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-top:0.5px solid var(--hairline);}
+  .facts li:last-child{border-bottom:0.5px solid var(--hairline);}
+  .facts .k{font-family:var(--serif);font-size:21px;color:var(--ink);min-width:7.2em;}
+  .facts .v{font-size:14.5px;color:var(--ink-2);}
+
+  .cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .cta .meta{font-size:13px;color:var(--ink-3);}
+
+  .reel{border-radius:18px;overflow:hidden;border:0.5px solid var(--hairline);box-shadow:0 24px 60px rgba(60,40,20,.14);aspect-ratio:16/10;background:var(--paper);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .reel video{display:block;width:100%;height:100%;object-fit:cover;}
+  .platwarn{display:none;width:100%;margin-top:4px;font-size:13px;color:var(--amber-dark);
+            background:var(--amber-tint);border:0.5px solid #EAD8B0;border-radius:9px;padding:9px 13px;}
+  .platwarn.show{display:block;}
+  .platwarn b{font-weight:500;}
+  .android{font-size:13px;color:var(--ink-3);width:100%;}
+  .android a{color:var(--clay-dark);text-decoration:underline;}
+  .shot{background:var(--white);border:0.5px solid var(--hairline);border-radius:16px;padding:20px;}
+  .rec{display:flex;align-items:center;gap:7px;color:var(--ink-3);font-size:12px;margin-bottom:14px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--clay);display:inline-block;}
+  .line{font-size:13.5px;line-height:1.6;color:#3a3a37;margin-bottom:8px;}
+  .who{font-weight:500;}
+  .sum{border-top:0.5px solid var(--hairline);margin-top:12px;padding-top:12px;}
+  .lbl{font-size:10px;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:4px;}
+  .txt{font-size:12.5px;color:var(--ink-2);}
+  .cite{color:var(--clay-dark);background:var(--clay-tint);border-radius:4px;padding:0 5px;font-size:11.5px;white-space:nowrap;}
+
+  /* Install block: copied verbatim from the live site */
+  .term{background:var(--term);border-radius:12px;padding:16px 18px;}
+  .term .cap{display:flex;align-items:center;gap:7px;color:#A9A89F;font-size:12px;margin-bottom:10px;}
+  .term .cap svg{width:15px;height:15px;}
+  .term .cmd{display:flex;align-items:center;justify-content:space-between;gap:14px;
+             background:var(--term-inner);border-radius:8px;padding:11px 14px;}
+  .term code{font-family:'SF Mono',ui-monospace,Menlo,monospace;color:var(--paper);font-size:13.5px;
+             flex:1;min-width:0;overflow-x:auto;white-space:nowrap;}
+  .term code .pr{color:#7F8A7F;}
+  .copy{background:none;border:none;color:#A9A89F;cursor:pointer;flex-shrink:0;padding:4px;border-radius:6px;
+        display:inline-flex;align-items:center;gap:5px;font-size:12px;transition:color .15s;}
+  .copy:hover{color:var(--paper);}
+  .copy svg{width:16px;height:16px;}
+  .term .note{color:#7d7c75;font-size:11.5px;margin-top:9px;}
+  .rec-tag{display:inline-block;background:var(--clay);color:#fff;font-size:10px;font-weight:600;
+           letter-spacing:0.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:auto;}
+  .term .alt{margin-top:14px;padding-top:12px;border-top:0.5px solid rgba(255,255,255,0.09);
+             color:#9c9b93;font-size:12px;line-height:1.85;}
+  .term .alt b{color:#c3c2ba;font-weight:500;}
+  .term .alt code{background:rgba(255,255,255,0.07);color:var(--paper);padding:1px 5px;border-radius:4px;
+                  font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:11.5px;}
+  .cmd-sm{margin:6px 0 2px;padding:9px 12px;}
+  .cmd-sm code{font-size:12.5px;}
+
+
+  .term-wrap{padding:0 0 64px;}
+  /* ── Sections ── */
+  .section-h{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:6px;}
+  .section-sub{color:var(--ink-2);font-size:15px;margin-bottom:24px;}
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:72px;}
+  .card{background:var(--white);border:0.5px solid var(--hairline);border-radius:14px;padding:18px;}
+  .card h3{font-size:15px;font-weight:500;margin-bottom:5px;}
+  .card p{font-size:13px;color:var(--ink-2);}
+
+  .straight{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-bottom:24px;}
+  .straight div{padding:16px 0;border-top:0.5px solid var(--hairline);}
+  .straight b{display:block;font-size:15px;font-weight:500;margin-bottom:2px;}
+  .straight p{font-size:14px;color:var(--ink-2);}
+
+  footer{margin-top:56px;border-top:0.5px solid var(--hairline);}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:22px 24px;color:var(--ink-3);font-size:12px;}
+
+
+  @media (max-width:860px){ .features{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;gap:24px;padding:36px 0 36px;}
+    /* Phones: headline, then the video, then the facts and download button */
+    .hero-copy{display:contents;}
+    .hero h1{order:1;margin-bottom:0;}
+    .reel{order:2;}
+    .facts{order:3;margin-bottom:0;}
+    .cta{order:4;}
+    .platwarn{font-size:12px;padding:6px 10px;margin-top:0;}
+    .facts .k{min-width:6.4em;font-size:19px;}
+    .term .row{flex-direction:column;align-items:stretch;gap:8px;}
+    .straight{grid-template-columns:1fr;}
+    .nav-links a:not(.btn){display:none;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 16px;}
+    .features{grid-template-columns:1fr;}
+    .facts li{flex-direction:column;gap:0;}
+  }
+  @media (max-width:520px){
+    .term .cmd{align-items:flex-start;}
+    .term code{white-space:normal;word-break:break-word;line-height:1.5;}
+    .term .alt code{word-break:break-all;}
+    .copy span{display:none;}
+  }
+
+  /* ---- DESIGN.md tokens (D-192/D-193) layered over the live site CSS ---- */
+  :root{--card:#FFFFFF;--card-soft:#F7F6F2;--fill:#EFEDE6;--track:#E4E0D6;--hairline-strong:rgba(0,0,0,.18);
+    --clay-press:#C24E26;--clay-text:#993C1D;--green:#1D9E75;--green-text:#137A56;--green-tint:#E3F3EC;
+    --amber-text:#854F0B;--amber-border:#EAD8B0;--red:#C8412F;--red-text:#A33424;--red-tint:#FBE9E6;
+    --blue:#3B7BD4;--screen-bg:#F6F4EF;--highlight:#FFF1C9;--mono:'SF Mono',ui-monospace,Menlo,monospace;
+    --r-xs:4px;--r-sm:6px;--r-md:8px;--r-lg:12px;--r-xl:14px;}
+  b,strong{font-weight:600;}
+  .btn{border-radius:var(--r-md);font-weight:600;transition:background .12s ease-out;}
+  .btn:hover{filter:none;background:var(--clay-press);}
+  .card,.shot{border-radius:var(--r-lg);}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--clay);outline-offset:2px;border-radius:var(--r-sm);}
+  .kicker{font:600 10.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;}}
+
+  /* ---- proof pages (prototype) ---- */
+  .page{padding:44px 0 64px;display:flex;flex-direction:column;gap:56px;}
+  .page-hero{max-width:760px;display:flex;flex-direction:column;gap:14px;}
+  .crumb{font-size:13px;color:var(--ink-2);}
+  .crumb a{color:var(--clay-text);}
+  .page-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,52px);line-height:1.05;text-wrap:balance;}
+  .page-hero h1 em{font-style:normal;color:var(--clay);}
+  .lede2{font-size:18px;line-height:1.5;color:var(--ink-2);}
+  .small{font-size:13px;color:var(--ink-2);}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .tile{background:var(--card);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px;}
+  .tile .lbl{font:600 10.5px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);}
+  .tile .big{font-family:var(--serif);font-weight:500;font-size:42px;line-height:1.1;color:var(--clay-text);font-variant-numeric:tabular-nums;}
+  .tile .sub{font-size:13.5px;color:var(--ink-2);}
+  .tbl-box{overflow-x:auto;background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);}
+  table.tb{width:100%;border-collapse:collapse;min-width:640px;}
+  .tb th,.tb td{padding:12px 16px;border-top:0.5px solid var(--hairline);text-align:left;vertical-align:top;font-size:14px;line-height:1.45;font-variant-numeric:tabular-nums;}
+  .tb th{font:600 10.5px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border-top:none;}
+  .tb td{color:#4A4945;} .tb td:first-child{font-weight:500;color:var(--ink);}
+  .tb td.yes{color:var(--green-text);font-weight:500;}
+  .tb tr.group td{font:600 10.5px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--card-soft);padding-top:10px;padding-bottom:10px;}
+  .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+  @media (max-width:760px){.quotes{grid-template-columns:1fr;}}
+  .tb tr.ref td{background:var(--sidebar);}
+  .tb .win{color:var(--clay-text);font-weight:600;}
+  .steps4{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .steps4 li{background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px;}
+  .steps4 .n{font-family:var(--serif);font-size:26px;color:var(--clay);line-height:1;}
+  .steps4 b{font-size:15px;font-weight:500;} .steps4 span{font-size:14px;color:var(--ink-2);line-height:1.45;}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+  .box{background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:10px;}
+  .box h2,.box h3{font-size:17px;font-weight:600;}
+  .box ul{padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.45;color:#4A4945;}
+  .quote{background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:10px;margin:0;}
+  .quote blockquote{font-family:var(--serif);font-size:24px;line-height:1.3;}
+  .quote figcaption{font-size:13px;color:var(--ink-2);}
+  .link-card{display:flex;justify-content:space-between;align-items:center;background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:16px 18px;font-size:15px;font-weight:500;}
+  .link-card span{color:var(--clay-text);}
+  .band{background:var(--term);color:var(--paper);border-radius:var(--r-xl);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+  .band .t{font-family:var(--serif);font-size:30px;}
+  .band code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:14px;color:#D8D6CF;}
+  .crit{display:flex;flex-direction:column;}
+  .crit > div{display:grid;grid-template-columns:40px 1fr;gap:4px 12px;padding:18px 0;border-top:0.5px solid var(--hairline);}
+  .crit > div:last-child{border-bottom:0.5px solid var(--hairline);}
+  .crit .n{font-family:var(--serif);font-size:24px;color:var(--clay);grid-row:span 3;line-height:1.1;}
+  .crit b{font-size:16px;font-weight:500;} .crit p{font-size:14.5px;color:var(--ink-2);line-height:1.5;}
+  .crit .j{font-size:14px;color:var(--ink);} .crit .j b{font-size:14px;color:var(--clay-text);}
+  .nav-links a.on{color:var(--ink);font-weight:500;}
+</style></head><body>
+<header><div class="wrap nav">
+  <a href="/" style="text-decoration:none;color:inherit"><div class="logo">
+    <svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g><g fill="#EF8253"><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(22.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(67.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(112.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(157.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(202.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(247.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(292.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(337.5 120 120)"/></g></svg>
+    <span>Jiva</span>
+  </div></a>
+  <nav class="nav-links"><a href="/#features">Features</a><a href="/benchmarks" class="on">Benchmarks</a><a href="/compare">Compare</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a>
+    <a class="btn btn-sm" data-umami-event="download-dmg-nav" href="https://github.com/USERNAME/jiva/releases/latest/download/Jiva.dmg">Download</a>
+  </nav>
+</div></header>
+<main class="wrap page">
+<section class="page-hero">
+  <span class="crumb">Benchmarks</span>
+  <h1>Measured, <em>not claimed.</em></h1>
+  <p class="lede2">Every number on this site comes from this page. We use a public meeting recording, so anyone can repeat the test and check our work.</p>
+  <span class="small">Last run 25 October 2026 · Jiva 0.1.16 · MacBook Pro, M4 Pro, 24 GB</span>
+</section>
+
+<section>
+  <h2 class="section-h" style="margin-bottom:22px">Results</h2>
+  <div class="tbl-box"><table class="tb" style="min-width:820px">
+    <thead><tr><th></th><th>RIGHT SPEAKER ↑</th><th>WORDS WRONG ↓</th><th>SPEAKER LABELS</th><th>WORDS IN TRANSCRIPT</th><th>WHERE IT RUNS</th></tr></thead>
+    <tbody>
+      <tr class="ref"><td>The real meeting <span style="font-weight:400;color:var(--ink-2)">(human transcript)</span></td><td>100%</td><td>0%</td><td>4 people</td><td>2,503</td><td>—</td></tr>
+      <tr><td>Jiva</td><td class="win">90%</td><td>21%</td><td>6</td><td>2,129</td><td>On your Mac</td></tr>
+      <tr><td>A popular AI notetaker</td><td>43%</td><td class="win">17%</td><td>1 ("Them")</td><td>2,213</td><td>Cloud</td></tr>
+    </tbody></table></div>
+  <p class="small" style="margin-top:12px;max-width:760px;line-height:1.55">One meeting so far (AMI ES2004a, 17.5 minutes, 4 people). "Right speaker" is the share of words given to the right person. The other app labels everyone on the call as "Them", so only the person who talks most can count as right. Jiva showed 6 labels for 4 people: it split two voices into extra labels.</p>
+</section>
+
+<section>
+  <h2 class="section-h" style="margin-bottom:22px">How we test</h2>
+  <ol class="steps4">
+    <li><span class="n">1</span><b>A public meeting</b><span>ES2004a from the AMI corpus (CC BY 4.0): a real 17.5-minute, four-person design meeting with a human-written transcript of 2,503 words and speaker labels.</span></li>
+    <li><span class="n">2</span><b>Same audio, same time</b><span>The recording plays on one Mac while Jiva and a popular AI notetaker both record it, so both hear exactly the same thing.</span></li>
+    <li><span class="n">3</span><b>Scored against the human transcript</b><span>Words wrong, words given to the right person, and how many speaker labels each app shows. Same rules for both: lower case, no punctuation, filler words like "um" removed.</span></li>
+    <li><span class="n">4</span><b>Repeat it yourself</b><span>The meeting and its human transcript are free to download, so anyone can repeat the test with any app.</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2 class="section-h" style="margin-bottom:22px">Speed on your Mac</h2>
+  <div class="tbl-box"><table class="tb">
+    <thead><tr><th>MEETING LENGTH</th><th>MACBOOK PRO, M4 PRO, 24 GB</th></tr></thead>
+    <tbody><tr><td>17.5 min</td><td>Transcript and summary ready about 1 minute after the meeting ends</td></tr></tbody>
+  </table></div>
+</section>
+
+<section class="box" style="max-width:760px">
+  <h2>Where Jiva is still behind</h2>
+  <p style="font-size:15px;color:var(--ink-2);line-height:1.5">We list these because they're true, and because a page that only shows wins isn't worth trusting.</p>
+  <ul>
+    <li>Words: Jiva gets 21% of words wrong to the other app's 17%. On the words both apps heard, Jiva made fewer mistakes; it loses on quick back-and-forth, where it misses more short phrases.</li>
+    <li>Extra labels: Jiva showed 6 speaker labels for 4 people, so two voices were split in two.</li>
+    <li>So far this is one meeting. We'll add more meetings and report the average.</li>
+  </ul>
+</section>
+
+<section style="display:flex;gap:12px;flex-wrap:wrap">
+  <a class="link-card" style="flex:1 1 260px" href="https://groups.inf.ed.ac.uk/ami/corpus/" target="_blank" rel="noopener">Get the AMI meeting (free, CC BY 4.0) <span>↗</span></a>
+  <a class="link-card" style="flex:1 1 260px" href="/compare">Jiva vs cloud AI notetakers <span>→</span></a>
+</section>
+<section class="band"><div style="display:flex;flex-direction:column;gap:6px"><span class="t">Try Jiva free.</span><code>curl -fsSL https://jiva.works/install.sh | bash</code></div>
+<a class="btn" data-umami-event="download-dmg-benchmarks" href="https://github.com/USERNAME/jiva/releases/latest/download/Jiva.dmg">Download for Mac</a></section>
+</main>
+<footer><div class="foot" style="max-width:var(--maxw);margin:0 auto;">
+  <span>Jiva · Private by design · Made for Mac</span>
+  <span><a href="/best-offline-meeting-recorder-mac">Choosing an offline recorder</a> · <a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+</div></footer>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a9e4e5f26b6d334506f33b6/1k1t64a7u';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body></html>

@@ -18,7 +18,10 @@
 
 ## How it compares
 
-Jiva is a local alternative to cloud meeting notetakers such as Granola, Otter and Fireflies. The difference: audio and transcripts stay on your Mac, it is free with no account, and it keeps a cross-meeting memory of who said what with citations back to the source.
+Measured on a public four-person meeting (AMI ES2004a), scored against the human transcript: Jiva gave 90% of words to the right person (a popular AI notetaker: 43%) with 21% of words wrong (that notetaker: 17%). Details: https://jiva.works/benchmarks
+
+
+Jiva is a local alternative to cloud AI meeting notetakers. The difference: audio and transcripts stay on your Mac, it is free with no account, and it keeps a cross-meeting memory of who said what with citations back to the source.
 
 ## Install
 
@@ -40,6 +43,9 @@ Jiva is a local alternative to cloud meeting notetakers such as Granola, Otter a
 
 - [Home](https://jiva.works/)
 - [Changelog](https://jiva.works/changelog)
+- [Benchmarks](https://jiva.works/benchmarks): measured on a public four-person meeting (AMI ES2004a)
+- [Jiva vs cloud AI notetakers](https://jiva.works/compare)
+- [How to choose an offline meeting recorder for Mac](https://jiva.works/best-offline-meeting-recorder-mac)
 - [Blog](https://jiva.works/blog)
 - [Privacy](https://jiva.works/privacy)
 - [Terms](https://jiva.works/terms)

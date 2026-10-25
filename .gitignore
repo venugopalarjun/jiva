@@ -43,3 +43,7 @@
 !jiva-highlights.mp4
 !jiva-highlights.webm
 !jiva-highlights-poster.webp
+# Proof pages (D-196) — or git add -A drops them
+!benchmarks.html
+!compare.html
+!best-offline-meeting-recorder-mac.html
