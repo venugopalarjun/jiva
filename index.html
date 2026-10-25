@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jiva — your meetings, remembered. Entirely on your Mac.</title>
-<meta name="description" content="Jiva is a fully-local Mac app for meeting recording, speaker-labeled transcripts, a live assist overlay, and hands-free dictation — with a memory that recognizes people and answers questions across every past meeting. No cloud, no account.">
+<title>Jiva — free meeting recorder that never leaves your Mac</title>
+<meta name="description" content="Jiva is a free Mac meeting recorder that runs entirely on your laptop. Speaker-named transcripts, live summaries, action items, to-dos and dictation, with a memory that knows who said what across every meeting. No cloud, no account.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:title" content="Jiva — your meetings, remembered.">
-<meta property="og:description" content="A fully-local meeting recorder, live assist overlay, and dictation tool for Mac, with cross-meeting memory. Nothing leaves your computer.">
+<meta property="og:title" content="Jiva — a meeting recorder that never leaves your Mac.">
+<meta property="og:description" content="A free Mac meeting recorder that runs entirely on your laptop and remembers who said what, across every meeting. No cloud, no account.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jiva.works/">
 <meta property="og:site_name" content="Jiva">
@@ -18,11 +18,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Jiva — your second brain. A fully-local meeting recorder for your Mac.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jiva — your meetings, remembered.">
-<meta name="twitter:description" content="A fully-local meeting recorder, live assist overlay, and dictation tool for Mac, with cross-meeting memory. Nothing leaves your computer.">
+<meta name="twitter:title" content="Jiva — a meeting recorder that never leaves your Mac.">
+<meta name="twitter:description" content="A free Mac meeting recorder that runs entirely on your laptop and remembers who said what, across every meeting. No cloud, no account.">
 <meta name="twitter:image" content="https://jiva.works/og-image.png">
 <link rel="canonical" href="https://jiva.works/">
-<meta name="keywords" content="local meeting recorder Mac, private meeting transcription, on-device transcription, offline dictation Mac, speaker diarization, live meeting assistant, macOS meeting notes, no-cloud meeting recorder">
+<meta name="keywords" content="local meeting recorder Mac, private meeting transcription, offline meeting notes, on-device transcription, Granola alternative, free AI notetaker Mac, speaker identification, meeting action items, dictation Mac">
 <!-- Umami analytics — privacy-first, cookieless (D-119) -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="50071a89-1dff-4b02-82bd-bb7b5a964816"></script>
 <script type="application/ld+json">
@@ -34,43 +34,80 @@
       "name": "Jiva",
       "url": "https://jiva.works/",
       "applicationCategory": "BusinessApplication",
-      "operatingSystem": "macOS 14+ (Apple silicon)",
+      "operatingSystem": "macOS 14.4+ (Apple silicon)",
       "downloadUrl": "https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg",
-      "description": "Jiva is a fully-local Mac app for meeting recording, speaker-labeled transcription, a live on-screen assist overlay, and hands-free dictation. It builds a private memory that recognizes people and answers questions across every past meeting. No cloud, no account, nothing leaves your computer.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Jiva is a free Mac meeting recorder that runs entirely on your laptop. Speaker-named transcripts, live summaries, action items, to-dos and dictation, with a memory that knows who said what across every meeting. No cloud, no account.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
       "featureList": [
-        "Local meeting recording (both sides of the call)",
-        "Live, on-device transcription",
-        "Speaker labels and cross-meeting speaker memory",
-        "Live assist overlay during calls",
-        "Hold-to-talk hands-free dictation",
-        "Automatic action items",
-        "Cited answers across past meetings",
-        "Fully offline — no cloud, no account"
-      ]
+        "Records both sides of a call on your Mac (no bot joins)",
+        "On-device live transcription that works offline",
+        "Recognizes the same voice across meetings, so transcripts show real names",
+        "Live summary overlay during calls",
+        "Ask any past meeting and get answers cited to the exact moment",
+        "Automatic action items linked to where they were said",
+        "Captures what was shared on screen, inline in the transcript",
+        "To-dos page: what you owe and what others owe you",
+        "Hold-to-talk dictation in any app",
+        "Optional Google Calendar reminders with one-click Join & Record",
+        "Optional connection so Claude can search your meetings (local MCP server)"
+      ],
+      "screenshot": "https://jiva.works/jiva-highlights-poster.webp"
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Jiva in 33 seconds",
+      "description": "Install Jiva with one command, watch the models download, then see a meeting recorded with a live summary, named transcript, action items, screens captured inline, Claude answering from your meetings, to-dos and dictation.",
+      "thumbnailUrl": "https://jiva.works/jiva-highlights-poster.webp",
+      "contentUrl": "https://jiva.works/jiva-highlights.mp4",
+      "uploadDate": "2026-10-25",
+      "duration": "PT33S"
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is Jiva?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Jiva is a fully-local macOS app that records and transcribes your meetings with speaker labels, shows a live assist overlay during calls, supports hands-free dictation, and builds a searchable memory across every past meeting. Everything runs on-device — no cloud and no account." }
+          "name": "Is it really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There's no paid tier and no account to create."
+          }
         },
         {
           "@type": "Question",
-          "name": "Is Jiva a private, offline meeting recorder for Mac?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Jiva records and transcribes entirely on your Mac. No audio or transcript data is sent to any server, so it works offline and keeps meeting content private." }
+          "name": "Does anything go to the cloud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Recording, transcripts and search work offline on your Mac. The only exception is if you connect an AI app like Claude and ask it about your meetings: the passages it reads go to that app."
+          }
         },
         {
           "@type": "Question",
-          "name": "How much does Jiva cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Jiva is free to download and use. It requires a Mac with Apple silicon." }
+          "name": "Do other people on the call know?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No bot joins the call. Jiva records your Mac's audio like QuickTime does, so telling people is up to you."
+          }
         },
         {
           "@type": "Question",
-          "name": "Does Jiva send my meetings to the cloud?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Recording, transcription, speaker recognition, and search all happen locally on your device. Nothing leaves your computer and no account is required." }
+          "name": "What if I share my screen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your private notes overlay doesn't appear in screen shares."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Jiva ask for Google Calendar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Optional, read-only access so Jiva can remind you before a meeting, open the call with one click, and name the recording. Your calendar is read on your Mac and never sent to Jiva. See the privacy policy."
+          }
         }
       ]
     }
@@ -126,6 +163,7 @@
   .cta .meta{font-size:13px;color:var(--ink-3);}
 
   .reel{border-radius:18px;overflow:hidden;border:0.5px solid var(--hairline);box-shadow:0 24px 60px rgba(60,40,20,.14);aspect-ratio:16/10;background:var(--paper);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   .reel video{display:block;width:100%;height:100%;object-fit:cover;}
   .platwarn{display:none;width:100%;margin-top:4px;font-size:13px;color:var(--amber-dark);
             background:var(--amber-tint);border:0.5px solid #EAD8B0;border-radius:9px;padding:9px 13px;}
@@ -249,11 +287,12 @@
       </div>
     </div>
 
-    <figure class="reel">
+    <figure class="reel" aria-describedby="reel-desc">
       <video id="reel" muted loop playsinline preload="none" poster="jiva-highlights-poster.webp" width="1280" height="800" aria-label="33-second tour of Jiva: copy the install command from the site, paste in Terminal, models download, join and record, live summary, ask past meetings, named transcript with action items, screens captured inline, ask Claude about your meetings, to-dos, dictation">
         <source src="jiva-highlights.webm" type="video/webm">
         <source src="jiva-highlights.mp4" type="video/mp4">
       </video>
+      <figcaption id="reel-desc" class="sr-only">In this 33-second video: copy the install command from jiva.works, paste it in Terminal and Jiva installs itself; speech, speaker, transcription and summary models download to your Mac; a calendar reminder opens the call and starts recording; a live summary appears beside the call; you ask what was agreed last time and get an answer cited to an earlier meeting; the transcript names Vandana and Krish and lists action items; a shared slide is captured inline; Claude answers from your meetings through Jiva; a typed to-do lands under Waiting on others; and holding Right Command dictates an email.</figcaption>
     </figure>
   </section>
 

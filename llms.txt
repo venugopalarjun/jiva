@@ -1,35 +1,45 @@
 # Jiva
 
-> Jiva is a fully-local macOS app for meeting recording, speaker-labeled transcription, a live on-screen assist overlay, and hands-free dictation. It builds a private, searchable memory that recognizes people and answers questions across every past meeting. Everything runs on-device — no cloud, no account, nothing leaves your computer. Free to download; requires a Mac with Apple silicon.
+> Jiva is a free macOS meeting recorder that runs entirely on your Mac and remembers who said what, across every meeting. Recording, transcription, speaker recognition, summaries and search all run on-device: no cloud, no account, and no bot joins the call. Requires a Mac with Apple silicon (macOS 14.4+).
 
 ## What Jiva does
 
-- **Local recording**: captures both sides of a call and your mic, on-device.
-- **Live transcription**: real-time, on-device speech-to-text — works offline.
-- **Speaker memory**: labels who said what and remembers speakers across meetings.
-- **Live assist overlay**: a floating overlay that surfaces notes and context during calls.
-- **Hold-to-talk dictation**: hands-free dictation anywhere on macOS.
-- **Automatic action items**: extracts follow-ups from each meeting.
-- **Cited answers**: answers questions across past meetings and cites the source, rather than inventing.
-- **Knowledge graph**: connects people, topics, and meetings over time.
+- **Records both sides of a call** on your Mac (Zoom, Google Meet, Teams, Webex, Slack huddles). No bot joins the meeting.
+- **Live, on-device transcription** that works offline.
+- **Speaker memory**: recognizes the same voice across meetings, so transcripts show real names instead of "Speaker 1".
+- **Live summary overlay** beside the call, with a suggested response and Assist / Recap.
+- **Ask any past meeting**: answers are cited to the exact moment they were said.
+- **Action items**: pulled out automatically, each linked to where it was said.
+- **Screens shown in the meeting**: shared slides and documents are captured inline in the transcript (optional, off by default).
+- **To-dos**: one list of what you owe and what others owe you, typed, dictated or filled from meetings.
+- **Hold-to-talk dictation**: hold Right Command, speak in any app, and Jiva types it.
+- **Calendar (optional)**: read-only Google Calendar access for a reminder before each meeting and one-click Join & Record.
+- **Claude and other AI apps (optional)**: a local MCP server lets Claude search your meetings. Only the passages that app reads leave your Mac.
 
-## Who it's for
+## How it compares
 
-People who want a private alternative to cloud meeting recorders and transcription
-tools (e.g. Granola, Otter, Fireflies) — where audio and transcripts never leave the Mac.
-Good fit for anyone searching for a "local meeting recorder for Mac", "private/offline
-meeting transcription", or "on-device meeting notes".
+Jiva is a local alternative to cloud meeting notetakers such as Granola, Otter and Fireflies. The difference: audio and transcripts stay on your Mac, it is free with no account, and it keeps a cross-meeting memory of who said what with citations back to the source.
+
+## Install
+
+- One command: `curl -fsSL https://jiva.works/install.sh | bash` (downloads, verifies the checksum, installs to Applications and opens Jiva)
+- Homebrew: `brew install --cask venugopalarjun/jiva/jiva`
+- Or download the .dmg: https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg
+- The Welcome window then downloads the on-device models (about 6 GB: Parakeet speech, speaker separation, Whisper refine, Qwen3-4B summaries).
 
 ## Key facts
 
-- Platform: macOS (Apple silicon)
+- Platform: macOS 14.4+ on Apple silicon; Android keyboard (beta) for dictation
 - Price: free
-- Privacy: fully local — no cloud, no account, no data leaves the device
+- Privacy: fully local. Optional integrations (Google Calendar, Claude) are off until you turn them on.
 - Latest version: 0.1.16 (2026-10-14): Recordings are named after your meeting. Full history: https://jiva.works/changelog
 - Site: https://jiva.works/
-- Download: https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg
+- Privacy policy: https://jiva.works/privacy
 
 ## Links
 
 - [Home](https://jiva.works/)
 - [Changelog](https://jiva.works/changelog)
+- [Blog](https://jiva.works/blog)
+- [Privacy](https://jiva.works/privacy)
+- [Terms](https://jiva.works/terms)
