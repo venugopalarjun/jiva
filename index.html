@@ -210,7 +210,7 @@
   /* ── Sections ── */
   .section-h{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:6px;}
   .section-sub{color:var(--ink-2);font-size:15px;margin-bottom:24px;}
-  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:72px;}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:72px;}
   .card{background:var(--white);border:0.5px solid var(--hairline);border-radius:14px;padding:18px;}
   .card h3{font-size:15px;font-weight:500;margin-bottom:5px;}
   .card p{font-size:13px;color:var(--ink-2);}
@@ -383,12 +383,14 @@
   <!-- Supporting detail, after the essentials -->
   <section id="features">
     <h2 class="section-h">What it does</h2>
-    <p class="section-sub">Four things, done well.</p>
+    <p class="section-sub">Six things, done well.</p>
     <div class="features">
       <div class="card"><h3>Names, not "Speaker 1"</h3><p>Recognizes the same voice across meetings, so names stick.</p></div>
       <div class="card"><h3>Cited, not invented</h3><p>Every summary and answer links to the moment it was said.</p></div>
       <div class="card"><h3>Live transcription</h3><p>Both sides of the call, on-device. Starts and stops with the meeting.</p></div>
       <div class="card"><h3>Hold to dictate</h3><p>Hold a key, speak in any app, and it types for you.</p></div>
+      <div class="card"><h3>To-dos with the next step</h3><p>One list of what you owe and what you're waiting on, each with what to do next.</p></div>
+      <div class="card"><h3>Second brain, with Claude</h3><p>Optional. Claude keeps your people, decisions and to-dos current from Slack, email and Notion.</p></div>
     </div>
   </section>
 
@@ -422,7 +424,7 @@
     <p class="section-sub">The questions people ask before installing.</p>
     <div class="straight">
       <div><b>Is it really free?</b><p>Yes. There's no paid tier and no account to create.</p></div>
-      <div><b>Does anything go to the cloud?</b><p>No. Recording, transcripts and search work offline on your Mac. The only exception is if you connect an AI app like Claude and ask it about your meetings: the passages it reads go to that app.</p></div>
+      <div><b>Does anything go to the cloud?</b><p>No. Recording, transcripts and search work offline on your Mac. The exceptions are ones you turn on: if you ask an AI app like Claude about your meetings, the passages it reads go to that app, and the optional second brain works through your own Claude account.</p></div>
       <div><b>Do other people on the call know?</b><p>No bot joins the call. Jiva records your Mac's audio like QuickTime does, so telling people is up to you.</p></div>
       <div><b>What if I share my screen?</b><p>Your private notes overlay doesn't appear in screen shares.</p></div>
       <div><b>Why does Jiva ask for Google Calendar?</b><p>Optional, read-only access so Jiva can remind you before a meeting, open the call with one click, and name the recording. Your calendar is read on your Mac and never sent to Jiva. See the <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p></div>

@@ -11,10 +11,12 @@
 - **Ask any past meeting**: answers are cited to the exact moment they were said.
 - **Action items**: pulled out automatically, each linked to where it was said.
 - **Screens shown in the meeting**: shared slides and documents are captured inline in the transcript (optional, off by default).
-- **To-dos**: one list of what you owe and what others owe you, typed, dictated or filled from meetings.
+- **To-dos**: one list of what you owe and what others owe you, typed or dictated; each card shows the next step, and opens to why it matters and a draft reply.
 - **Hold-to-talk dictation**: hold Right Command, speak in any app, and Jiva types it.
 - **Calendar (optional)**: read-only Google Calendar access for a reminder before each meeting and one-click Join & Record.
 - **Claude and other AI apps (optional)**: a local MCP server lets Claude search your meetings. Only the passages that app reads leave your Mac.
+- **Second brain with Claude (optional)**: turn it on in Settings and the Claude desktop app keeps a store of your people, decisions, work and to-dos from Slack, email, Notion and your meetings, checking hourly on weekdays. It adds to-dos with context, closes them when done, and fixes name spellings in future transcripts. The store stays on your Mac; what Claude reads goes through your own Claude account.
+- **Dark mode**: follows your Mac, or pick Light or Dark.
 
 ## How it compares
 
@@ -34,8 +36,8 @@ Jiva is a local alternative to cloud AI meeting notetakers. The difference: audi
 
 - Platform: macOS 14.4+ on Apple silicon; Android keyboard (beta) for dictation
 - Price: free
-- Privacy: fully local. Optional integrations (Google Calendar, Claude) are off until you turn them on.
-- Latest version: 0.1.16 (2026-10-14): Recordings are named after your meeting. Full history: https://jiva.works/changelog
+- Privacy: fully local. Optional integrations (Google Calendar, Claude, the second brain) are off until you turn them on.
+- Latest version: 0.1.17 (2026-10-25): One list of what you owe and what you're waiting on. Full history: https://jiva.works/changelog
 - Site: https://jiva.works/
 - Privacy policy: https://jiva.works/privacy
 
