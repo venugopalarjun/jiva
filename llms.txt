@@ -1,9 +1,12 @@
 # Jiva
 
-> Jiva is a free macOS meeting recorder that runs entirely on your Mac and remembers who said what, across every meeting. Recording, transcription, speaker recognition, summaries and search all run on-device: no cloud, no account, and no bot joins the call. Requires a Mac with Apple silicon (macOS 14.4+).
+> Jiva is a free meeting assistant and recorder for macOS that runs entirely on your Mac. It preps you before each meeting, names who said what during it, and follows up after, with a memory of people across every meeting. Recording, transcription, speaker recognition, summaries and search all run on-device: no cloud, no account, and no bot joins the call. Requires a Mac with Apple silicon (macOS 14.4+).
 
 ## What Jiva does
 
+- **Meeting prep**: with Google Calendar connected, today's meetings sit at the top of the Meetings list. Each opens to what to raise, what was agreed last time, and who owes what. Built on your Mac; with the optional second brain, Claude adds Slack and email.
+- **Prep ticks itself off**: during the call the prep becomes a checklist above the live transcript, and points tick as they come up. Afterwards each point is marked decided, still open, or didn't come up, and what's left carries to your next meeting with the same people.
+- **People pages**: when you last spoke with someone, what's open on each side, your notes, and every conversation by topic or date. With the second brain on, Claude suggests names for unnamed voices.
 - **Records both sides of a call** on your Mac (Zoom, Google Meet, Teams, Webex, Slack huddles). No bot joins the meeting.
 - **Live, on-device transcription** that works offline.
 - **Speaker memory**: recognizes the same voice across meetings, so transcripts show real names instead of "Speaker 1".
@@ -23,7 +26,7 @@
 Measured on a public four-person meeting (AMI ES2004a), scored against the human transcript: Jiva gave 90% of words to the right person (a popular AI notetaker: 43%) with 21% of words wrong (that notetaker: 17%). Details: https://jiva.works/benchmarks
 
 
-Jiva is a local alternative to cloud AI meeting notetakers. The difference: audio and transcripts stay on your Mac, it is free with no account, and it keeps a cross-meeting memory of who said what with citations back to the source.
+Jiva is a local alternative to cloud AI meeting notetakers. The difference: audio and transcripts stay on your Mac, it is free with no account, it keeps a cross-meeting memory of who said what with citations back to the source, and it closes the loop: prep before, points ticked off during, and nothing dropped after.
 
 ## Install
 
