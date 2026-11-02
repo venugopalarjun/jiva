@@ -37,7 +37,7 @@ Jiva is a local alternative to cloud AI meeting notetakers. The difference: audi
 - Platform: macOS 14.4+ on Apple silicon; Android keyboard (beta) for dictation
 - Price: free
 - Privacy: fully local. Optional integrations (Google Calendar, Claude, the second brain) are off until you turn them on.
-- Latest version: 0.1.17 (2026-10-25): One list of what you owe and what you're waiting on. Full history: https://jiva.works/changelog
+- Latest version: 0.1.18 (2026-11-02): Prep for every meeting, right in your Meetings list. Full history: https://jiva.works/changelog
 - Site: https://jiva.works/
 - Privacy policy: https://jiva.works/privacy
 
