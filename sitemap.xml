@@ -107,6 +107,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jiva.works/blog/confidently-wrong</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jiva.works/changelog</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
