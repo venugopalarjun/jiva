@@ -31,6 +31,13 @@
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "headline": "Repairing mangled names — and the fix that broke everything",
+      "url": "https://jiva.works/blog/name-and-number-hardening",
+      "datePublished": "2026-11-10",
+      "author": { "@type": "Person", "name": "Arjun Venugopal" }
+    },
+    {
+      "@type": "BlogPosting",
       "headline": "Why I made the app refuse to guess a name",
       "url": "https://jiva.works/blog/refusing-to-guess-a-name",
       "datePublished": "2026-11-06",
@@ -214,6 +221,7 @@ const CAT={origin:['Origin','#D85A30','#FAECE7'],tech:['The hard tech','#1D9E75'
 const ring=a=>`<circle cx="50" cy="50" r="42" fill="none" stroke="${a}" stroke-width="1.3" stroke-dasharray="1.4 6" stroke-linecap="round" opacity="0.45"/>`;
 /* ---- Hindu-motif library (add a new one here when a post needs it) ---- */
 const G={
+ shuddhi:(A,B)=>`<path d="M50 27 C44 40 38 49 38 57 a12 12 0 0 0 24 0 C62 49 56 40 50 27Z" fill="${A}"/><path d="M47 47 C45 51 44 54 45 57" fill="none" stroke="${B}" stroke-width="2.4" stroke-linecap="round"/><path d="M33 71 q4.5 -4 9 0 t9 0 t9 0" fill="none" stroke="${A}" stroke-width="2.6" stroke-linecap="round"/><path d="M38 77 q4 -3 7 0 t7 0" fill="none" stroke="${A}" stroke-width="2" stroke-linecap="round" opacity=".6"/>`,
  tilak:(A,B)=>`<path d="M39 32 V57 Q39 70 50 70 Q61 70 61 57 V32" fill="none" stroke="${A}" stroke-width="4.5" stroke-linecap="round"/><path d="M50 35 C47 46 47 56 50 66 C53 56 53 46 50 35Z" fill="${A}"/><circle cx="50" cy="26" r="3.6" fill="${A}"/>`,
  nishabda:(A,B)=>`<circle cx="50" cy="50" r="21" fill="${B}" stroke="${A}" stroke-width="6"/><circle cx="50" cy="29" r="2.4" fill="${A}"/><circle cx="50" cy="71" r="2.4" fill="${A}"/><circle cx="29" cy="50" r="2.4" fill="${A}"/><circle cx="71" cy="50" r="2.4" fill="${A}"/>`,
  dvaar:(A,B)=>`<path d="M34 74 V32 H66 V74" fill="none" stroke="${A}" stroke-width="3.2" stroke-linejoin="round"/><path d="M28 74 H72" stroke="${A}" stroke-width="3.4" stroke-linecap="round"/><path d="M50 33 V73" stroke="${A}" stroke-width="2.2"/><rect x="37.5" y="37" width="10" height="33" rx="1.5" fill="${B}" stroke="${A}" stroke-width="1.5"/><rect x="52.5" y="37" width="10" height="33" rx="1.5" fill="${B}" stroke="${A}" stroke-width="1.5"/><circle cx="46" cy="54" r="1.7" fill="${A}"/><circle cx="54" cy="54" r="1.7" fill="${A}"/><path d="M50 26 l3 4 -3 4 -3 -4Z" fill="${A}"/>`,
@@ -241,7 +249,8 @@ const G={
 function thumb(m,cat){const [,A,B]=CAT[cat];return `<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="1.5" y="1.5" width="97" height="97" rx="18" fill="${B}"/>${ring(A)}${G[m](A,B)}</svg>`;}
 /* ---- POSTS: newest first. Add a line per post: [title, category, motif, date, readTime, isNew, url] ---- */
 const posts=[
- ['Why I made the app refuse to guess a name','tech','tilak','6 November 2026','5 min',true,'/blog/refusing-to-guess-a-name'],
+ ['Repairing mangled names &mdash; and the fix that broke everything','broke','shuddhi','10 November 2026','5 min',true,'/blog/name-and-number-hardening'],
+ ['Why I made the app refuse to guess a name','tech','tilak','6 November 2026','5 min',false,'/blog/refusing-to-guess-a-name'],
  ['Confidently wrong: when silence is worse than an error','tech','nishabda','3 November 2026','5 min',false,'/blog/confidently-wrong'],
  ['One person became four','tech','fourdiyas','30 October 2026','5 min',false,'/blog/one-person-became-four'],
  ['&ldquo;Me is not me&rdquo;: the bug that taught me attribution is an audio problem','tech','damaru','27 October 2026','6 min',false,'/blog/me-is-not-me'],
