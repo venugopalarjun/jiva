@@ -7,7 +7,8 @@
 - **Meeting prep**: with Google Calendar connected, today's meetings sit at the top of the Meetings list. Each opens to what to raise, what was agreed last time, and who owes what. Built on your Mac; with the optional second brain, Claude adds Slack and email.
 - **Prep ticks itself off**: during the call the prep becomes a checklist above the live transcript, and points tick as they come up. Afterwards each point is marked decided, still open, or didn't come up, and what's left carries to your next meeting with the same people.
 - **People pages**: when you last spoke with someone, what's open on each side, your notes, and every conversation by topic or date. With the second brain on, Claude suggests names for unnamed voices.
-- **Records both sides of a call** on your Mac (Zoom, Google Meet, Teams, Webex, Slack huddles). No bot joins the meeting.
+- **Reply with context**: someone asks you in chat about something from a meeting. Click into the reply box, hold Right Option for 2 seconds, and Jiva drafts the reply from what was decided and what is still open, with the lines it is based on. You edit and send it yourself; Jiva never sends anything. Runs on your Mac. New in 0.1.23, tried in one chat app so far.
+- **Records both sides of a call** on your Mac (Zoom, Google Meet, Teams, Webex, Slack huddles). Recording starts by itself when a meeting starts, including Google Meet in the browser, and you choose which apps. No bot joins the meeting.
 - **Live, on-device transcription** that works offline.
 - **Speaker memory**: recognizes the same voice across meetings, so transcripts show real names instead of "Speaker 1".
 - **Live summary overlay** beside the call, with a suggested response and Assist / Recap.
@@ -19,6 +20,9 @@
 - **Calendar (optional)**: read-only Google Calendar access for a reminder before each meeting and one-click Join & Record.
 - **Claude and other AI apps (optional)**: a local MCP server lets Claude search your meetings. Only the passages that app reads leave your Mac.
 - **Second brain with Claude (optional)**: turn it on in Settings and the Claude desktop app keeps a store of your people, decisions, work and to-dos from Slack, email, Notion and your meetings, checking hourly on weekdays. It adds to-dos with context, closes them when done, and fixes name spellings in future transcripts. The store stays on your Mac; what Claude reads goes through your own Claude account.
+- **Do it with Claude (optional, with the second brain)**: give a to-do a kind of work (a spec, a help article, a reply). Claude preps it, asks a few questions at most, and leaves a private draft on the card. Nothing is sent or posted.
+- **Heads-ups (optional, with the second brain)**: a few at a time, each with its evidence: two dates that don't match, a question that keeps coming back, a promise with no to-do, work gone quiet.
+- **Settings you control**: the dictation key, which apps start a recording, your glossary and learned spelling fixes, how long shared-screen pictures are kept, and when the second brain runs.
 - **Dark mode**: follows your Mac, or pick Light or Dark.
 
 ## How it compares
