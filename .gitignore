@@ -47,3 +47,7 @@
 !benchmarks.html
 !compare.html
 !best-offline-meeting-recorder-mac.html
+
+# Help Center (A-68, D-281) — pages + videos + pictures, or git add -A drops them
+!help/
+!help/**
