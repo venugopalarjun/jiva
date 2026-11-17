@@ -30,6 +30,8 @@
 !robots.txt
 !sitemap.xml
 !llms.txt
+# IndexNow key (D-300): public by design; Bing reads it to accept the change list publish.sh sends.
+!indexnow-key.txt
 !privacy.html
 !terms.html
 # Blog section — re-allow the directory AND its contents or git add -A drops them
