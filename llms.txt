@@ -103,5 +103,6 @@ Jiva is a local alternative to cloud AI meeting notetakers. The difference: audi
 - [Fix a permission](https://jiva.works/help/fix-a-permission)
 - [Send your logs and get help](https://jiva.works/help/send-logs-and-get-help)
 - [Blog](https://jiva.works/blog)
+- [Blog feed (RSS)](https://jiva.works/blog/feed.xml)
 - [Privacy](https://jiva.works/privacy)
 - [Terms](https://jiva.works/terms)

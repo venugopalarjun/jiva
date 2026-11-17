@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jiva — free meeting assistant and recorder that never leaves your Mac</title>
-<meta name="description" content="Jiva is a free meeting assistant for Mac that runs entirely on your laptop. It preps you before each meeting, names who said what, ticks off your points during the call, follows up after, and drafts your chat replies from what was decided. No cloud, no account.">
+<meta name="description" content="Jiva is a free meeting assistant that runs entirely on your Mac. It preps you before each meeting, names who said what and follows up. No cloud, no account.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -27,115 +27,150 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="50071a89-1dff-4b02-82bd-bb7b5a964816"></script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://jiva.works/#org",
+   "name": "Jiva",
+   "alternateName": [
+    "Jiva for Mac",
+    "Jiva meeting assistant"
+   ],
+   "url": "https://jiva.works/",
+   "logo": "https://jiva.works/apple-touch-icon.png",
+   "description": "Maker of Jiva, a free meeting assistant and recorder for macOS that runs entirely on the user's Mac.",
+   "email": "ceo@jiva.works",
+   "sameAs": [
+    "https://github.com/venugopalarjun/jiva",
+    "https://jivaworks.substack.com"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://jiva.works/#site",
+   "name": "Jiva",
+   "url": "https://jiva.works/",
+   "publisher": {
+    "@id": "https://jiva.works/#org"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "name": "Jiva",
+   "url": "https://jiva.works/",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "macOS 14.4+ (Apple silicon)",
+   "downloadUrl": "https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg",
+   "description": "Jiva is a free meeting assistant for Mac that runs entirely on your laptop. It preps you before each meeting, names who said what, ticks off your points during the call, follows up after, and drafts your chat replies from what was decided. No cloud, no account.",
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   },
+   "featureList": [
+    "Records both sides of a call on your Mac (no bot joins)",
+    "On-device live transcription that works offline",
+    "Recognizes the same voice across meetings, so transcripts show real names",
+    "Live summary overlay during calls",
+    "Ask any past meeting and get answers cited to the exact moment",
+    "Automatic action items linked to where they were said",
+    "Captures what was shared on screen, inline in the transcript",
+    "To-dos page: what you owe and what others owe you",
+    "Hold-to-talk dictation in any app",
+    "Optional Google Calendar reminders with one-click Join & Record",
+    "Meeting prep for each of today's meetings: what to raise, what happened last time, and who owes what",
+    "Prep points tick themselves off during the call; points that didn't come up carry to your next meeting with those people",
+    "People pages: when you last spoke, what's open on each side, your notes, and the full history",
+    "Optional second brain with Claude: adds Slack and email to prep and people pages, and suggests names for unknown voices",
+    "Optional connection so Claude can search your meetings (local MCP server)",
+    "Reply with context: hold a key in a chat reply box and Jiva drafts the reply from what was decided in your meetings; you send it yourself",
+    "Starts recording by itself when a meeting starts, including Google Meet in the browser",
+    "Optional, with Claude: Do it with Claude preps a to-do and leaves a private draft on the card",
+    "Optional, with Claude: heads-ups when two dates don't match, a question keeps coming back, or a promise has no to-do"
+   ],
+   "screenshot": "https://jiva.works/jiva-highlights-poster.webp",
+   "@id": "https://jiva.works/#app",
+   "publisher": {
+    "@id": "https://jiva.works/#org"
+   },
+   "alternateName": "Jiva for Mac",
+   "sameAs": [
+    "https://github.com/venugopalarjun/jiva"
+   ]
+  },
+  {
+   "@type": "VideoObject",
+   "name": "Jiva in 58 seconds",
+   "description": "Install Jiva with one command and watch the models download. Then a meeting is prepped, recorded with a live summary while prep points tick off, finished with real names and action items, and followed up: unraised points carry forward, screens are captured, people pages remember everyone, Claude names an unknown voice and answers from your meetings, then to-dos, a draft made with Claude, a heads-up about two dates that don't match, dictation, and a chat reply drafted from what was decided.",
+   "thumbnailUrl": "https://jiva.works/jiva-highlights-poster.webp",
+   "contentUrl": "https://jiva.works/jiva-highlights.mp4",
+   "uploadDate": "2026-11-13",
+   "duration": "PT58S"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
     {
-      "@type": "SoftwareApplication",
-      "name": "Jiva",
-      "url": "https://jiva.works/",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "macOS 14.4+ (Apple silicon)",
-      "downloadUrl": "https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg",
-      "description": "Jiva is a free meeting assistant for Mac that runs entirely on your laptop. It preps you before each meeting, names who said what, ticks off your points during the call, follows up after, and drafts your chat replies from what was decided. No cloud, no account.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Records both sides of a call on your Mac (no bot joins)",
-        "On-device live transcription that works offline",
-        "Recognizes the same voice across meetings, so transcripts show real names",
-        "Live summary overlay during calls",
-        "Ask any past meeting and get answers cited to the exact moment",
-        "Automatic action items linked to where they were said",
-        "Captures what was shared on screen, inline in the transcript",
-        "To-dos page: what you owe and what others owe you",
-        "Hold-to-talk dictation in any app",
-        "Optional Google Calendar reminders with one-click Join & Record",
-        "Meeting prep for each of today's meetings: what to raise, what happened last time, and who owes what",
-        "Prep points tick themselves off during the call; points that didn't come up carry to your next meeting with those people",
-        "People pages: when you last spoke, what's open on each side, your notes, and the full history",
-        "Optional second brain with Claude: adds Slack and email to prep and people pages, and suggests names for unknown voices",
-        "Optional connection so Claude can search your meetings (local MCP server)",
-        "Reply with context: hold a key in a chat reply box and Jiva drafts the reply from what was decided in your meetings; you send it yourself",
-        "Starts recording by itself when a meeting starts, including Google Meet in the browser",
-        "Optional, with Claude: Do it with Claude preps a to-do and leaves a private draft on the card",
-        "Optional, with Claude: heads-ups when two dates don't match, a question keeps coming back, or a promise has no to-do"
-      ],
-      "screenshot": "https://jiva.works/jiva-highlights-poster.webp"
+     "@type": "Question",
+     "name": "Is it really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. There's no paid tier and no account to create."
+     }
     },
     {
-      "@type": "VideoObject",
-      "name": "Jiva in 58 seconds",
-      "description": "Install Jiva with one command and watch the models download. Then a meeting is prepped, recorded with a live summary while prep points tick off, finished with real names and action items, and followed up: unraised points carry forward, screens are captured, people pages remember everyone, Claude names an unknown voice and answers from your meetings, then to-dos, a draft made with Claude, a heads-up about two dates that don't match, dictation, and a chat reply drafted from what was decided.",
-      "thumbnailUrl": "https://jiva.works/jiva-highlights-poster.webp",
-      "contentUrl": "https://jiva.works/jiva-highlights.mp4",
-      "uploadDate": "2026-11-13",
-      "duration": "PT58S"
+     "@type": "Question",
+     "name": "Does anything go to the cloud?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, not by default. Recording, transcripts, search, people pages and meeting prep work offline on your Mac. The exceptions are ones you turn on: if you ask an AI app like Claude about your meetings, the passages it reads go to that app, and the optional second brain works through your own Claude account."
+     }
     },
     {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is it really free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. There's no paid tier and no account to create."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does anything go to the cloud?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No, not by default. Recording, transcripts, search, people pages and meeting prep work offline on your Mac. The exceptions are ones you turn on: if you ask an AI app like Claude about your meetings, the passages it reads go to that app, and the optional second brain works through your own Claude account."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does meeting prep need Claude?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Without Claude, Jiva builds each prep on your Mac from your past meetings and to-dos. With the optional second brain on, Claude adds what came up in Slack and email."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do other people on the call know?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No bot joins the call. Jiva records your Mac's audio like QuickTime does, so telling people is up to you."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Jiva ever send anything for me?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Reply with context and the drafts Claude makes are drafts only. You read them, edit them and send them yourself."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if I share my screen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Your private notes overlay doesn't appear in screen shares."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why does Jiva ask for Google Calendar?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Optional, read-only access so Jiva can remind you before a meeting, show today's meetings with their prep, open the call with one click, and name the recording. Your calendar is read on your Mac and never sent to Jiva. Claude sees today's meetings only if you turn on the second brain and allow it. See the privacy policy."
-          }
-        }
-      ]
+     "@type": "Question",
+     "name": "Does meeting prep need Claude?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Without Claude, Jiva builds each prep on your Mac from your past meetings and to-dos. With the optional second brain on, Claude adds what came up in Slack and email."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do other people on the call know?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No bot joins the call. Jiva records your Mac's audio like QuickTime does, so telling people is up to you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Jiva ever send anything for me?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Reply with context and the drafts Claude makes are drafts only. You read them, edit them and send them yourself."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if I share my screen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your private notes overlay doesn't appear in screen shares."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does Jiva ask for Google Calendar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Optional, read-only access so Jiva can remind you before a meeting, show today's meetings with their prep, open the call with one click, and name the recording. Your calendar is read on your Mac and never sent to Jiva. Claude sees today's meetings only if you turn on the second brain and allow it. See the privacy policy."
+     }
     }
-  ]
+   ]
+  }
+ ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,6 +273,7 @@
   .card{background:var(--white);border:0.5px solid var(--hairline);border-radius:14px;padding:18px;}
   .card h3{font-size:15px;font-weight:500;margin-bottom:5px;}
   .card p{font-size:13px;color:var(--ink-2);}
+.glink{color:var(--clay-text);white-space:nowrap}.glink:hover{text-decoration:underline}
 
   .straight{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-bottom:24px;}
   .straight div{padding:16px 0;border-top:0.5px solid var(--hairline);}
@@ -453,7 +489,7 @@
   <section id="features">
     <div class="ppl rwc">
       <div><span class="kicker">New in 0.1.23</span><h2 class="section-h" style="margin-top:8px">Asked in chat? Reply with what was decided</h2>
-        <p>Someone asks you about something from a meeting. Click into the reply box and hold <span class="kbd">Right ⌥</span> for 2 seconds. Jiva drafts the reply from what was decided and what is still open, and shows the lines it is based on.</p>
+        <p>Someone asks you about something from a meeting. Click into the reply box and hold <span class="kbd">Right ⌥</span> for 2 seconds. Jiva drafts the reply from what was decided and what is still open, and shows the lines it is based on. <a class="glink" href="/help/reply-with-context" data-umami-event="home-guide-link">Guide: Reply with context →</a></p>
         <p>You read it, edit it and send it yourself. Jiva never sends anything, and the draft is written on your Mac.</p>
         <p class="fine">New, and tried in one chat app so far.</p></div>
       <div class="card pcard" aria-hidden="true"><div class="kicker">Replying to Maya</div>
@@ -467,7 +503,7 @@
     <h2 class="section-h">Before, during and after every meeting</h2>
     <p class="section-sub">Most recorders stop at the transcript. Jiva closes the loop.</p>
     <div class="bda">
-      <div class="card bd1"><span class="kicker">Before</span><h3>A prep for every meeting</h3><p>Today's meetings sit at the top of your list. Each opens to what to raise, what happened last time, and who owes what.</p>
+      <div class="card bd1"><span class="kicker">Before</span><h3>A prep for every meeting</h3><p>Today's meetings sit at the top of your list. Each opens to what to raise, what happened last time, and who owes what. <a class="glink" href="/help/meeting-prep" data-umami-event="home-guide-link">Guide: Prepare for a meeting →</a></p>
         <div class="mini" aria-hidden="true"><div class="mrow2"><span class="nn">1</span>Lock the launch date</div><div class="mrow2"><span class="nn">2</span>Enterprise price per seat</div><div class="mrow2"><span class="avs" style="background:#1D9E75">KR</span>Krish owes you the mockups <span class="dc od">Fri</span></div></div></div>
       <div class="card bd1"><span class="kicker">During</span><h3>Points tick off as they come up</h3><p>Your prep becomes a checklist above the live transcript. When a point is discussed, it's ticked, with a link to the moment.</p>
         <div class="mini" aria-hidden="true"><div class="mrow2"><span class="bx2 on">✓</span>Lock the launch date<span class="cu2">04:12</span></div><div class="mrow2"><span class="bx2 on">✓</span>Enterprise price<span class="cu2">09:40</span></div><div class="mrow2"><span class="bx2"></span>Hiring plan for Q1</div></div></div>
@@ -476,7 +512,7 @@
     </div>
     <div class="ppl">
       <div><span class="kicker">People</span><h3 class="section-h" style="font-size:24px;margin-top:6px">Everyone you meet, remembered</h3>
-        <p>Open someone's page to see when you last spoke, what's open on each side, your own notes, and every conversation by topic or by date. Turn on the optional second brain and Slack and email join the history, and Claude suggests names for voices Jiva doesn't know yet. Accept one and Jiva learns the voice in past and future meetings.</p></div>
+        <p>Open someone's page to see when you last spoke, what's open on each side, your own notes, and every conversation by topic or by date. Turn on the optional second brain and Slack and email join the history, and Claude suggests names for voices Jiva doesn't know yet. Accept one and Jiva learns the voice in past and future meetings. <a class="glink" href="/help/people-pages" data-umami-event="home-guide-link">Guide: Use People pages →</a></p></div>
       <div class="card pcard" aria-hidden="true"><div class="ph2"><span class="avs lg" style="background:#7F77DD">VN</span><div><b>Vandana</b><div class="pc-sub">Voice known · 12 meetings</div></div></div>
         <div class="kicker" style="margin:12px 0 6px">Open between you</div>
         <div class="mrow2"><span class="dc od">On you</span>Pricing feedback · Wed</div><div class="mrow2"><span class="dc ok">On her</span>Confirm Enterprise price · Fri</div>
@@ -486,23 +522,23 @@
     <div class="wc-h"><span class="kicker">Optional · with Claude</span><h3 class="section-h" style="font-size:24px;margin-top:6px">Help with the work, not just the list</h3>
       <p>Turn on the second brain and Claude works from your meetings, Slack, email and notes.</p></div>
     <div class="duo">
-      <div class="card bd1"><h3>Do it with Claude</h3><p>Give a to-do a kind of work, such as a spec, a help article or a reply. Claude preps it, asks a few questions at most, and leaves a private draft on the card.</p>
+      <div class="card bd1"><h3>Do it with Claude</h3><p>Give a to-do a kind of work, such as a spec, a help article or a reply. Claude preps it, asks a few questions at most, and leaves a private draft on the card. <a class="glink" href="/help/do-it-with-claude" data-umami-event="home-guide-link">Guide: Do a to-do with Claude →</a></p>
         <div class="mini" aria-hidden="true"><div class="mrow2">Annual billing only, or monthly too?<span class="dc ok">Answered</span></div><div class="mrow2">Enterprise pricing one-pager<span class="dc od">Open draft</span></div></div></div>
-      <div class="card bd1"><h3>Heads-ups</h3><p>A few at a time, most pressing first, each with its evidence: two dates that don't match, a question that keeps coming back, a promise with no to-do, work gone quiet.</p>
+      <div class="card bd1"><h3>Heads-ups</h3><p>A few at a time, most pressing first, each with its evidence: two dates that don't match, a question that keeps coming back, a promise with no to-do, work gone quiet. <a class="glink" href="/help/heads-ups" data-umami-event="home-guide-link">Guide: Read your heads-ups →</a></p>
         <div class="mini" aria-hidden="true"><div class="mrow2">Launch: 21 Nov in Slack, 14 Nov in the meeting<span class="dc am">Dates don't match</span></div><div class="mrow2">You said you'd send the beta numbers<span class="dc od">No to-do</span></div></div></div>
     </div>
     <p class="wc-note">Docs Claude makes are private drafts. Nothing is sent or posted for you.</p>
     <h3 class="also">Also in Jiva</h3>
     <div class="features">
-      <div class="card"><h3>Names, not "Speaker 1"</h3><p>Recognizes the same voice across meetings, so names stick.</p></div>
-      <div class="card"><h3>Cited, not invented</h3><p>Every summary and answer links to the moment it was said.</p></div>
-      <div class="card"><h3>Live transcription</h3><p>Both sides of the call, on-device. Starts and stops with the meeting.</p></div>
-      <div class="card"><h3>Records by itself</h3><p>Your meeting apps start a recording on their own, now including Google Meet in your browser. You choose which apps.</p></div>
-      <div class="card"><h3>Hold to dictate</h3><p>Hold a key, speak in any app, and it types for you.</p></div>
-      <div class="card"><h3>To-dos with the next step</h3><p>One list of what you owe and what you're waiting on, each with what to do next.</p></div>
-      <div class="card"><h3>Second brain, with Claude</h3><p>Optional. Claude keeps your people, decisions and to-dos current from Slack, email and Notion.</p></div>
+      <div class="card"><h3>Names, not "Speaker 1"</h3><p>Recognizes the same voice across meetings, so names stick. <a class="glink" href="/help/voice-memory" data-umami-event="home-guide-link">Guide: How Jiva learns voices →</a></p></div>
+      <div class="card"><h3>Cited, not invented</h3><p>Every summary and answer links to the moment it was said. <a class="glink" href="/help/source-links" data-umami-event="home-guide-link">Guide: See where a note came from →</a></p></div>
+      <div class="card"><h3>Live transcription</h3><p>Both sides of the call, on-device. Starts and stops with the meeting. <a class="glink" href="/help/record-first-meeting" data-umami-event="home-guide-link">Guide: Record your first meeting →</a></p></div>
+      <div class="card"><h3>Records by itself</h3><p>Your meeting apps start a recording on their own, now including Google Meet in your browser. You choose which apps. <a class="glink" href="/help/auto-record" data-umami-event="home-guide-link">Guide: Let Jiva record by itself →</a></p></div>
+      <div class="card"><h3>Hold to dictate</h3><p>Hold a key, speak in any app, and it types for you. <a class="glink" href="/help/dictate" data-umami-event="home-guide-link">Guide: Dictate in any app →</a></p></div>
+      <div class="card"><h3>To-dos with the next step</h3><p>One list of what you owe and what you're waiting on, each with what to do next. <a class="glink" href="/help/to-dos" data-umami-event="home-guide-link">Guide: Keep your to-dos in one list →</a></p></div>
+      <div class="card"><h3>Second brain, with Claude</h3><p>Optional. Claude keeps your people, decisions and to-dos current from Slack, email and Notion. <a class="glink" href="/help/turn-on-the-second-brain" data-umami-event="home-guide-link">Guide: Turn on the second brain →</a></p></div>
       <div class="card"><h3>Yours to set</h3><p>Change the dictation key, edit your glossary, review the spelling fixes Jiva has learned, and pick when the second brain runs.</p></div>
-      <div class="card"><h3>Updates you can trust</h3><p>The updater checks what it downloads before it installs anything.</p></div>
+      <div class="card"><h3>Updates you can trust</h3><p>The updater checks what it downloads before it installs anything. <a class="glink" href="/help/update-jiva" data-umami-event="home-guide-link">Guide: Keep Jiva up to date →</a></p></div>
     </div>
   </section>
 

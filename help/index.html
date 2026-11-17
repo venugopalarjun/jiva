@@ -435,10 +435,14 @@ details p a{color:var(--clay-text);font-weight:500}
 .end b.t{display:block;font:500 20px/1.25 var(--serif);margin:8px 0}
 .end .row{display:flex;gap:8px;margin-top:12px;align-items:center;min-height:32px}
 .end .thanks{font-size:14px;color:var(--ink-2)}
+.related{margin-top:32px}
+.related ul{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.related a{font-size:14px;color:var(--clay-text)}
+.related a:hover{text-decoration:underline}
 @media (max-width:860px){
   .nav-links{gap:14px}.nav-links a:not(.btn):not(.on){display:none}
   .help-top{flex-direction:column;align-items:stretch}.searchbox{width:100%}.results{left:0;right:auto;width:100%}
-  .path,.topics,.end{grid-template-columns:1fr}.gcards{grid-template-columns:1fr 1fr}.a-grid{grid-template-columns:minmax(0,1fr)}.rail{display:none}
+  .path,.topics,.end,.related ul{grid-template-columns:1fr}.gcards{grid-template-columns:1fr 1fr}.a-grid{grid-template-columns:minmax(0,1fr)}.rail{display:none}
   .a-head h1{font-size:32px}.need{grid-template-columns:1fr}.need div + div{border-left:0;border-top:.5px solid var(--hairline)}
   .vbar{flex-direction:column}
   .talk{flex-direction:column;align-items:flex-start}.step{grid-template-columns:32px minmax(0,1fr);gap:12px}
