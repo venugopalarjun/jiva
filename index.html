@@ -363,6 +363,8 @@
   .quote figcaption{font-size:13px;color:var(--ink-2);}
   .link-card{display:flex;justify-content:space-between;align-items:center;background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:16px 18px;font-size:15px;font-weight:500;}
   .link-card span{color:var(--clay-text);}
+  .learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:760px){.learn-grid{grid-template-columns:1fr}}
   .band{background:var(--term);color:var(--paper);border-radius:var(--r-xl);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
   .band .t{font-family:var(--serif);font-size:30px;}
   .band code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:14px;color:#D8D6CF;}
@@ -568,6 +570,20 @@
   </section>
 
   <section>
+    <h2 class="section-h">Before you choose a recorder</h2>
+    <p style="font-size:16px;color:var(--ink-2);margin:-6px 0 16px">Plain answers, including the ways that do not need Jiva. <a href="/learn" style="color:var(--clay-text)">All answers →</a></p>
+    <div class="learn-grid">
+      <a class="link-card" href="/record-zoom-meeting-mac-without-bot" data-umami-event="home-learn-link">How to record a Zoom meeting on a Mac without a bot <span>→</span></a>
+      <a class="link-card" href="/record-google-meet-mac-without-bot" data-umami-event="home-learn-link">How to record a Google Meet call on a Mac without a bot <span>→</span></a>
+      <a class="link-card" href="/transcribe-meeting-offline-mac" data-umami-event="home-learn-link">How to transcribe a meeting offline on a Mac <span>→</span></a>
+      <a class="link-card" href="/speaker-names-in-meeting-transcript" data-umami-event="home-learn-link">How to get speaker names in a meeting transcript <span>→</span></a>
+      <a class="link-card" href="/is-it-legal-to-record-a-meeting" data-umami-event="home-learn-link">Is it legal to record a meeting? What to tell people <span>→</span></a>
+      <a class="link-card" href="/local-vs-cloud-ai-notetakers" data-umami-event="home-learn-link">Local vs cloud AI notetakers: what leaves your computer <span>→</span></a>
+      <a class="link-card" href="/meeting-notes-with-claude" data-umami-event="home-learn-link">How to use your meeting notes with Claude <span>→</span></a>
+      <a class="link-card" href="/free-meeting-recorder-mac" data-umami-event="home-learn-link">A free meeting recorder for Mac: what to check <span>→</span></a>
+    </div>
+  </section>
+  <section>
     <h2 class="section-h">Straight answers</h2>
     <p class="section-sub">The questions people ask before installing.</p>
     <div class="straight">
@@ -585,7 +601,7 @@
 
 <footer><div class="foot" style="max-width:var(--maxw);margin:0 auto;">
   <span>Jiva · Private by design · Made for Mac</span>
-  <span><a href="/help">Help</a> · <a href="/best-offline-meeting-recorder-mac">Choosing an offline recorder</a> · <a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+  <span><a href="/help">Help</a> · <a href="/learn">Learn</a> · <a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
 </div></footer>
 
 

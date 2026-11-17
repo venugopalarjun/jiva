@@ -49,6 +49,16 @@
 !benchmarks.html
 !compare.html
 !best-offline-meeting-recorder-mac.html
+# Answer pages (D-303), built by learn-src/build_learn.py
+!record-zoom-meeting-mac-without-bot.html
+!record-google-meet-mac-without-bot.html
+!transcribe-meeting-offline-mac.html
+!speaker-names-in-meeting-transcript.html
+!is-it-legal-to-record-a-meeting.html
+!local-vs-cloud-ai-notetakers.html
+!meeting-notes-with-claude.html
+!free-meeting-recorder-mac.html
+!learn.html
 
 # Help Center (A-68, D-281) — pages + videos + pictures, or git add -A drops them
 !help/

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to get speaker names in a meeting transcript — Jiva</title>
+<meta name="description" content="Why transcripts say Speaker 1 or Them, and the three ways apps get real names: the participant list, one channel per person, or voice recognition.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://jiva.works/speaker-names-in-meeting-transcript">
+<meta property="og:title" content="How to get speaker names in a meeting transcript">
+<meta property="og:description" content="Why transcripts say Speaker 1 or Them, and the three ways apps get real names: the participant list, one channel per person, or voice recognition.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiva.works/speaker-names-in-meeting-transcript">
+<meta property="og:site_name" content="Jiva">
+<meta property="og:image" content="https://jiva.works/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How to get speaker names in a meeting transcript", "description": "Why transcripts say Speaker 1 or Them, and the three ways apps get real names: the participant list, one channel per person, or voice recognition.", "url": "https://jiva.works/speaker-names-in-meeting-transcript", "mainEntityOfPage": "https://jiva.works/speaker-names-in-meeting-transcript", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "image": "https://jiva.works/og-image.png", "author": {"@type": "Organization", "name": "Jiva", "url": "https://jiva.works/"}, "publisher": {"@type": "Organization", "name": "Jiva", "url": "https://jiva.works/"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my transcript say \"Them\" for everyone?", "acceptedAnswer": {"@type": "Answer", "text": "The app recorded the other side of the call as one stream and did not separate the voices in it. It can tell you from them, but not them from each other."}}, {"@type": "Question", "name": "Can an app name a speaker it has never heard?", "acceptedAnswer": {"@type": "Answer", "text": "Not from the voice alone. It needs one link between the voice and a name: you typing it, the participant list, or someone being addressed by name in the call."}}, {"@type": "Question", "name": "Is a voiceprint personal data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. In many places a voiceprint counts as biometric data. Prefer an app that keeps it on your own device, and tell the people you record."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Learn", "item": "https://jiva.works/learn"}, {"@type": "ListItem", "position": 2, "name": "How to get speaker names in a meeting transcript", "item": "https://jiva.works/speaker-names-in-meeting-transcript"}]}]}</script>
+<!-- Umami analytics — privacy-first, cookieless (D-119) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="50071a89-1dff-4b02-82bd-bb7b5a964816"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  /* Tokens copied from the live site (website/index.html) */
+  :root{
+    --clay:#D85A30; --clay-dark:#993C1D; --clay-tint:#FAECE7; --clay-tint-border:#F0D9CF;
+    --paper:#F3F1EC; --sidebar:#EEEBE3; --white:#FFFFFF;
+    --ink:#2C2C2A; --ink-2:#5F5E5A; --ink-3:#6E6D66; --ink-4:#88877F;
+    --hairline:rgba(0,0,0,0.09); --term:#2C2C2A; --term-inner:#1D1D1B;
+    --serif:'Newsreader',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'SF Mono',ui-monospace,Menlo,monospace;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;
+       -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  header{border-bottom:0.5px solid var(--hairline);position:sticky;top:0;
+         background:rgba(243,241,236,0.85);backdrop-filter:saturate(150%) blur(8px);z-index:10;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;font-weight:500;}
+  .logo svg{width:27px;height:27px;}
+  .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;color:var(--ink-2);}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--clay);color:#fff;
+       font-size:15px;font-weight:500;padding:12px 20px;border-radius:10px;border:none;cursor:pointer;}
+  .btn:hover{filter:brightness(0.94);}
+  .btn svg{width:16px;height:16px;}
+  .btn-sm{padding:7px 14px;font-size:13px;border-radius:9px;}
+
+  /* ── Hero: the things you must know, up front ── */
+  .hero{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;padding:72px 0 56px;}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,56px);
+           line-height:1.06;letter-spacing:-0.01em;margin-bottom:28px;}
+  .hero h1 em{font-style:normal;color:var(--clay);}
+
+  .facts{list-style:none;margin-bottom:30px;}
+  .facts li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-top:0.5px solid var(--hairline);}
+  .facts li:last-child{border-bottom:0.5px solid var(--hairline);}
+  .facts .k{font-family:var(--serif);font-size:21px;color:var(--ink);min-width:7.2em;}
+  .facts .v{font-size:14.5px;color:var(--ink-2);}
+
+  .cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .cta .meta{font-size:13px;color:var(--ink-3);}
+
+  .reel{border-radius:18px;overflow:hidden;border:0.5px solid var(--hairline);box-shadow:0 24px 60px rgba(60,40,20,.14);aspect-ratio:16/10;background:var(--paper);}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .reel video{display:block;width:100%;height:100%;object-fit:cover;}
+  .platwarn{display:none;width:100%;margin-top:4px;font-size:13px;color:var(--amber-dark);
+            background:var(--amber-tint);border:0.5px solid #EAD8B0;border-radius:9px;padding:9px 13px;}
+  .platwarn.show{display:block;}
+  .platwarn b{font-weight:500;}
+  .android{font-size:13px;color:var(--ink-3);width:100%;}
+  .android a{color:var(--clay-dark);text-decoration:underline;}
+  .shot{background:var(--white);border:0.5px solid var(--hairline);border-radius:16px;padding:20px;}
+  .rec{display:flex;align-items:center;gap:7px;color:var(--ink-3);font-size:12px;margin-bottom:14px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--clay);display:inline-block;}
+  .line{font-size:13.5px;line-height:1.6;color:#3a3a37;margin-bottom:8px;}
+  .who{font-weight:500;}
+  .sum{border-top:0.5px solid var(--hairline);margin-top:12px;padding-top:12px;}
+  .lbl{font-size:10px;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:4px;}
+  .txt{font-size:12.5px;color:var(--ink-2);}
+  .cite{color:var(--clay-dark);background:var(--clay-tint);border-radius:4px;padding:0 5px;font-size:11.5px;white-space:nowrap;}
+
+  /* Install block: copied verbatim from the live site */
+  .term{background:var(--term);border-radius:12px;padding:16px 18px;}
+  .term .cap{display:flex;align-items:center;gap:7px;color:#A9A89F;font-size:12px;margin-bottom:10px;}
+  .term .cap svg{width:15px;height:15px;}
+  .term .cmd{display:flex;align-items:center;justify-content:space-between;gap:14px;
+             background:var(--term-inner);border-radius:8px;padding:11px 14px;}
+  .term code{font-family:'SF Mono',ui-monospace,Menlo,monospace;color:var(--paper);font-size:13.5px;
+             flex:1;min-width:0;overflow-x:auto;white-space:nowrap;}
+  .term code .pr{color:#7F8A7F;}
+  .copy{background:none;border:none;color:#A9A89F;cursor:pointer;flex-shrink:0;padding:4px;border-radius:6px;
+        display:inline-flex;align-items:center;gap:5px;font-size:12px;transition:color .15s;}
+  .copy:hover{color:var(--paper);}
+  .copy svg{width:16px;height:16px;}
+  .term .note{color:#7d7c75;font-size:11.5px;margin-top:9px;}
+  .rec-tag{display:inline-block;background:var(--clay);color:#fff;font-size:10px;font-weight:600;
+           letter-spacing:0.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:auto;}
+  .term .alt{margin-top:14px;padding-top:12px;border-top:0.5px solid rgba(255,255,255,0.09);
+             color:#9c9b93;font-size:12px;line-height:1.85;}
+  .term .alt b{color:#c3c2ba;font-weight:500;}
+  .term .alt code{background:rgba(255,255,255,0.07);color:var(--paper);padding:1px 5px;border-radius:4px;
+                  font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:11.5px;}
+  .cmd-sm{margin:6px 0 2px;padding:9px 12px;}
+  .cmd-sm code{font-size:12.5px;}
+
+
+  .term-wrap{padding:0 0 64px;}
+  /* ── Sections ── */
+  .section-h{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:6px;}
+  .section-sub{color:var(--ink-2);font-size:15px;margin-bottom:24px;}
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:72px;}
+  .card{background:var(--white);border:0.5px solid var(--hairline);border-radius:14px;padding:18px;}
+  .card h3{font-size:15px;font-weight:500;margin-bottom:5px;}
+  .card p{font-size:13px;color:var(--ink-2);}
+
+  .straight{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-bottom:24px;}
+  .straight div{padding:16px 0;border-top:0.5px solid var(--hairline);}
+  .straight b{display:block;font-size:15px;font-weight:500;margin-bottom:2px;}
+  .straight p{font-size:14px;color:var(--ink-2);}
+
+  footer{margin-top:56px;border-top:0.5px solid var(--hairline);}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:22px 24px;color:var(--ink-3);font-size:12px;}
+
+
+  @media (max-width:860px){ .features{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;gap:24px;padding:36px 0 36px;}
+    /* Phones: headline, then the video, then the facts and download button */
+    .hero-copy{display:contents;}
+    .hero h1{order:1;margin-bottom:0;}
+    .reel{order:2;}
+    .facts{order:3;margin-bottom:0;}
+    .cta{order:4;}
+    .platwarn{font-size:12px;padding:6px 10px;margin-top:0;}
+    .facts .k{min-width:6.4em;font-size:19px;}
+    .term .row{flex-direction:column;align-items:stretch;gap:8px;}
+    .straight{grid-template-columns:1fr;}
+    .nav-links a:not(.btn){display:none;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 16px;}
+    .features{grid-template-columns:1fr;}
+    .facts li{flex-direction:column;gap:0;}
+  }
+  @media (max-width:520px){
+    .term .cmd{align-items:flex-start;}
+    .term code{white-space:normal;word-break:break-word;line-height:1.5;}
+    .term .alt code{word-break:break-all;}
+    .copy span{display:none;}
+  }
+
+  /* ---- DESIGN.md tokens (D-192/D-193) layered over the live site CSS ---- */
+  :root{--card:#FFFFFF;--card-soft:#F7F6F2;--fill:#EFEDE6;--track:#E4E0D6;--hairline-strong:rgba(0,0,0,.18);
+    --clay-press:#C24E26;--clay-text:#993C1D;--green:#1D9E75;--green-text:#137A56;--green-tint:#E3F3EC;
+    --amber-text:#854F0B;--amber-border:#EAD8B0;--red:#C8412F;--red-text:#A33424;--red-tint:#FBE9E6;
+    --blue:#3B7BD4;--screen-bg:#F6F4EF;--highlight:#FFF1C9;--mono:'SF Mono',ui-monospace,Menlo,monospace;
+    --r-xs:4px;--r-sm:6px;--r-md:8px;--r-lg:12px;--r-xl:14px;}
+  b,strong{font-weight:600;}
+  .btn{border-radius:var(--r-md);font-weight:600;transition:background .12s ease-out;}
+  .btn:hover{filter:none;background:var(--clay-press);}
+  .card,.shot{border-radius:var(--r-lg);}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--clay);outline-offset:2px;border-radius:var(--r-sm);}
+  .kicker{font:600 10.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;}}
+
+  /* ---- proof pages (prototype) ---- */
+  .page{padding:44px 0 64px;display:flex;flex-direction:column;gap:56px;}
+  .page-hero{max-width:760px;display:flex;flex-direction:column;gap:14px;}
+  .crumb{font-size:13px;color:var(--ink-2);}
+  .crumb a{color:var(--clay-text);}
+  .page-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,52px);line-height:1.05;text-wrap:balance;}
+  .page-hero h1 em{font-style:normal;color:var(--clay);}
+  .lede2{font-size:18px;line-height:1.5;color:var(--ink-2);}
+  .small{font-size:13px;color:var(--ink-2);}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .tile{background:var(--card);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px;}
+  .tile .lbl{font:600 10.5px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);}
+  .tile .big{font-family:var(--serif);font-weight:500;font-size:42px;line-height:1.1;color:var(--clay-text);font-variant-numeric:tabular-nums;}
+  .tile .sub{font-size:13.5px;color:var(--ink-2);}
+  .tbl-box{overflow-x:auto;background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);}
+  table.tb{width:100%;border-collapse:collapse;min-width:640px;}
+  .tb th,.tb td{padding:12px 16px;border-top:0.5px solid var(--hairline);text-align:left;vertical-align:top;font-size:14px;line-height:1.45;font-variant-numeric:tabular-nums;}
+  .tb th{font:600 10.5px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border-top:none;}
+  .tb td{color:#4A4945;} .tb td:first-child{font-weight:500;color:var(--ink);}
+  .tb td.yes{color:var(--green-text);font-weight:500;}
+  .tb tr.group td{font:600 10.5px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--card-soft);padding-top:10px;padding-bottom:10px;}
+  .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+  @media (max-width:760px){.quotes{grid-template-columns:1fr;}}
+  .tb tr.ref td{background:var(--sidebar);}
+  .tb .win{color:var(--clay-text);font-weight:600;}
+  .steps4{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .steps4 li{background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:20px 22px;display:flex;flex-direction:column;gap:6px;}
+  .steps4 .n{font-family:var(--serif);font-size:26px;color:var(--clay);line-height:1;}
+  .steps4 b{font-size:15px;font-weight:500;} .steps4 span{font-size:14px;color:var(--ink-2);line-height:1.45;}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+  .box{background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:10px;}
+  .box h2,.box h3{font-size:17px;font-weight:600;}
+  .box ul{padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.45;color:#4A4945;}
+  .quote{background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:10px;margin:0;}
+  .quote blockquote{font-family:var(--serif);font-size:24px;line-height:1.3;}
+  .quote figcaption{font-size:13px;color:var(--ink-2);}
+  .link-card{display:flex;justify-content:space-between;align-items:center;background:var(--white);border:0.5px solid var(--hairline);border-radius:var(--r-lg);padding:16px 18px;font-size:15px;font-weight:500;}
+  .link-card span{color:var(--clay-text);}
+  .band{background:var(--term);color:var(--paper);border-radius:var(--r-xl);padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+  .band .t{font-family:var(--serif);font-size:30px;}
+  .band code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:14px;color:#D8D6CF;}
+  .crit{display:flex;flex-direction:column;}
+  .crit > div{display:grid;grid-template-columns:40px 1fr;gap:4px 12px;padding:18px 0;border-top:0.5px solid var(--hairline);}
+  .crit > div:last-child{border-bottom:0.5px solid var(--hairline);}
+  .crit .n{font-family:var(--serif);font-size:24px;color:var(--clay);grid-row:span 3;line-height:1.1;}
+  .crit b{font-size:16px;font-weight:500;} .crit p{font-size:14.5px;color:var(--ink-2);line-height:1.5;}
+  .crit .j{font-size:14px;color:var(--ink);} .crit .j b{font-size:14px;color:var(--clay-text);}
+  .nav-links a.on{color:var(--ink);font-weight:500;}
+
+.prose{max-width:760px;display:flex;flex-direction:column;gap:14px}
+.prose h2{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.2;margin-top:22px}
+.prose p,.prose li{font-size:16px;line-height:1.6;color:var(--ink-2)}
+.prose ul{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.prose a{color:var(--clay-dark);text-decoration:underline;text-underline-offset:2px}
+.jbox{background:var(--clay-tint);border:.5px solid var(--clay-tint-border);border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.jbox p,.jbox li{color:var(--ink)}
+.jbox .glist{font-size:14px;color:var(--ink-2)}
+.prose details{border-top:.5px solid var(--hairline);padding:14px 0}
+.prose details:last-of-type{border-bottom:.5px solid var(--hairline)}
+.prose summary{font-size:16px;font-weight:500;color:var(--ink);cursor:pointer}
+.prose details p{margin-top:8px}
+.prose .upd{font-size:13px;color:var(--ink-3);margin-top:8px}
+.tscroll{overflow-x:auto}
+.prose table.tb td,.prose table.tb th{font-size:14px;padding:10px 12px;border-top:.5px solid var(--hairline);text-align:left;vertical-align:top;color:var(--ink-2)}
+.prose table.tb th{font:600 10.5px/1 var(--sans);letter-spacing:.08em;color:var(--ink-3);border-top:0}
+.prose table.tb td:first-child{color:var(--ink);font-weight:500}
+.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px}
+.lcard{display:flex;flex-direction:column;gap:6px;background:var(--white);border:.5px solid var(--hairline);border-radius:12px;padding:18px 20px;text-decoration:none;color:inherit}
+.lcard:hover{border-color:var(--clay-tint-border)}
+.lcard b{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.25;color:var(--ink)}
+.lcard span{font-size:14px;line-height:1.5;color:var(--ink-2)}
+@media (max-width:700px){.lgrid{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="wrap nav">
+  <a href="/" style="text-decoration:none;color:inherit"><div class="logo">
+    <svg viewBox="0 0 240 240" aria-hidden="true"><g fill="#C1521F"><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(45 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(90 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(135 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(180 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(225 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(270 120 120)"/><path d="M120 28 C139 60 139 82 120 94 C101 82 101 60 120 28 Z" transform="rotate(315 120 120)"/></g><g fill="#EF8253"><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(22.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(67.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(112.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(157.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(202.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(247.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(292.5 120 120)"/><path d="M120 64 C133 82 133 90 120 96 C107 90 107 82 120 64 Z" transform="rotate(337.5 120 120)"/></g></svg>
+    <span>Jiva</span>
+  </div></a>
+  <nav class="nav-links"><a href="/#features">Features</a><a href="/benchmarks">Benchmarks</a><a href="/compare">Compare</a><a href="/privacy" class="on">Privacy</a><a href="/blog" class="on">Blog</a><a href="/help">Help</a>
+    <a class="btn btn-sm" data-umami-event="download-dmg-nav" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg">Download</a>
+  </nav>
+</div></header>
+<main class="wrap page">
+<section class="page-hero">
+  <span class="crumb"><a href="/learn">Learn</a></span>
+  <h1>How to get <em>speaker names</em> in a meeting transcript</h1>
+  <p class="lede2">A transcript gets names in one of three ways: from the meeting's own participant list, from recording each person separately, or by recognising voices. Apps that record on your computer without a bot have only the third. Without it, everyone else on the call becomes one label.</p>
+</section>
+<article class="prose">
+<h2>Why names are hard</h2>
+<p>Turning speech into words and knowing who said them are two different jobs. The second one is called speaker diarization: splitting the audio into "voice A spoke here, voice B spoke there". It gives you labels, not names. A label becomes a name only when something links that voice to a person.</p>
+<h2>Way 1: the meeting's participant list</h2>
+<p>A notetaker that joins the call as a bot can see who the meeting app marks as speaking, so it copies the names from the call. This works well, but it needs the bot in the meeting, and it fails when several people share one room and one microphone.</p>
+<h2>Way 2: one channel per person</h2>
+<p>If each person is recorded on a separate track, the name is known from the track. Podcast tools work this way. A normal video call does not give you separate tracks for the other people.</p>
+<h2>Way 3: recognising voices</h2>
+<p>An app can keep a small mathematical description of a voice, a voiceprint, and compare each new speaker with the ones it knows. You name a voice once; the app writes the name from then on. This works without a bot and in a shared room, and it carries over from one meeting to the next.</p><p>It is not perfect. A new voice needs a few minutes of speech, and two similar voices on poor audio can be confused, so a good app lets you correct a name in one click and learns from the correction.</p>
+<h2>What to look for</h2>
+<p>Ask three questions of any app. Does it separate the other people, or call them all "Them"? Do names carry over to the next meeting? And where are the voiceprints kept: a voiceprint is biometric data, so it matters whether it sits on your computer or on a company's server.</p>
+<div class="jbox"><span class="kicker">Where Jiva fits</span>
+<p>Jiva uses way 3, on your Mac. The first time it hears someone the transcript shows Speaker 1, Speaker 2. Click the label, type the name, and Jiva recognises that voice in later meetings. Voices and names stay on your Mac.</p><ul><li>On a public four-person test meeting, Jiva gave 90% of words to the right person. <a href="/benchmarks">See the method and results.</a></li><li>A wrong name is fixed by clicking the label and choosing the right person.</li><li>Recognition improves as a person speaks in more meetings; after one short meeting it can still miss.</li></ul>
+<p class="glist">Guides: <a href="/help/voice-memory">How Jiva learns voices</a> · <a href="/help/fix-speaker-names">Fix a wrong or missing speaker name</a> · <a href="/help/people-pages">Use People pages</a></p></div>
+<h2>Common questions</h2>
+<details><summary>Why does my transcript say &quot;Them&quot; for everyone?</summary><p>The app recorded the other side of the call as one stream and did not separate the voices in it. It can tell you from them, but not them from each other.</p></details>
+<details><summary>Can an app name a speaker it has never heard?</summary><p>Not from the voice alone. It needs one link between the voice and a name: you typing it, the participant list, or someone being addressed by name in the call.</p></details>
+<details><summary>Is a voiceprint personal data?</summary><p>Yes. In many places a voiceprint counts as biometric data. Prefer an app that keeps it on your own device, and tell the people you record.</p></details>
+<h2>Related</h2>
+<p><a href="/transcribe-meeting-offline-mac">How to transcribe a meeting offline on a Mac</a> · <a href="/local-vs-cloud-ai-notetakers">Local vs cloud AI notetakers: what leaves your computer</a> · <a href="/best-offline-meeting-recorder-mac">How to choose an offline meeting recorder for Mac</a></p>
+<p class="upd">Updated 17 November 2026. Found something wrong? Write to <a href="mailto:ceo@jiva.works">ceo@jiva.works</a>.</p>
+</article>
+<section class="band"><div style="display:flex;flex-direction:column;gap:6px"><span class="t">Try Jiva free.</span><code>curl -fsSL https://jiva.works/install.sh | bash</code></div>
+<a class="btn" data-umami-event="download-dmg-learn" href="https://github.com/venugopalarjun/jiva/releases/latest/download/Jiva.dmg">Download for Mac</a></section>
+</main>
+<footer><div class="foot" style="max-width:var(--maxw);margin:0 auto;">
+  <span>Jiva · Private by design · Made for Mac</span>
+  <span><a href="/help">Help</a> · <a href="/learn">Learn</a> · <a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+</div></footer>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a9e4e5f26b6d334506f33b6/1k1t64a7u';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body></html>
