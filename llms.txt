@@ -25,12 +25,36 @@
 - **Settings you control**: the dictation key, which apps start a recording, your glossary and learned spelling fixes, how long shared-screen pictures are kept, and when the second brain runs.
 - **Dark mode**: follows your Mac, or pick Light or Dark.
 
-## How it compares
+## Measured on a public meeting
 
 Measured on a public four-person meeting (AMI ES2004a), scored against the human transcript: Jiva gave 90% of words to the right person (a popular AI notetaker: 43%) with 21% of words wrong (that notetaker: 17%). Details: https://jiva.works/benchmarks
 
 
 Jiva is a local alternative to cloud AI meeting notetakers. The difference: audio and transcripts stay on your Mac, it is free with no account, it keeps a cross-meeting memory of who said what with citations back to the source, and it closes the loop: prep before, points ticked off during, and nothing dropped after.
+
+## How Jiva compares with other notetakers
+
+Facts about other products are from each product's own public pages, checked on 2026-11-17. Plans and limits change; the full tables, with a link to each source, are at https://jiva.works/compare
+
+- **Jiva**: free, no meeting limit, no account. Runs on your Mac (Apple silicon). No bot joins. Works offline. Recognises a person's voice across meetings.
+- **Granola**: Basic $0 with 30 days of meeting history; Business $14 per user a month. No bot. Transcription and summaries run in the cloud; audio is not stored. Desktop, iOS, Android.
+- **Otter**: Basic $0 with 300 minutes a month and 30 minutes per conversation; Pro $16.99 a month. Cloud. Its notetaker joins Zoom, Teams and Meet. Web, Mac, Windows, iOS, Android.
+- **Fireflies**: Free $0 with 400 minutes of storage per team; Pro $10 per seat a month, billed yearly. Cloud. A bot joins; a Chrome extension can record without it.
+- **Fathom**: Free $0 with unlimited recordings and transcripts; Premium $20 a month. Cloud. A bot joins, or bot-free capture on Mac (beta).
+- **Wispr Flow Notetaker**: Free $0 with a weekly meeting limit; Pro $15 a month. No bot. Transcription always runs in the cloud. Mac, Windows.
+- **Muesli**: free and open source (MIT). Runs on your Mac by default, hosted AI optional. No bot. Mac (Apple silicon).
+- **Meetily**: Community edition free and open source (MIT); Pro $10 per user a month, billed yearly. Transcription on your computer. No bot. Mac, Windows.
+
+What Jiva does that none of those seven describes on its main page (checked 2026-11-17; a feature may exist and not be described there):
+
+- Recognises a person's voice in the next meeting, on your Mac
+- A page for each person: when you last spoke, what is open on each side, every conversation
+- Prep points tick off during the call, and unraised points carry to the next meeting
+- Drafts your chat reply from what was decided (one chat app so far)
+- Keeps what was shown on screen, inline in the transcript (optional)
+- Heads-ups: two dates that don't match, a promise with no to-do (with the optional second brain)
+
+Where others are stronger: cloud notetakers run on Windows, the web and phones and have shared team workspaces. Jiva is Mac only and has no shared workspace.
 
 ## Install
 
@@ -53,7 +77,7 @@ Jiva is a local alternative to cloud AI meeting notetakers. The difference: audi
 - [Home](https://jiva.works/)
 - [Changelog](https://jiva.works/changelog)
 - [Benchmarks](https://jiva.works/benchmarks): measured on a public four-person meeting (AMI ES2004a)
-- [Jiva vs cloud AI notetakers](https://jiva.works/compare)
+- [Jiva vs Granola, Otter, Fireflies, Fathom, Wispr Flow, Muesli and Meetily](https://jiva.works/compare)
 - [Learn: plain answers about recording and transcribing meetings on a Mac](https://jiva.works/learn)
 - [How to choose an offline meeting recorder for Mac](https://jiva.works/best-offline-meeting-recorder-mac)
 - [How to record a Zoom meeting on a Mac without a bot](https://jiva.works/record-zoom-meeting-mac-without-bot)
