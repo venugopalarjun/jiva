@@ -1,7 +1,7 @@
 {
-  "version": "0.1.23",
-  "build": "202611130711",
-  "dmg": "https://github.com/venugopalarjun/jiva/releases/download/v0.1.23/Jiva.dmg",
-  "dmg_sha256": "e1b087112a6fc7593af8b3bad124b272b293a1b6dd7673da7eef9dc9ce8c5784",
-  "dmg_size": 246731989
+  "version": "0.1.24",
+  "build": "202611180811",
+  "dmg": "https://github.com/venugopalarjun/jiva/releases/download/v0.1.24/Jiva.dmg",
+  "dmg_sha256": "c0f3a4a129604ee5aa20dd0eca393ce6cb8b70b0ec94243f07c304b0e91535a8",
+  "dmg_size": 246765484
 }
