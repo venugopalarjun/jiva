@@ -230,6 +230,13 @@
   .platwarn b{font-weight:500;}
   .android{font-size:13px;color:var(--ink-3);width:100%;}
   .android a{color:var(--clay-dark);text-decoration:underline;}
+  .phone-on{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:10px 32px;align-items:start}
+  .phone-on p{color:var(--ink-2)}
+  .phone-list{margin:0;padding-left:18px;color:var(--ink-2);font-size:15px;line-height:1.5}
+  .phone-list li{margin-bottom:8px}
+  .phone-links{grid-column:1/-1;font-size:14px;margin:0}
+  .phone-links a{color:var(--clay-dark)}
+  @media (max-width:760px){.phone-on{grid-template-columns:1fr}}
   .shot{background:var(--white);border:0.5px solid var(--hairline);border-radius:16px;padding:20px;}
   .rec{display:flex;align-items:center;gap:7px;color:var(--ink-3);font-size:12px;margin-bottom:14px;}
   .dot{width:8px;height:8px;border-radius:50%;background:var(--clay);display:inline-block;}
@@ -453,7 +460,7 @@
           Download for Mac
         </a>
         <span class="meta">Apple silicon · macOS 14.4+</span>
-        <span class="android">On Android? <a id="dl-android" data-umami-event="download-apk" href="https://github.com/venugopalarjun/jiva/releases/download/android-latest/jiva-voice.apk">Get the Jiva keyboard (beta)</a></span>
+        <span class="android">On Android? <a id="dl-android" data-umami-event="download-apk" href="https://github.com/venugopalarjun/jiva/releases/download/android-latest/jiva-voice.apk">Get the Jiva Android app (beta)</a></span>
         <div class="platwarn" id="platwarn"></div>
       </div>
     </div>
@@ -541,6 +548,16 @@
       <div class="card"><h3>Second brain, with Claude</h3><p>Optional. Claude keeps your people, decisions and to-dos current from Slack, email and Notion. <a class="glink" href="/help/turn-on-the-second-brain" data-umami-event="home-guide-link">Guide: Turn on the second brain →</a></p></div>
       <div class="card"><h3>Yours to set</h3><p>Change the dictation key, edit your glossary, review the spelling fixes Jiva has learned, and pick when the second brain runs.</p></div>
       <div class="card"><h3>Updates you can trust</h3><p>The updater checks what it downloads before it installs anything. <a class="glink" href="/help/update-jiva" data-umami-event="home-guide-link">Guide: Keep Jiva up to date →</a></p></div>
+    </div>
+    <div class="phone-on">
+      <div><span class="kicker">New in 0.1.25 · Android</span><h3 class="section-h" style="font-size:24px;margin-top:6px">Your to-dos on your phone too</h3>
+        <p>Pair the Android app with your Mac once. Your to-dos, heads-ups and next meeting come over your own Wi-Fi, and every change you make on the phone goes back to the Mac.</p></div>
+      <ul class="phone-list">
+        <li><b>To-dos and heads-ups.</b> Done, date, drop, edit or add, grouped by date or project like on the Mac. Works offline.</li>
+        <li><b>One widget.</b> Heads-ups, your next meeting, what is on you, who you wait on and drafts to send, on your home screen.</li>
+        <li><b>Updates come to you.</b> The app tells you once when a newer version is out.</li>
+      </ul>
+      <p class="phone-links"><a id="dl-android-2" data-umami-event="download-apk-phone" href="https://github.com/venugopalarjun/jiva/releases/download/android-latest/jiva-voice.apk">Get the Jiva Android app (beta)</a> · <a class="glink" href="/help/get-jiva-on-your-phone" data-umami-event="home-guide-link">Guide: Get Jiva on your phone →</a></p>
     </div>
   </section>
 
@@ -637,7 +654,7 @@
       msg = isMobile
         ? '<b>Mac app:</b> needs an Apple-silicon Mac on macOS 14.4+.'
         : '<b>Heads up:</b> the Mac app needs an Apple-silicon Mac running macOS 14.4 or later. ' +
-          'If you’re on Android, grab the Jiva keyboard above.';
+          'If you’re on Android, get the Jiva Android app above.';
     } else {
       var r = gpu();
       if (r && /Intel/i.test(r) && !/Apple/i.test(r)) {
